@@ -35,7 +35,12 @@ code {
   grid-column: span 5;
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns:
+    minmax(26px, 31px)
+    minmax(45px, 93px) /*max 115px with 3 decimal places*/
+    minmax(45px, 67px)
+    minmax(51px, 55px)
+    auto;
 }
 
 /* Grid Items */
@@ -51,9 +56,11 @@ code {
 }
 .working-set-weight {
   grid-column: 2;
+  text-align: right;
 }
 .working-set-reps {
   grid-column: 3;
+  text-align: right;
 }
 .working-set-rpe {
   grid-column: 4;
