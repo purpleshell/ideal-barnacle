@@ -42,12 +42,18 @@ function Example() {
               <span className="working-set-index">Set {i + 1} </span>
               <span className="working-set-text working-set-weight">
                 {weight}
-                <span className="unit">{unit}</span>
+                {parseFloat(weight) <= 1 && parseFloat(weight) > 0 ? (
+                  <span className="unit">
+                    {unit.substring(0, unit.length - 1)}
+                  </span>
+                ) : (
+                  <span className="unit">{unit}</span>
+                )}
               </span>
               {/* <span className="separator row-item-4"> X </span> */}
               <span className="working-set-text working-set-reps">
                 {reps}
-                {parseInt(reps) == 1 ? (
+                {parseFloat(reps) <= 1 && parseFloat(reps) > 0 ? (
                   <span className="unit">rep</span>
                 ) : (
                   <span className="unit">reps</span>
@@ -58,7 +64,7 @@ function Example() {
                 <span className="unit">RPE:</span>
                 {rpe}
               </span>
-              <span>
+              <span className="working-set-icons">
                 <i className="fas fa-edit edit-icon" />
                 <i className="far fa-trash-alt delete-icon" />
               </span>
