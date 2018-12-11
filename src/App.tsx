@@ -61,8 +61,8 @@ function Example() {
               </span>
               {/* <span className="separator row-item-7"> @ </span> */}
               <span className="working-set-text working-set-rpe">
-                <span className="unit">RPE:</span>
                 {rpe}
+                <span className="unit">RPE</span>
               </span>
               <span className="working-set-icons">
                 <i className="fas fa-edit edit-icon" />

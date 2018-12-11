@@ -64,14 +64,17 @@ code {
 }
 .working-set-rpe {
   grid-column: 4;
+  text-align: right;
 }
 .edit-icon {
   grid-column: 5;
   color: limegreen;
+  margin-left: 10px;
 }
 .delete-icon {
   grid-column: 5;
   color: orangered;
+  margin-left: 10px;
 }
 /* End Grid Items */
 
