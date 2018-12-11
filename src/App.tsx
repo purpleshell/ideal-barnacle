@@ -35,24 +35,36 @@ function Example() {
       <Form onSubmit={onSubmit} />
     ) : (
       <>
+        <Form onSubmit={onSubmit} />
         <div className="working-sets">
           {workingSets.map(({ weight, unit, reps, rpe }, i) => (
             <div className="working-set" key={i}>
-              <span className="working-set-index row-item-1">Set {i + 1} </span>
-              <span className="working-set-text row-item-2">{weight}</span>
-              <span className="unit row-item-3">{unit}</span>
-              <span className="separator row-item-4"> X </span>
-              <span className="working-set-text row-item-5">{reps}</span>
-              <span className="unit row-item-6">reps</span>
-              <span className="separator row-item-7"> @ </span>
-              <span className="unit row-item-8">RPE:</span>
-              <span className="working-set-text row-item-9">{rpe}</span>
-              <i className="fas fa-edit row-item-11" />
-              <i className="far fa-trash-alt row-item-12" />
+              <span className="working-set-index">Set {i + 1} </span>
+              <span className="working-set-text working-set-weight">
+                {weight}
+                <span className="unit">{unit}</span>
+              </span>
+              {/* <span className="separator row-item-4"> X </span> */}
+              <span className="working-set-text working-set-reps">
+                {reps}
+                {parseInt(reps) == 1 ? (
+                  <span className="unit">rep</span>
+                ) : (
+                  <span className="unit">reps</span>
+                )}
+              </span>
+              {/* <span className="separator row-item-7"> @ </span> */}
+              <span className="working-set-text working-set-rpe">
+                <span className="unit">RPE:</span>
+                {rpe}
+              </span>
+              <span>
+                <i className="fas fa-edit edit-icon" />
+                <i className="far fa-trash-alt delete-icon" />
+              </span>
             </div>
           ))}
         </div>
-        <Form onSubmit={onSubmit} />
       </>
     );
 

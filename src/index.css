@@ -3,13 +3,14 @@ orangered
 dodgerblue
 goldenrod
 */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   font-size: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,17 +24,18 @@ code {
 
 .working-sets {
   color: #777;
-  margin-bottom: 60px;
+  margin-top: 60px;
   text-align: left;
   display: grid;
   grid-template-rows: auto-flow;
-  gap: 15px 0px;
+  gap: 15px;
 }
 
 .working-set {
-  grid-column: span 12;
+  grid-column: span 5;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+  grid-template-columns: repeat(5, auto);
 }
 
 /* Grid Items */
@@ -43,57 +45,25 @@ code {
   line-height: 0.5em;
 }
 
-.row-item-1 {
+.working-set-index {
   grid-column: 1;
   text-align: left;
-  margin-right: 5px;
 }
-.row-item-2 {
+.working-set-weight {
   grid-column: 2;
-  text-align: right;
 }
-.row-item-3 {
+.working-set-reps {
   grid-column: 3;
-  text-align: center;
 }
-.row-item-4 {
+.working-set-rpe {
   grid-column: 4;
-  text-align: center;
 }
-.row-item-5 {
+.edit-icon {
   grid-column: 5;
-  margin-right: 5px;
-  text-align: right;
-}
-.row-item-6 {
-  grid-column: 6;
-}
-.row-item-7 {
-  grid-column: 7;
-  text-align: center;
-}
-.row-item-8 {
-  grid-column: 8;
-  text-align: right;
-  margin-right: 5px;
-}
-.row-item-9 {
-  grid-column: 9;
-  text-align: left;
-}
-.row-item-10 {
-  grid-column: 10;
-  justify-self: center;
-}
-.row-item-11 {
-  grid-column: 10;
-  justify-self: right;
   color: limegreen;
-  margin-right: 10px;
 }
-.row-item-12 {
-  grid-column: 11;
-  justify-self: left;
+.delete-icon {
+  grid-column: 5;
   color: orangered;
 }
 /* End Grid Items */
@@ -133,6 +103,7 @@ form {
   color: goldenrod;
   display: block;
   font-size: 0.4em;
+  font-family: "Open Sans";
   text-align: left;
   margin-bottom: 5px;
 }
@@ -145,6 +116,7 @@ input {
   border-bottom: solid #bbb 1px;
   color: #bbb;
   font-size: 1em;
+  font-family: "Open Sans";
   text-align: center;
   width: 40px;
 }
@@ -162,6 +134,7 @@ select {
   border: none;
   color: #bbb;
   font-size: 1em;
+  font-family: "Open Sans";
 }
 
 #rpe {
@@ -175,6 +148,7 @@ button {
   border-radius: 5px;
   color: #282c34;
   /* font-size: 0.6em; */
+  font-family: "Open Sans";
   /* margin-left: 30px; */
   padding: 7px 15px;
   position: relative;
