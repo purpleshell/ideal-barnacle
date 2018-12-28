@@ -1,7 +1,6 @@
 import React, { Component, useState } from "react";
 import Form from "./Form";
-import "./App.css";
-import { string } from "prop-types";
+import "./App.scss";
 
 class App extends Component {
   render() {
