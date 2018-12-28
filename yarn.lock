@@ -1322,6 +1322,7 @@ apollo-server-plugin-base@0.2.1:
 apollo-server@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/apollo-server/-/apollo-server-2.3.1.tgz#4d2b6bbb48b44d86076680304705b8b7ae952d37"
+  integrity sha512-+S+/BhLJF9Ms99OK9HpC4P6rcVWTobWWKeLSVdgxqG487i/kwMrCAw/ICrDVJGeOGJRi6PndVu9XdHWHuX1lvQ==
   dependencies:
     apollo-server-core "2.3.1"
     apollo-server-express "2.3.1"
