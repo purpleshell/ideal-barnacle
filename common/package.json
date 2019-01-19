@@ -1,9 +1,0 @@
-{
-  "name": "@overload/common",
-  "version": "1.0.0",
-  "license": "MIT",
-  "dependencies": {
-    "graphql": "^14.0.2",
-    "typescript": "^3.2.2"
-  }
-}

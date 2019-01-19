@@ -10,10 +10,15 @@ const useInputValue = (initialValue: string) => {
 };
 
 const Form = (onSubmit: {
-  onSubmit: ((weight: string, unit: string, reps: string, rpe: string) => void);
+  onSubmit: ((
+    weight: string,
+    systemOfMeasurement: string,
+    reps: string,
+    rpe: string
+  ) => void);
 }) => {
   const weight = useInputValue("0");
-  const unit = useInputValue("lbs");
+  const systemOfMeasurement = useInputValue("lbs");
   const reps = useInputValue("1");
   const rpe = useInputValue("8");
 
@@ -21,7 +26,12 @@ const Form = (onSubmit: {
     <form
       onSubmit={e => {
         e.preventDefault();
-        onSubmit.onSubmit(weight.value, unit.value, reps.value, rpe.value);
+        onSubmit.onSubmit(
+          weight.value,
+          systemOfMeasurement.value,
+          reps.value,
+          rpe.value
+        );
       }}
     >
       <div className="weight-field field">
@@ -29,7 +39,11 @@ const Form = (onSubmit: {
           Weight:
         </label>
         <input type="text" id="weight" {...weight} />
-        <select name="unit" id="unit" {...unit}>
+        <select
+          name="systemOfMeasurement"
+          id="systemOfMeasurement"
+          {...systemOfMeasurement}
+        >
           <option value="lbs">lbs</option>
           <option value="kgs">kgs</option>
         </select>

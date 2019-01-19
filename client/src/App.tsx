@@ -1,23 +1,61 @@
 import React, { Component, useState } from "react";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider, Query } from "react-apollo";
+import gql from "graphql-tag";
+
 import Form from "./Form";
 import "./App.scss";
+
+const client = new ApolloClient({
+  uri: "https://ideal-barnacle-server-g9u51azx5.now.sh/dist/"
+});
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <Example />
+          <ApolloProvider client={client}>
+            <Example />
+            <Lifts />
+          </ApolloProvider>
         </header>
       </div>
     );
   }
 }
 
+const Lifts = () => (
+  <Query
+    query={gql`
+      {
+        lifts {
+          liftName
+          targetMuscles
+        }
+      }
+    `}
+  >
+    {({ loading, error, data }) => {
+      if (loading) return <p>Loading...</p>;
+      if (error) return <p>Error !!</p>;
+
+      return data.lifts.map(({ liftName, targetMuscles }: any) => (
+        <div key={liftName}>
+          <h2>{liftName}:</h2>
+          {targetMuscles.map((muscle: any) => (
+            <p key={muscle}>{muscle}</p> // TODO: Bad key
+          ))}
+        </div>
+      ));
+    }}
+  </Query>
+);
+
 function Example() {
   type WorkingSet = {
     weight: string;
-    unit: string;
+    systemOfMeasurement: string;
     reps: string;
     rpe: string;
   };
@@ -25,8 +63,16 @@ function Example() {
   const initialState: WorkingSet[] = [];
   const [workingSets, setWorkingSets] = useState(initialState);
 
-  function onSubmit(weight: string, unit: string, reps: string, rpe: string) {
-    setWorkingSets([...workingSets, { weight, unit, reps, rpe }]);
+  function onSubmit(
+    weight: string,
+    systemOfMeasurement: string,
+    reps: string,
+    rpe: string
+  ) {
+    setWorkingSets([
+      ...workingSets,
+      { weight, systemOfMeasurement, reps, rpe }
+    ]);
   }
 
   const markup =
@@ -36,17 +82,20 @@ function Example() {
       <>
         <Form onSubmit={onSubmit} />
         <div className="working-sets">
-          {workingSets.map(({ weight, unit, reps, rpe }, i) => (
+          {workingSets.map(({ weight, systemOfMeasurement, reps, rpe }, i) => (
             <div className="working-set" key={i}>
               <span className="working-set-index">Set {i + 1} </span>
               <span className="working-set-text working-set-weight">
                 {weight}
                 {parseFloat(weight) <= 1 && parseFloat(weight) > 0 ? (
                   <span className="unit">
-                    {unit.substring(0, unit.length - 1)}
+                    {systemOfMeasurement.substring(
+                      0,
+                      systemOfMeasurement.length - 1
+                    )}
                   </span>
                 ) : (
-                  <span className="unit">{unit}</span>
+                  <span className="unit">{systemOfMeasurement}</span>
                 )}
               </span>
               {/* <span className="separator row-item-4"> X </span> */}
