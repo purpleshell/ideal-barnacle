@@ -7,7 +7,8 @@ import Form from "./Form";
 import "./App.scss";
 
 const client = new ApolloClient({
-  uri: "https://ideal-barnacle-server-g9u51azx5.now.sh/dist/"
+  // uri: "https://ideal-barnacle-server-g9u51azx5.now.sh/dist/"
+  uri: process.env.GRAPHQL_SERVER_URL || "http://localhost:4000/graphql"
 });
 
 class App extends Component {
@@ -29,8 +30,9 @@ const Lifts = () => (
   <Query
     query={gql`
       {
-        lifts {
-          liftName
+        exercise {
+          id
+          exerciseName
           targetMuscles
         }
       }
@@ -40,12 +42,15 @@ const Lifts = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error !!</p>;
 
-      return data.lifts.map(({ liftName, targetMuscles }: any) => (
-        <div key={liftName}>
-          <h2>{liftName}:</h2>
-          {targetMuscles.map((muscle: any) => (
+      return data.exercise.map(({ id, exerciseName, targetMuscles }: any) => (
+        <div key={id}>
+          <h2>
+            {id} {exerciseName}:
+          </h2>
+          {/* {targetMuscles.map((muscle: any) => (
             <p key={muscle}>{muscle}</p> // TODO: Bad key
-          ))}
+          ))} */}
+          {targetMuscles}
         </div>
       ));
     }}
