@@ -7,6 +7,7 @@ import Form from "./Form";
 import "./App.scss";
 
 const client = new ApolloClient({
+  credentials: "include",
   uri:
     process.env.NODE_ENV === "production"
       ? "https://overload-server.herokuapp.com/graphql"
