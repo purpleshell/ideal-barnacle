@@ -7,8 +7,8 @@ import Form from "./Form";
 import "./App.scss";
 
 const client = new ApolloClient({
-  // uri: "https://ideal-barnacle-server-g9u51azx5.now.sh/dist/"
-  uri: process.env.GRAPHQL_SERVER_URL || "http://localhost:4000/graphql"
+  uri: "https://overload-server.herokuapp.com/"
+  // uri: process.env.GRAPHQL_SERVER_URL || "http://localhost:4000/graphql"
 });
 
 class App extends Component {
