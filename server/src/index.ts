@@ -27,7 +27,7 @@ const main = async () => {
 
   const app = Express();
 
-  app.options("/graphql", cors());
+  app.options("*", cors());
   // app.use(
   //   cors({
   //     credentials: true,
