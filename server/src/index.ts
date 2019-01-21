@@ -27,21 +27,13 @@ const main = async () => {
 
   const app = Express();
 
-  var whitelist = [
-    "http://localhost:3000",
-    "https://overload-client.herokuapp.com"
-  ];
-
   app.use(
     cors({
       credentials: true,
-      origin: function(origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
-          callback(null, true);
-        } else {
-          callback(new Error("Not allowed by CORS"));
-        }
-      }
+      origin:
+        process.env.NODE_ENV === "production"
+          ? "https://www.codeponder.com"
+          : "http://localhost:3000"
     })
   );
 
