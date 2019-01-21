@@ -9,7 +9,7 @@ import "./App.scss";
 const client = new ApolloClient({
   uri:
     process.env.NODE_ENV === "production"
-      ? "https://overload-server.herokuapp.com"
+      ? "https://overload-server.herokuapp.com/graphql"
       : "http://localhost:4000/graphql"
 });
 
