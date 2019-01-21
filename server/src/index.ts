@@ -27,7 +27,7 @@ const main = async () => {
 
   const app = Express();
 
-  app.options("*", cors());
+  app.use(cors());
   // app.use(
   //   cors({
   //     credentials: true,
