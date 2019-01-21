@@ -27,15 +27,16 @@ const main = async () => {
 
   const app = Express();
 
-  app.use(
-    cors({
-      credentials: true,
-      origin:
-        process.env.NODE_ENV === "production"
-          ? "https://overload-client.herokuapp.com"
-          : "http://localhost:3000"
-    })
-  );
+  app.options("/graphql", cors());
+  // app.use(
+  //   cors({
+  //     credentials: true,
+  //     origin:
+  //       process.env.NODE_ENV === "production"
+  //         ? "https://overload-client.herokuapp.com/"
+  //         : "http://localhost:3000"
+  //   })
+  // );
 
   server.applyMiddleware({ app });
 
