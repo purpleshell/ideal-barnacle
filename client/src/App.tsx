@@ -7,7 +7,10 @@ import Form from "./Form";
 import "./App.scss";
 
 const client = new ApolloClient({
-  uri: "https://overload-server.herokuapp.com/graphql"
+  uri:
+    process.env.NODE_ENV === "production"
+      ? "https://overload-server.herokuapp.com/graphql"
+      : "http://localhost:4000/graphql"
   // uri: process.env.GRAPHQL_SERVER_URL || "http://localhost:4000/graphql"
 });
 
@@ -18,7 +21,7 @@ class App extends Component {
         <header className="App-header">
           <ApolloProvider client={client}>
             <Example />
-            Env var: {process.env.GRAPHQL_SERVER_URL}
+            Env var: {process.env.GRAPHQL_SERVER_URL} & {process.env.NODE_ENV}
             <Lifts />
           </ApolloProvider>
         </header>

@@ -1,12 +1,12 @@
 import "reflect-metadata";
 import { ApolloServer } from "apollo-server-express";
+import cors from "cors";
 import Express from "express";
 import { buildSchema, formatArgumentValidationError } from "type-graphql";
 import { createConnection } from "typeorm";
 
 import { CreateExerciseResolver } from "./entity/exercise/resolvers/CreateExercise";
 import { RegisterUserResolver } from "./entity/user/resolvers/RegisterUser";
-import cors = require("cors");
 
 const main = async () => {
   await createConnection({
@@ -43,7 +43,9 @@ const main = async () => {
 
   app.listen(PORT, () => {
     console.log(
-      ` Server ready at http://localhost:${PORT}/graphql process.env: `,
+      ` Server ready at http://localhost:${PORT}${
+        server.graphqlPath
+      } process.env: `,
       process.env
     );
   });
