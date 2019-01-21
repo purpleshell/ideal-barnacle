@@ -18,6 +18,7 @@ class App extends Component {
         <header className="App-header">
           <ApolloProvider client={client}>
             <Example />
+            Env var: {process.env.GRAPHQL_SERVER_URL}
             <Lifts />
           </ApolloProvider>
         </header>
