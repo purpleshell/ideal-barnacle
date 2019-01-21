@@ -28,8 +28,8 @@ const main = async () => {
   const app = Express();
 
   var whitelist = [
-    "http://localhost:3000/",
-    "https://overload-client.herokuapp.com/"
+    "http://localhost:3000",
+    "https://overload-client.herokuapp.com"
   ];
 
   app.use(
