@@ -1,5 +1,0 @@
-{
-  "name": "ideal-barnacle-server",
-  "version": 2,
-  "builds": [{ "src": "/dist/*.js", "use": "@now/node-server" }]
-}

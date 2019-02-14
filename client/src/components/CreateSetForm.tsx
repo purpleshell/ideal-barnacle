@@ -9,7 +9,7 @@ const useInputValue = (initialValue: string) => {
   };
 };
 
-const Form = (onSubmit: {
+const CreateSetForm = (onSubmit: {
   onSubmit: ((
     weight: string,
     systemOfMeasurement: string,
@@ -72,4 +72,4 @@ const Form = (onSubmit: {
   );
 };
 
-export default Form;
+export default CreateSetForm;

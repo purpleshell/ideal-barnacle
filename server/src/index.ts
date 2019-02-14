@@ -27,16 +27,15 @@ const main = async () => {
 
   const app = Express();
 
-  app.use(cors());
-  // app.use(
-  //   cors({
-  //     credentials: true,
-  //     origin:
-  //       process.env.NODE_ENV === "production"
-  //         ? "https://overload-client.herokuapp.com/"
-  //         : "http://localhost:3000"
-  //   })
-  // );
+  app.use(
+    cors({
+      credentials: true,
+      origin:
+        process.env.NODE_ENV === "production"
+          ? "https://overload-client.herokuapp.com/"
+          : "http://localhost:3000"
+    })
+  );
 
   server.applyMiddleware({ app });
 
@@ -44,10 +43,7 @@ const main = async () => {
 
   app.listen(PORT, () => {
     console.log(
-      ` Server ready at http://localhost:${PORT}${
-        server.graphqlPath
-      } process.env: `,
-      process.env
+      ` Server ready at http://localhost:${PORT}${server.graphqlPath}`
     );
   });
 };
