@@ -1,10 +1,9 @@
-import "reflect-metadata";
 import { ApolloServer } from "apollo-server-express";
 import cors from "cors";
 import Express from "express";
+import "reflect-metadata";
 import { buildSchema, formatArgumentValidationError } from "type-graphql";
 import { createConnection } from "typeorm";
-
 import { CreateExerciseResolver } from "./entity/exercise/resolvers/CreateExercise";
 import { RegisterUserResolver } from "./entity/user/resolvers/RegisterUser";
 
@@ -15,7 +14,11 @@ const main = async () => {
       process.env.DATABASE_URL ||
       "postgres://postgres:postgres@localhost/ideal-barnacle-test",
     entities: ["src/entity/**/*.ts"]
-  });
+  })
+    .then(connection => {
+      console.log(connection);
+    })
+    .catch(error => console.log(error));
 
   const schema = await buildSchema({
     resolvers: [CreateExerciseResolver, RegisterUserResolver]
