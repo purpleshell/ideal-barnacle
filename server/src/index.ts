@@ -29,12 +29,20 @@ const main = async () => {
 
   app.use(
     // TODO notate a working CORS config to avoid days of troubleshooting
+    // The below cors config works in development, but not in production
+    // cors({
+    //   credentials: true,
+    //   origin:
+    //     process.env.NODE_ENV === "production"
+    //       ? "https://overload-client.herokuapp.com/"
+    //       : "http://localhost:3000"
+    // })
     cors({
-      // credentials: true,
-      // origin:
-      //   process.env.NODE_ENV === "production"
-      //     ? "https://overload-client.herokuapp.com/"
-      //     : "http://localhost:3000"
+      credentials: true,
+      origin:
+        process.env.NODE_ENV === "production"
+          ? "https://overload-client.herokuapp.com/"
+          : "http://localhost:3000"
     })
   );
 
