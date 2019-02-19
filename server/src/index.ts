@@ -37,13 +37,8 @@ const main = async () => {
     //       ? "https://overload-client.herokuapp.com/"
     //       : "http://localhost:3000"
     // })
-    cors({
-      credentials: true,
-      origin:
-        process.env.NODE_ENV === "production"
-          ? "https://overload-client.herokuapp.com/"
-          : "http://localhost:3000"
-    })
+
+    cors()
   );
 
   server.applyMiddleware({ app });
