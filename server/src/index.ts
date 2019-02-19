@@ -13,7 +13,8 @@ const main = async () => {
     url:
       process.env.DATABASE_URL ||
       "postgres://postgres:postgres@localhost/ideal-barnacle-test",
-    entities: ["src/entity/**/*.ts"]
+    entities: ["src/entity/**/*.ts"],
+    synchronize: true
   })
     .then(connection => {
       console.log(connection);
