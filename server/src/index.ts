@@ -28,12 +28,13 @@ const main = async () => {
   const app = Express();
 
   app.use(
+    // TODO notate a working CORS config to avoid days of troubleshooting
     cors({
       // credentials: true,
-      origin:
-        process.env.NODE_ENV === "production"
-          ? "https://overload-client.herokuapp.com/"
-          : "http://localhost:3000"
+      // origin:
+      //   process.env.NODE_ENV === "production"
+      //     ? "https://overload-client.herokuapp.com/"
+      //     : "http://localhost:3000"
     })
   );
 
