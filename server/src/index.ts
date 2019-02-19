@@ -15,11 +15,7 @@ const main = async () => {
       "postgres://postgres:postgres@localhost/ideal-barnacle-test",
     entities: ["src/entity/**/*.ts"],
     synchronize: true
-  })
-    .then(connection => {
-      console.log(connection);
-    })
-    .catch(error => console.log(error));
+  });
 
   const schema = await buildSchema({
     resolvers: [CreateExerciseResolver, RegisterUserResolver]
@@ -33,7 +29,7 @@ const main = async () => {
 
   app.use(
     cors({
-      credentials: true,
+      // credentials: true,
       origin:
         process.env.NODE_ENV === "production"
           ? "https://overload-client.herokuapp.com/"
