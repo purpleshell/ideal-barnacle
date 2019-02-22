@@ -1,10 +1,9 @@
-import React, { Component } from "react";
 import ApolloClient from "apollo-boost";
+import React, { Component } from "react";
 import { ApolloProvider } from "react-apollo";
-
+import CreateExerciseForm from "./components/CreateExerciseForm";
 import Exercises from "./components/Exercises";
 import Sets from "./components/Sets";
-import CreateExerciseForm from "./components/CreateExerciseForm";
 
 const client = new ApolloClient({
   uri:

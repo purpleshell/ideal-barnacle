@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
-import { Mutation } from "react-apollo";
 import React, { useState } from "react";
+import { Mutation } from "react-apollo";
 
 const useInputValue = (initialValue: string) => {
   const [value, setValue] = useState(initialValue);
@@ -49,8 +49,24 @@ const CreateExerciseForm = () =>
               // targetMuscles.setValue("");
             }}
           >
-            <input type="text" id="exercise-name-input" {...exerciseName} />
-            <input type="text" id="target-muscles-input" {...targetMuscles} />
+            <div className="field">
+              <label className="field-label" htmlFor="exercise-name">
+                Exercise Name:
+              </label>
+              <input type="text" className="exercise-input" {...exerciseName} />
+            </div>
+            <div className="field">
+              <label className="field-label" htmlFor="target-muscles">
+                Target Muscles:
+              </label>
+
+              <input
+                type="text"
+                id="target-muscles-input"
+                className="exercise-input"
+                {...targetMuscles}
+              />
+            </div>
 
             <button type="submit">+ Add Exercise</button>
           </form>

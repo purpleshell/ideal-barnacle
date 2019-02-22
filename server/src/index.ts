@@ -28,9 +28,8 @@ const main = async () => {
   const app = Express();
 
   app.use(
-    // TODO notate a working CORS config to avoid days of troubleshooting
     //
-    // The below cors config works in development, but not in production:
+    // The below cors config is working beautifully as of 2-19-19
     // cors({
     //   credentials: true,
     //   origin:
@@ -38,9 +37,6 @@ const main = async () => {
     //       ? "https://overload-client.herokuapp.com"
     //       : "http://localhost:3000"
     // })
-    //
-    // The below cors config works in everywhere:
-    // cors({})
     //
     cors({
       credentials: true,
