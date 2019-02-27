@@ -1,22 +1,27 @@
-import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import React from "react";
+import { Query } from "react-apollo";
+
+const READ_ALL_EXERCISES = gql`
+  {
+    exercise {
+      id
+      exerciseName
+      targetMuscles
+    }
+  }
+`;
 
 const Exercises = () => (
-  <Query
-    query={gql`
-      {
-        exercise {
-          id
-          exerciseName
-          targetMuscles
-        }
-      }
-    `}
-  >
+  <Query query={READ_ALL_EXERCISES}>
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>;
-      if (error) return <p>{error}</p>;
+      if (error)
+        return (
+          <p>
+            {error} ${error.message}
+          </p>
+        );
 
       return data.exercise.map(({ id, exerciseName, targetMuscles }: any) => (
         <div key={id}>

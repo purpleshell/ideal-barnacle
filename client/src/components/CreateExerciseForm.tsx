@@ -2,6 +2,16 @@ import gql from "graphql-tag";
 import React, { useState } from "react";
 import { Mutation } from "react-apollo";
 
+const READ_ALL_EXERCISES = gql`
+  {
+    exercise {
+      id
+      exerciseName
+      targetMuscles
+    }
+  }
+`;
+
 const useInputValue = (initialValue: string) => {
   const [value, setValue] = useState(initialValue);
 
@@ -32,8 +42,23 @@ const CreateExerciseForm = () =>
     `;
 
     return (
-      <Mutation mutation={CREATE_EXERCISE}>
-        {(createExercise, data) => (
+      <Mutation
+        mutation={CREATE_EXERCISE}
+        // update={(cache, { data: { createExercise } }) => {
+        //   console.log(createExercise);
+        //   const data: any = cache.readQuery({
+        //     query: READ_ALL_EXERCISES
+        //   });
+        //   console.log(data);
+        //   data.exercise.push(createExercise);
+        //   cache.writeQuery({
+        //     query: READ_ALL_EXERCISES,
+        //     data
+        //   });
+        // }}
+        refetchQueries={[{ query: READ_ALL_EXERCISES }]}
+      >
+        {(createExercise, { error }) => (
           <form
             onSubmit={e => {
               e.preventDefault();
@@ -44,7 +69,6 @@ const CreateExerciseForm = () =>
                   targetMuscles: targetMuscles.value
                 }
               });
-              console.log(data);
               // exerciseName.setValue("");
               // targetMuscles.setValue("");
             }}
@@ -62,13 +86,14 @@ const CreateExerciseForm = () =>
 
               <input
                 type="text"
-                id="target-muscles-input"
                 className="exercise-input"
                 {...targetMuscles}
               />
             </div>
 
             <button type="submit">+ Add Exercise</button>
+
+            {error ? <p>{error.message}</p> : <></>}
           </form>
         )}
       </Mutation>
