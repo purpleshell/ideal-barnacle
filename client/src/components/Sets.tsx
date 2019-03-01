@@ -62,8 +62,8 @@ function Sets() {
                 <span className="unit">RPE</span>
               </span>
               <span className="working-set-icons">
-                <i className="fas fa-edit edit-icon" />
-                <i className="far fa-trash-alt delete-icon" />
+                <i className="fas fa-edit edit-icon pointer" />
+                <i className="far fa-trash-alt delete-icon pointer" />
               </span>
             </div>
           ))}

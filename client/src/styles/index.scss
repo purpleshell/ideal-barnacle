@@ -54,7 +54,7 @@ code {
 
 .working-sets {
   color: #777;
-  margin-top: 60px;
+  margin: 0 0 60px 0;
   text-align: left;
   display: grid;
   grid-template-rows: auto-flow;
@@ -199,4 +199,8 @@ button {
 
 .exercise-input {
   width: 100px;
+}
+
+.pointer {
+  cursor: pointer;
 }

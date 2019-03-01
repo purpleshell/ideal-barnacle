@@ -1,26 +1,18 @@
-import React, { useState } from "react";
-
-const useInputValue = (initialValue: string) => {
-  const [value, setValue] = useState(initialValue);
-
-  return {
-    value,
-    onChange: (e: any) => setValue(e.target.value)
-  };
-};
+import React from "react";
+import { useInput } from "./Hooks";
 
 const CreateSetForm = (onSubmit: {
-  onSubmit: ((
+  onSubmit: (
     weight: string,
     systemOfMeasurement: string,
     reps: string,
     rpe: string
-  ) => void);
+  ) => void;
 }) => {
-  const weight = useInputValue("0");
-  const systemOfMeasurement = useInputValue("lbs");
-  const reps = useInputValue("1");
-  const rpe = useInputValue("8");
+  const weight = useInput("0");
+  const systemOfMeasurement = useInput("lbs");
+  const reps = useInput("1");
+  const rpe = useInput("8");
 
   return (
     <form

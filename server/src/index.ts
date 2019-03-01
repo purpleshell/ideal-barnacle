@@ -4,8 +4,6 @@ import Express from "express";
 import "reflect-metadata";
 import { buildSchema, formatArgumentValidationError } from "type-graphql";
 import { createConnection } from "typeorm";
-import { CreateExerciseResolver } from "./entity/exercise/resolvers/CreateExercise";
-import { RegisterUserResolver } from "./entity/user/resolvers/RegisterUser";
 
 const main = async () => {
   await createConnection({
@@ -18,7 +16,7 @@ const main = async () => {
   });
 
   const schema = await buildSchema({
-    resolvers: [CreateExerciseResolver, RegisterUserResolver]
+    resolvers: [__dirname + "entity/**/resolvers/*.ts"]
   });
   const server = new ApolloServer({
     schema,
@@ -30,13 +28,6 @@ const main = async () => {
   app.use(
     //
     // The below cors config is working beautifully as of 2-19-19
-    // cors({
-    //   credentials: true,
-    //   origin:
-    //     process.env.NODE_ENV === "production"
-    //       ? "https://overload-client.herokuapp.com"
-    //       : "http://localhost:3000"
-    // })
     //
     cors({
       credentials: true,

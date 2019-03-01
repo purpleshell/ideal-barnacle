@@ -1,8 +1,8 @@
-import { Resolver, Query, Mutation, Arg } from "type-graphql";
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { Exercise } from "../ExerciseEntity";
 
 @Resolver()
-export class CreateExerciseResolver {
+export class ExerciseResolvers {
   @Query(() => [Exercise])
   async exercise() {
     return Exercise.find();
@@ -18,5 +18,15 @@ export class CreateExerciseResolver {
       targetMuscles
     }).save();
     return exercise;
+  }
+
+  @Mutation(() => Boolean)
+  async deleteExercise(@Arg("exerciseName") exerciseName: string) {
+    try {
+      await Exercise.delete({ exerciseName: exerciseName });
+      return true;
+    } catch {
+      return false;
+    }
   }
 }
