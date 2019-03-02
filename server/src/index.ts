@@ -2,7 +2,7 @@ import { ApolloServer } from "apollo-server-express";
 import cors from "cors";
 import Express from "express";
 import "reflect-metadata";
-import { buildSchema, formatArgumentValidationError } from "type-graphql";
+import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
 
 const main = async () => {
@@ -19,8 +19,7 @@ const main = async () => {
     resolvers: [__dirname + "entity/**/resolvers/*.ts"]
   });
   const server = new ApolloServer({
-    schema,
-    formatError: formatArgumentValidationError
+    schema
   });
 
   const app = Express();
@@ -29,14 +28,13 @@ const main = async () => {
     //
     // The below cors config is working beautifully as of 2-19-19
     //
-    // cors({
-    //   credentials: true,
-    //   origin:
-    //     process.env.NODE_ENV === "production"
-    //       ? "https://overload-client.herokuapp.com"
-    //       : "http://localhost:3000"
-    // })
-    cors({})
+    cors({
+      credentials: true,
+      origin:
+        process.env.NODE_ENV === "production"
+          ? "https://overload-client.herokuapp.com"
+          : "http://localhost:3000"
+    })
   );
 
   server.applyMiddleware({ app });
