@@ -4,8 +4,8 @@ import { useInputWithReset } from "./Hooks";
 import { CREATE_EXERCISE, READ_ALL_EXERCISES } from "./Schema";
 
 const CreateExerciseForm = () => {
-  const exerciseName = useInputWithReset("");
-  const targetMuscles = useInputWithReset("");
+  const { resetValue: resetName, ...exerciseName } = useInputWithReset("");
+  const { resetValue: resetMuscles, ...targetMuscles } = useInputWithReset("");
 
   return (
     <Mutation
@@ -22,8 +22,8 @@ const CreateExerciseForm = () => {
                 targetMuscles: targetMuscles.value
               }
             });
-            exerciseName.resetValue();
-            targetMuscles.resetValue();
+            resetName();
+            resetMuscles();
           }}
         >
           <div className="field">
