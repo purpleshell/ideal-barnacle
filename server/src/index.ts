@@ -36,7 +36,7 @@ const main = async () => {
     //       ? "https://overload-client.herokuapp.com"
     //       : "http://localhost:3000"
     // })
-    cors()
+    cors({})
   );
 
   server.applyMiddleware({ app });
