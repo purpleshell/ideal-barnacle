@@ -29,13 +29,14 @@ const main = async () => {
     //
     // The below cors config is working beautifully as of 2-19-19
     //
-    cors({
-      credentials: true,
-      origin:
-        process.env.NODE_ENV === "production"
-          ? "https://overload-client.herokuapp.com"
-          : "http://localhost:3000"
-    })
+    // cors({
+    //   credentials: true,
+    //   origin:
+    //     process.env.NODE_ENV === "production"
+    //       ? "https://overload-client.herokuapp.com"
+    //       : "http://localhost:3000"
+    // })
+    cors()
   );
 
   server.applyMiddleware({ app });
