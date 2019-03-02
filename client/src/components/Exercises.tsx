@@ -17,12 +17,7 @@ const Exercises = () => (
   <Query query={READ_ALL_EXERCISES}>
     {({ loading, error, data }) => {
       if (loading) return <p>Loading...</p>;
-      if (error)
-        return (
-          <p>
-            {error} ${error.message}
-          </p>
-        );
+      if (error) return <p>{error.message}</p>;
 
       return data.exercise.map(({ id, exerciseName, targetMuscles }: any) => (
         <div key={id}>
