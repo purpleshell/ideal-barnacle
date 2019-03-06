@@ -29,7 +29,7 @@ export const UPDATE_EXERCISE = gql`
     updateExercise(
       exerciseName: $exerciseName
       newExerciseName: $newExerciseName
-      newTargetMuscles: $newTargetmuscles
+      newTargetMuscles: $newTargetMuscles
     )
   }
 `;

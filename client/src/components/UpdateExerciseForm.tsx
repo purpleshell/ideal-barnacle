@@ -1,29 +1,27 @@
-import React from "react";
 import { Mutation } from "react-apollo";
-import { useInputWithReset } from "./Hooks";
-import { CREATE_EXERCISE, READ_ALL_EXERCISES } from "./Schema";
+import { useInput } from "./Hooks";
+import { READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 
-const CreateExerciseForm = () => {
-  const { resetValue: resetName, ...exerciseName } = useInputWithReset("");
-  const { resetValue: resetMuscles, ...targetMuscles } = useInputWithReset("");
+const CreateExerciseForm = (props: any) => {
+  const exerciseName = useInput(props.exerciseName);
+  const targetMuscles = useInput(props.targetMuscles);
 
   return (
     <Mutation
-      mutation={CREATE_EXERCISE}
+      mutation={UPDATE_EXERCISE}
       refetchQueries={[{ query: READ_ALL_EXERCISES }]}
     >
-      {(createExercise, { error }) => (
+      {(updateExercise, { error }) => (
         <form
           onSubmit={e => {
             e.preventDefault();
-            createExercise({
+            updateExercise({
               variables: {
-                exerciseName: exerciseName.value,
-                targetMuscles: targetMuscles.value
+                exerciseName: props.exerciseName,
+                newExerciseName: exerciseName.value,
+                newTargetMuscles: targetMuscles.value
               }
             });
-            resetName();
-            resetMuscles();
           }}
         >
           <div className="field">
@@ -38,7 +36,7 @@ const CreateExerciseForm = () => {
             </label>
             <input type="text" className="exercise-input" {...targetMuscles} />
           </div>
-          <button type="submit">+ Add Exercise</button>
+          <button type="submit">+ Update Exercise</button>
           {/* // TODO: implement elegant user facing error messages */}
           {error ? <div className="error-message">{error.message}</div> : <></>}
         </form>
