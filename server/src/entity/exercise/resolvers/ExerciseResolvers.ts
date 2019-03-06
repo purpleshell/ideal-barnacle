@@ -29,4 +29,23 @@ export class ExerciseResolvers {
       return false;
     }
   }
+
+  @Mutation(() => Boolean)
+  async updateExercise(
+    @Arg("exerciseName") exerciseName: string,
+    @Arg("newExerciseName") newExerciseName: string,
+    @Arg("newTargetMuscles") newTargetMuscles: string
+  ) {
+    try {
+      const exercise = await Exercise.findOne({ exerciseName: exerciseName });
+      if (exercise != undefined) {
+        exercise.exerciseName = newExerciseName;
+        exercise.targetMuscles = newTargetMuscles;
+        exercise.save();
+      }
+      return true;
+    } catch {
+      return false;
+    }
+  }
 }

@@ -39,8 +39,8 @@ const CreateExerciseForm = () => {
             <input type="text" className="exercise-input" {...targetMuscles} />
           </div>
           <button type="submit">+ Add Exercise</button>
-          {/* TODO: implement elegant user facing error messages*/}
-          {error ? <p>{error.message}</p> : <></>}
+          {/* // TODO: implement elegant user facing error messages*/}
+          {error ? <div className="error-message">{error.message}</div> : <></>}
         </form>
       )}
     </Mutation>
