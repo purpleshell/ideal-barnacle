@@ -19,6 +19,6 @@ export const useInputWithReset = (initialValue: string) => {
   return {
     value,
     onChange: (e: any) => setValue(e.target.value),
-    resetValue: () => setValue("")
+    setValue: (newValue: string) => setValue(newValue)
   };
 };

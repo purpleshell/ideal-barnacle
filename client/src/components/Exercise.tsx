@@ -3,17 +3,22 @@ import { Mutation } from "react-apollo";
 import { useInput } from "./Hooks";
 import { DELETE_EXERCISE, READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 
+// BUG: After updating a record on the dev server the ui does
+// not reflect the changes consistently.
 const Exercise = ({ id, exerciseName, targetMuscles }: any) => {
-  const [hidden, setHidden] = useState(false);
+  const [updating, setUpdating] = useState(false);
   const updateExerciseNameInput = useInput(exerciseName);
   const updateTargetMusclesInput = useInput(targetMuscles);
 
-  const markup = hidden ? (
+  const markup = updating ? (
     <Mutation
       mutation={UPDATE_EXERCISE}
       refetchQueries={[{ query: READ_ALL_EXERCISES }]}
       onCompleted={() => {
-        setHidden(false);
+        // attempted bugfix
+        // exerciseName = updateExerciseNameInput.value;
+        // targetMuscles = updateTargetMusclesInput.value;
+        setUpdating(false);
       }}
     >
       {(updateExercise, { error }) => (
@@ -52,7 +57,7 @@ const Exercise = ({ id, exerciseName, targetMuscles }: any) => {
           <button type="submit">+ Update Exercise</button>
           <button
             onClick={() => {
-              setHidden(false);
+              setUpdating(false);
             }}
           >
             Cancel
@@ -70,7 +75,7 @@ const Exercise = ({ id, exerciseName, targetMuscles }: any) => {
           className="fas fa-edit edit-icon pointer"
           onClick={() => {
             // TODO: may be worth optimizing for stateful visibility
-            setHidden(true);
+            setUpdating(true);
           }}
         />
         <Mutation
