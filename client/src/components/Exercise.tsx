@@ -5,7 +5,7 @@ import { DELETE_EXERCISE, READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 
 // BUG: After updating a record on the dev server the ui does
 // not reflect the changes consistently.
-const Exercise = ({ id, exerciseName, targetMuscles }: any) => {
+const Exercise = ({ exerciseName, targetMuscles }: any) => {
   const [updating, setUpdating] = useState(false);
   const updateExerciseNameInput = useInput(exerciseName);
   const updateTargetMusclesInput = useInput(targetMuscles);
@@ -15,7 +15,7 @@ const Exercise = ({ id, exerciseName, targetMuscles }: any) => {
       mutation={UPDATE_EXERCISE}
       refetchQueries={[{ query: READ_ALL_EXERCISES }]}
       onCompleted={() => {
-        // attempted bugfix
+        // attempted bugfix using setState to re-render
         // exerciseName = updateExerciseNameInput.value;
         // targetMuscles = updateTargetMusclesInput.value;
         setUpdating(false);
@@ -68,8 +68,8 @@ const Exercise = ({ id, exerciseName, targetMuscles }: any) => {
       )}
     </Mutation>
   ) : (
-    <div key={id} id={id}>
-      {id} {exerciseName}: {targetMuscles}
+    <div>
+      {exerciseName}: {targetMuscles}
       <span className="working-set-icons">
         <i
           className="fas fa-edit edit-icon pointer"

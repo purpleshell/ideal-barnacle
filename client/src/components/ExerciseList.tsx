@@ -9,10 +9,14 @@ const ExerciseList = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>{error.message}</p>;
 
-      return data.exercise.map(({ id, exerciseName, targetMuscles }: any) => (
+      // Sort query data by name
+      const exercises = data.exercise.sort((exercise1: any, exercise2: any) =>
+        exercise1.exerciseName.localeCompare(exercise2.exerciseName)
+      );
+
+      return exercises.map(({ id, exerciseName, targetMuscles }: any) => (
         <Exercise
           key={id}
-          id={id}
           exerciseName={exerciseName}
           targetMuscles={targetMuscles}
           hidden={false}
