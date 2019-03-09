@@ -13,6 +13,14 @@ export class ExerciseResolvers {
     @Arg("exerciseName") exerciseName: string,
     @Arg("targetMuscles") targetMuscles: string
   ): Promise<Exercise> {
+    exerciseName = exerciseName
+      .split(" ")
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+      .join(" ");
+    targetMuscles = targetMuscles
+      .split(" ")
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+      .join(" ");
     const exercise = await Exercise.create({
       exerciseName,
       targetMuscles
@@ -39,8 +47,14 @@ export class ExerciseResolvers {
     try {
       const exercise = await Exercise.findOne({ exerciseName: exerciseName });
       if (exercise != undefined) {
-        exercise.exerciseName = newExerciseName;
-        exercise.targetMuscles = newTargetMuscles;
+        exercise.exerciseName = newExerciseName
+          .split(" ")
+          .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+          .join(" ");
+        exercise.targetMuscles = newTargetMuscles
+          .split(" ")
+          .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+          .join(" ");
         exercise.save();
       }
       return true;
