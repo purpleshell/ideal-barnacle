@@ -69,7 +69,8 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
     </Mutation>
   ) : (
     <div>
-      {exerciseName}: {targetMuscles}
+      <span className="exercise-name">{exerciseName}</span>
+      {targetMuscles}
       <span className="working-set-icons">
         <i
           className="fas fa-edit edit-icon pointer"
