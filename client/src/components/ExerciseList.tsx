@@ -9,7 +9,7 @@ const ExerciseList = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>{error.message}</p>;
 
-      // Sort query data by name
+      // Sort query data by the objects' exerciseName field, ascending
       const exercises = data.exercise.sort((exercise1: any, exercise2: any) =>
         exercise1.exerciseName.localeCompare(exercise2.exerciseName)
       );
