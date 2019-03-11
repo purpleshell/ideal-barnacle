@@ -3,27 +3,28 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
-    "apollo-server-express": "^2.3.1",
+    "apollo-server-express": "^2.4.8",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.9.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "graphql": "^14.0.2",
-    "pg": "^7.7.1",
-    "reflect-metadata": "^0.1.12",
-    "ts-node": "^7.0.1",
-    "type-graphql": "^0.16.0",
-    "typeorm": "^0.2.11",
-    "typescript": "^3.2.2",
+    "graphql": "^14.1.1",
+    "pg": "^7.8.2",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^8.0.3",
+    "type-graphql": "^0.17.0",
+    "typeorm": "^0.2.14",
+    "typescript": "^3.3.3333",
     "@types/bcryptjs": "^2.4.2",
-    "@types/express": "^4.16.0",
-    "@types/graphql": "^14.0.4",
-    "@types/node": "^10.12.18",
-    "nodemon": "^1.18.9",
+    "@types/express": "^4.16.1",
+    "@types/graphql": "^14.0.7",
+    "@types/node": "^11.11.0",
+    "nodemon": "^1.18.10",
     "ts-node-dev": "^1.0.0-pre.32"
   },
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:dev": "ts-node-dev --respawn src/index.ts"
-  }
+  },
+  "heroku-run-build-script": true
 }
