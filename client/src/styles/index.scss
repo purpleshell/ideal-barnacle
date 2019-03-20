@@ -150,7 +150,7 @@ form {
   display: block;
   font-size: 0.4em;
   font-family: "Open Sans";
-  text-align: left;
+  text-align: center;
   margin-bottom: 5px;
 }
 
@@ -164,7 +164,7 @@ input {
   font-size: 1em;
   font-family: "Open Sans";
   text-align: center;
-  width: 40px;
+  width: 100px;
 }
 
 input:focus {
@@ -182,10 +182,6 @@ input::placeholder {
   margin-right: 5px;
 }
 
-#reps {
-  width: 26px;
-}
-
 select {
   background-color: #252a3400;
   border: none;
@@ -197,6 +193,10 @@ select {
 #rpe {
   /* text-indent: 10px;*/
   margin-left: -2px;
+}
+
+.create-set-form-buttons {
+  margin-top: 20px;
 }
 
 button {
@@ -211,6 +211,8 @@ button {
   /* margin-left: 30px; */
   padding: 7px 15px;
   position: relative;
+  width: 192px;
+  height: 48px;
   top: 0;
 }
 

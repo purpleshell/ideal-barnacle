@@ -29,16 +29,16 @@ const CreateSetForm = (onSubmit: {
       <div className="weight-field field">
         <label className="field-label" htmlFor="weight">
           Weight:
+          <select
+            name="systemOfMeasurement"
+            id="systemOfMeasurement"
+            {...systemOfMeasurement}
+          >
+            <option value="lbs">lbs</option>
+            <option value="kgs">kgs</option>
+          </select>
         </label>
         <input type="text" id="weight" {...weight} />
-        <select
-          name="systemOfMeasurement"
-          id="systemOfMeasurement"
-          {...systemOfMeasurement}
-        >
-          <option value="lbs">lbs</option>
-          <option value="kgs">kgs</option>
-        </select>
       </div>
       <div className="reps-field field">
         <label className="field-label" htmlFor="reps">
@@ -59,7 +59,9 @@ const CreateSetForm = (onSubmit: {
           <option value="5">&#10877;5</option>
         </select>
       </div>
-      <button>+ Add Set</button>
+      <div className="create-set-form-buttons">
+        <button>+ Add Set</button>
+      </div>
     </form>
   );
 };

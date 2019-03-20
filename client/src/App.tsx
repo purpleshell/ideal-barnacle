@@ -1,8 +1,6 @@
 import ApolloClient from "apollo-boost";
 import React, { Component } from "react";
 import { ApolloProvider } from "react-apollo";
-import CreateExerciseForm from "./components/CreateExerciseForm";
-import ExerciseList from "./components/ExerciseList";
 import Sets from "./components/Sets";
 
 const client = new ApolloClient({
@@ -19,8 +17,8 @@ class App extends Component {
         <header className="App-header">
           <ApolloProvider client={client}>
             <Sets />
-            <CreateExerciseForm />
-            <ExerciseList />
+            {/* <CreateExerciseForm />
+            <ExerciseList /> */}
           </ApolloProvider>
         </header>
       </div>
