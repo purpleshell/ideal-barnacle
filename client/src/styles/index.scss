@@ -17,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #252a34;
+  background: linear-gradient(180deg, #242932 0%, #12141a 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -58,7 +58,7 @@ code {
 }
 
 .working-sets {
-  color: #777;
+  color: #a7bbe2;
   margin: 0 0 60px 0;
   text-align: left;
   display: grid;
@@ -120,7 +120,7 @@ code {
 
 .working-sets .unit {
   font-variant-caps: unicase;
-  color: #555;
+  color: #545f75;
   font-size: 0.8em;
 }
 
@@ -146,7 +146,7 @@ form {
 }
 
 .field-label {
-  color: goldenrod;
+  color: #a7bbe2;
   display: block;
   font-size: 0.4em;
   font-family: "Open Sans";
@@ -155,16 +155,27 @@ form {
 }
 
 input {
-  background-color: #252a34;
+  background-color: #252a3400;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: solid #bbb 1px;
-  color: #bbb;
+  border-bottom: solid #545f75 1px;
+  color: #545f75;
   font-size: 1em;
   font-family: "Open Sans";
   text-align: center;
   width: 40px;
+}
+
+input:focus {
+  // background-color: #356cda;
+  outline: none;
+  border: none;
+  border-bottom: solid #6397ff 1px;
+}
+
+input::placeholder {
+  color: #303643;
 }
 
 #weight {
@@ -176,9 +187,9 @@ input {
 }
 
 select {
-  background-color: #252a34;
+  background-color: #252a3400;
   border: none;
-  color: #bbb;
+  color: #545f75;
   font-size: 1em;
   font-family: "Open Sans";
 }
@@ -189,9 +200,10 @@ select {
 }
 
 button {
-  background-color: dodgerblue;
+  background: linear-gradient(180deg, #6397ff 0%, #356cda 100%);
+  box-shadow: 0px 1px 8px #356cda;
+  border-radius: 5px;
   border: none;
-  border-radius: 3px;
   color: #252a34;
   cursor: pointer;
   /* font-size: 0.6em; */
