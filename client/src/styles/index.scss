@@ -59,7 +59,7 @@ code {
 
 .working-sets {
   color: #a7bbe2;
-  margin: 0 0 60px 0;
+  margin: 24px 0 60px 0;
   text-align: left;
   display: grid;
   grid-template-rows: auto-flow;
@@ -103,12 +103,12 @@ code {
 }
 .edit-icon {
   grid-column: 5;
-  color: limegreen;
+  color: #545f75;
   margin-left: 10px;
 }
 .delete-icon {
   grid-column: 5;
-  color: orangered;
+  color: #545f75;
   margin-left: 10px;
 }
 /* End Grid Items */
@@ -122,6 +122,7 @@ code {
   font-variant-caps: unicase;
   color: #545f75;
   font-size: 0.8em;
+  margin-left: 5px;
 }
 
 .working-sets .separator {
@@ -196,7 +197,8 @@ select {
 }
 
 .create-set-form-buttons {
-  margin-top: 20px;
+  display: flex;
+  margin-top: 32px;
 }
 
 button {
@@ -214,6 +216,10 @@ button {
   width: 192px;
   height: 48px;
   top: 0;
+}
+
+svg {
+  margin: 8px 0px 0px 40px;
 }
 
 .exercise-input {
