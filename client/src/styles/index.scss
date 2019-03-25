@@ -146,6 +146,14 @@ form {
   margin-right: 50px;
 }
 
+.field:last-child {
+  margin: 0;
+}
+
+.rpe-field {
+  margin: 0;
+}
+
 .field-label {
   color: #a7bbe2;
   display: block;
@@ -165,7 +173,7 @@ input {
   font-size: 1em;
   font-family: "Open Sans";
   text-align: center;
-  width: 100px;
+  width: 89px;
 }
 
 input:focus {
