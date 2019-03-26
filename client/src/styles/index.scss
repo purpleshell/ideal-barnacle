@@ -83,6 +83,14 @@ a {
   margin-bottom: 50px;
 }
 
+.add-timer:hover path {
+  fill: $green-3;
+}
+
+.add-note:hover path {
+  fill: gold;
+}
+
 .working-sets {
   color: #a7bbe2;
   margin: 24px 0 60px 0;

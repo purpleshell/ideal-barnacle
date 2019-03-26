@@ -62,6 +62,7 @@ const CreateSetForm = (onSubmit: {
       <div className="create-set-form-buttons">
         <button>+ Add Set</button>
         <svg
+          className="pointer add-timer"
           width="32"
           height="38"
           viewBox="0 0 32 38"
@@ -112,6 +113,7 @@ const CreateSetForm = (onSubmit: {
         </svg>
 
         <svg
+          className="pointer add-note"
           width="32"
           height="38"
           viewBox="0 0 32 38"
