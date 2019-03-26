@@ -50,14 +50,7 @@ const CreateSetForm = (onSubmit: {
         <label className="field-label" htmlFor="rpe">
           RPE:
         </label>
-        <select name="rpe" id="rpe" {...rpe}>
-          <option value="10">10</option>
-          <option value="9">9</option>
-          <option value="8">8</option>
-          <option value="7">7</option>
-          <option value="6">6</option>
-          <option value="5">&#10877;5</option>
-        </select>
+        <input type="text" id="rpe" {...rpe} />
       </div>
       <div className="create-set-form-buttons">
         <button>+ Add Set</button>

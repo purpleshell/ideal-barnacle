@@ -1,7 +1,7 @@
-//
-// TODO: Swap hardcoded colors for sass vars
-// TODO: ORGANIZE ME PLEASE
-//
+/*
+ TODO: Swap hardcoded colors for sass vars
+ TODO: ORGANIZE ME PLEASE
+*/
 
 @import "_colors.scss";
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
@@ -15,6 +15,7 @@ html {
   text-align: center;
 }
 
+// Currently unused
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -30,10 +31,12 @@ html {
   padding: 40px;
 }
 
+// Currently unused
 .App-link {
   color: #61dafb;
 }
 
+// Currently unused
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -180,10 +183,6 @@ form {
   margin-right: 50px;
 }
 
-.field:last-child {
-  margin: 0;
-}
-
 .rpe-field {
   margin: 0;
 }
@@ -225,6 +224,7 @@ input::placeholder {
   margin-right: 5px;
 }
 
+// Currently unused
 select {
   background-color: #252a3400;
   border: none;
@@ -234,15 +234,10 @@ select {
   text-align-last: center;
 }
 
+// Currently unused
 select:focus,
 select:active {
   border: none;
-}
-
-#rpe {
-  /* text-indent: 10px;*/
-  margin-left: -2px;
-  text-align: right;
 }
 
 .create-set-form-buttons {
@@ -257,9 +252,7 @@ button {
   border: none;
   color: #252a34;
   cursor: pointer;
-  /* font-size: 0.6em; */
   font-family: "Open Sans";
-  /* margin-left: 30px; */
   padding: 7px 15px;
   position: relative;
   width: 192px;
