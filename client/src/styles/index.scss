@@ -197,11 +197,18 @@ select {
   color: #545f75;
   font-size: 1em;
   font-family: "Open Sans";
+  text-align-last: center;
+}
+
+select:focus,
+select:active {
+  border: none;
 }
 
 #rpe {
   /* text-indent: 10px;*/
   margin-left: -2px;
+  text-align: right;
 }
 
 .create-set-form-buttons {
