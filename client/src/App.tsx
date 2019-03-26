@@ -16,22 +16,37 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <ApolloProvider client={client}>
-            <nav className="hidden">
-              <ul className="li">
-                <a href="/">Home</a>
-              </ul>
-              <ul className="li">
-                <a href="/exercises">Exercises</a>
-              </ul>
-              <ul className="li">
-                <a href="/workouts">Workouts</a>
-              </ul>
-              <ul className="li">
-                <a href="/profile">Profile</a>
-              </ul>
-              <ul className="li">
-                <a href="/graphs">Graphs</a>
-              </ul>
+            <nav>
+              <a href="/exercises">
+                <div className="parent-screen-link">
+                  {"<- Back to Exercises"}
+                </div>
+              </a>
+              <a href="/date-picker">
+                <div className="exercise-page-workout-date">{"Feb 14"}</div>
+              </a>
+              <a href="/exercise-picker">
+                <div className="exercise-page-name exercise-name">
+                  Bench Press
+                </div>
+              </a>
+              <div className="menu hidden">
+                <ul className="li">
+                  <a href="/">Home</a>
+                </ul>
+                <ul className="li">
+                  <a href="/exercises">Exercises</a>
+                </ul>
+                <ul className="li">
+                  <a href="/workouts">Workouts</a>
+                </ul>
+                <ul className="li">
+                  <a href="/profile">Profile</a>
+                </ul>
+                <ul className="li">
+                  <a href="/graphs">Graphs</a>
+                </ul>
+              </div>
             </nav>
             <Sets />
             {/* <CreateExerciseForm />

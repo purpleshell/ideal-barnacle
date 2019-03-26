@@ -7,6 +7,10 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Space+Mono|Oswald|Playfair+Display|Nunito:300|Lora|Nunito+Sans|Poppins:400,500,600,700|ZCOOL+XiaoWei");
 
+html {
+  background: linear-gradient(180deg, #242932 0%, #12141a 100%);
+}
+
 .App {
   text-align: center;
 }
@@ -17,7 +21,6 @@
 }
 
 .App-header {
-  background: linear-gradient(180deg, #242932 0%, #12141a 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -55,6 +58,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+.parent-screen-link {
+  font-size: 0.9rem;
+  text-align: left;
+  color: #545f75;
+}
+
+.exercise-page-workout-date {
+  font-size: 1.1rem;
+  text-align: left;
+  margin-top: 50px;
+  color: #a7bbe2;
+}
+
+.exercise-page-name {
+  font-size: 2.2rem;
+  text-align: left;
+  margin-bottom: 50px;
 }
 
 .working-sets {
