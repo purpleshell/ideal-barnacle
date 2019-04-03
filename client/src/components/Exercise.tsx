@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Mutation } from "react-apollo";
+import { Link } from "react-router-dom";
 import { useInput } from "./Hooks";
 import { DELETE_EXERCISE, READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 
@@ -69,7 +70,9 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
     </Mutation>
   ) : (
     <div>
-      <span className="exercise-name">{exerciseName}</span>
+      <Link to={`/exercise/${exerciseName}`} className="exercise-name">
+        {exerciseName}
+      </Link>
       {targetMuscles}
       <span className="working-set-icons">
         <i

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CreateSetForm from "./CreateSetForm";
 
-function Sets() {
+const Sets = () => {
   type WorkingSet = {
     weight: string;
     systemOfMeasurement: string;
@@ -72,6 +72,6 @@ function Sets() {
     );
 
   return markup;
-}
+};
 
 export default Sets;
