@@ -7,19 +7,19 @@ import { DELETE_EXERCISE, READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 // BUG: After updating a record on the dev server the ui does
 // not reflect the changes consistently.
 const Exercise = ({ exerciseName, targetMuscles }: any) => {
-  const [updating, setUpdating] = useState(false);
+  const [isUserUpdatingThisEntity, setIsUserUpdatingThisEntity] = useState(
+    false
+  );
   const updateExerciseNameInput = useInput(exerciseName);
   const updateTargetMusclesInput = useInput(targetMuscles);
 
-  const markup = updating ? (
+  const markup = isUserUpdatingThisEntity ? (
     <Mutation
       mutation={UPDATE_EXERCISE}
       refetchQueries={[{ query: READ_ALL_EXERCISES }]}
       onCompleted={() => {
         // attempted bugfix using setState to re-render
-        // exerciseName = updateExerciseNameInput.value;
-        // targetMuscles = updateTargetMusclesInput.value;
-        setUpdating(false);
+        setIsUserUpdatingThisEntity(false);
       }}
     >
       {(updateExercise, { error }) => (
@@ -58,7 +58,7 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
           <button type="submit">+ Update Exercise</button>
           <button
             onClick={() => {
-              setUpdating(false);
+              setIsUserUpdatingThisEntity(false);
             }}
           >
             Cancel
@@ -79,7 +79,7 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
           className="fas fa-edit edit-icon pointer"
           onClick={() => {
             // TODO: may be worth optimizing for stateful visibility
-            setUpdating(true);
+            setIsUserUpdatingThisEntity(true);
           }}
         />
         <Mutation
