@@ -63,6 +63,7 @@ code {
     monospace;
 }
 
+// ** Navigation ** //
 .parent-screen-link {
   font-size: 0.9rem;
   text-align: left;
@@ -84,6 +85,39 @@ code {
 .menu-toggle:hover path {
   fill: #a7bbe2;
 }
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: #24293277;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
+.menu {
+  width: 32vw;
+  height: 100vh;
+  background-color: #7d8cac;
+  padding: 40px;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+}
+
+.menu ul {
+  list-style: none;
+  text-align: left;
+}
+// ** End Navigation ** //
+
+// ** Pages ** //
+.page-title {
+  margin: 0 0 48px 0;
+}
+// ** End Pages ** //
 
 // ** Exercises Page ** //
 .exercise-input {
