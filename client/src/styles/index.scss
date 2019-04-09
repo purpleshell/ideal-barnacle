@@ -9,6 +9,7 @@
 
 html {
   background: linear-gradient(180deg, #242932 0%, #12141a 100%);
+  font-size: 10px; // allows rems to be 1:10 ratio
 }
 
 .App {
@@ -52,7 +53,7 @@ body {
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
-  font-size: 24px;
+  font-size: 2.4rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
@@ -65,7 +66,7 @@ code {
 
 // ** Navigation ** //
 .parent-screen-link {
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   text-align: left;
   color: #545f75;
   display: inline;
@@ -77,7 +78,7 @@ code {
 }
 
 .menu-toggle {
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   height: 14px;
   cursor: pointer;
 }
@@ -89,7 +90,7 @@ code {
 .backdrop {
   width: 100vw;
   height: 100vh;
-  background-color: #24293277;
+  background-color: rgba(0, 0, 0, 0.4); //#242932bb;
   position: fixed;
   z-index: 100;
   top: 0;
@@ -97,19 +98,29 @@ code {
 }
 
 .menu {
-  width: 32vw;
+  width: 18rem;
   height: 100vh;
-  background-color: #7d8cac;
-  padding: 40px;
-  position: fixed;
+  background-color: $blue-gray-8;
+  // padding: 40px;
+  position: absolute;
   z-index: 200;
   top: 0;
   left: 0;
+  transform: translateX(-18rem);
+  transition: transform 650ms;
+}
+
+.menu.open {
+  transform: translateX(0rem);
 }
 
 .menu ul {
   list-style: none;
   text-align: left;
+}
+
+.menu ul li a {
+  color: #7d8cac;
 }
 // ** End Navigation ** //
 
@@ -142,13 +153,13 @@ code {
 }
 
 .exercise-page-workout-date {
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   text-align: left;
   color: #a7bbe2;
 }
 
 .exercise-page-name {
-  font-size: 2.2rem;
+  font-size: 3.6rem;
   text-align: left;
   margin-bottom: 50px;
 }

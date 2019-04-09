@@ -21,7 +21,9 @@ class App extends Component {
         <header className="App-header">
           <ApolloProvider client={client}>
             <Router>
-              <MobileNav />
+              <header>
+                <MobileNav />
+              </header>
               <Route path="/" exact component={LandingPage} />
               <Route exact path="/exercises/" component={ExercisesPage} />
               <Route path="/exercise/:id" component={ExercisePage} />

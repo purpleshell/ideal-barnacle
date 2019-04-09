@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // conditional rendering pattern. If deemed significant, both conventions
 // should be tested against each other for the purpose of optimization.
 const MobileNav = () => {
-  const [menuHidden, setMenuHidden] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
@@ -23,7 +23,7 @@ const MobileNav = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             onClick={() => {
-              setMenuHidden(!menuHidden);
+              setMenuOpen(!menuOpen);
             }}
           >
             <path
@@ -34,12 +34,12 @@ const MobileNav = () => {
         </div>
 
         <div
-          className={menuHidden ? "backdrop hidden" : "backdrop"}
+          className={!menuOpen ? "backdrop hidden" : "backdrop"}
           onClick={() => {
-            setMenuHidden(!menuHidden);
+            setMenuOpen(!menuOpen);
           }}
         />
-        <div className={menuHidden ? "menu hidden" : "menu"}>
+        <div className={!menuOpen ? "menu" : "menu open"}>
           <ul>
             <li className="li">
               <Link to="/">Home</Link>
