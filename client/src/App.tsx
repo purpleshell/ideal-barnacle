@@ -24,9 +24,11 @@ class App extends Component {
               <header>
                 <MobileNav />
               </header>
-              <Route path="/" exact component={LandingPage} />
-              <Route exact path="/exercises/" component={ExercisesPage} />
-              <Route path="/exercise/:id" component={ExercisePage} />
+              <main>
+                <Route path="/" exact component={LandingPage} />
+                <Route exact path="/exercises/" component={ExercisesPage} />
+                <Route path="/exercise/:id" component={ExercisePage} />
+              </main>
             </Router>
           </ApolloProvider>
         </header>

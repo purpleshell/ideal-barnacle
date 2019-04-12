@@ -16,6 +16,7 @@ const CreateSetForm = (onSubmit: {
 
   return (
     <form
+      className="create-set-form"
       onSubmit={e => {
         e.preventDefault();
         onSubmit.onSubmit(

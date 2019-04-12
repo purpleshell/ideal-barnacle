@@ -78,7 +78,6 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
         <i
           className="fas fa-edit edit-icon pointer"
           onClick={() => {
-            // TODO: may be worth optimizing for stateful visibility
             setIsUserUpdatingThisEntity(true);
           }}
         />

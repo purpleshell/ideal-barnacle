@@ -87,16 +87,6 @@ code {
   fill: #a7bbe2;
 }
 
-.backdrop {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4); //#242932bb;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-}
-
 .menu {
   width: 18rem;
   height: 100vh;
@@ -129,6 +119,9 @@ code {
 // ** End Navigation ** //
 
 // ** Pages ** //
+main {
+  text-align: left;
+}
 .page-title {
   margin: 0 0 48px 0;
 }
@@ -168,8 +161,7 @@ code {
   margin-bottom: 50px;
 }
 
-form {
-  position: relative;
+.create-set-form {
   margin-bottom: 48px;
 }
 
@@ -258,12 +250,9 @@ button {
   margin: 8px 0px 0px 40px;
 }
 
-.add-timer:hover path {
-  fill: $green-5;
-}
-
+.add-timer:hover path,
 .add-note:hover path {
-  fill: gold;
+  fill: #a7bbe2;
 }
 
 .working-sets {
@@ -350,6 +339,63 @@ button {
 /* End Grid Items */
 // ** End Exercise Page ** //
 
+// ** Modal ** //
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(60, 60, 65, 0.99); //#242932bb;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  display: none;
+  background-color: $blue-gray-8;
+  // padding: 40px;
+  position: absolute;
+  z-index: 200;
+  margin: auto;
+  padding: 32px;
+  border-radius: 5px;
+}
+
+.modal.open {
+  display: block;
+}
+
+.close-modal-button {
+  color: #7d8cac;
+  line-height: 16px;
+  transition: color 250ms;
+}
+.close-modal-button:hover {
+  color: #a7bbe2;
+}
+
+.modal-title {
+  line-height: 36px;
+  margin-bottom: 30px;
+}
+
+.modal .field {
+  margin: 0 0 20px 0;
+  display: block;
+  width: 100%;
+}
+
+.modal .field-label {
+  text-align: left;
+}
+
+.modal .exercise-input {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 25px;
+}
+// ** End Modal ** //
+
 // ** Utility Classes ** //
 .pointer {
   cursor: pointer;
@@ -363,7 +409,21 @@ button {
   float: right;
 }
 
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 a {
   text-decoration: none;
 }
 // ** End Utility Classes ** //
+
+// ** Text ** //
+h1,
+h2 {
+  margin: 0;
+}
+// ** End Test ** //

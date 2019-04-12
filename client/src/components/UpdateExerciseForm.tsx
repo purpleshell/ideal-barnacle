@@ -1,8 +1,9 @@
+import * as React from "react";
 import { Mutation } from "react-apollo";
 import { useInput } from "./Hooks";
 import { READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 
-const CreateExerciseForm = (props: any) => {
+const UpdateExerciseForm = (props: any) => {
   const exerciseName = useInput(props.exerciseName);
   const targetMuscles = useInput(props.targetMuscles);
 
@@ -45,4 +46,4 @@ const CreateExerciseForm = (props: any) => {
   );
 };
 
-export default CreateExerciseForm;
+export default UpdateExerciseForm;
