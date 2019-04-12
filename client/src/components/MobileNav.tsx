@@ -10,7 +10,7 @@ const MobileNav = () => {
 
   return (
     <>
-      <nav className="exercise-page-nav">
+      <nav className="page-nav">
         <div>
           <Link to="/exercises" className="parent-screen-link">
             {"<- Back to Exercises"}

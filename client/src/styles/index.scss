@@ -65,6 +65,11 @@ code {
 }
 
 // ** Navigation ** //
+.page-nav {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
 .parent-screen-link {
   font-size: 1.4rem;
   text-align: left;
@@ -123,7 +128,7 @@ main {
   text-align: left;
 }
 .page-title {
-  margin: 0 0 48px 0;
+  margin: 0 0 16px 0;
 }
 // ** End Pages ** //
 
@@ -141,13 +146,13 @@ main {
   color: $blue-3;
   margin-right: 20px;
 }
+
+.add-exercise-button {
+  margin-bottom: 40px;
+}
 // ** End Exercises Page ** //
 
 // ** Exercise Page ** //
-.exercise-page-nav {
-  width: 100%;
-  margin-bottom: 50px;
-}
 
 .exercise-page-workout-date {
   font-size: 1.8rem;

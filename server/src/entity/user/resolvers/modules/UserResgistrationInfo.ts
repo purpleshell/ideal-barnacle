@@ -1,4 +1,4 @@
-import { Length } from "class-validator";
+import { IsEmail, Length } from "class-validator";
 import { Field, InputType } from "type-graphql";
 
 @InputType()
@@ -8,6 +8,7 @@ export class UserRegistrationInfo {
   userName: string;
 
   @Field()
+  @IsEmail()
   email: string;
 
   @Field()
