@@ -11,12 +11,12 @@ const MobileNav = () => {
   return (
     <>
       <nav className="page-nav">
-        <div>
+        <div className="flex">
           <Link to="/exercises" className="parent-screen-link">
             {"<- Back to Exercises"}
           </Link>
           <svg
-            className="right menu-toggle"
+            className="menu-toggle"
             width="18"
             height="14"
             viewBox="0 0 18 14"

@@ -10,9 +10,12 @@
     "apollo-server-express": "^2.4.8",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.9.1",
+    "connect-redis": "^3.4.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-session": "^1.16.1",
     "graphql": "^14.1.1",
+    "ioredis": "^4.9.0",
     "nodemon": "^1.18.10",
     "pg": "^7.8.2",
     "reflect-metadata": "^0.1.13",
@@ -26,5 +29,11 @@
     "start": "ts-node src/index.ts",
     "start:dev": "ts-node-dev --respawn src/index.ts"
   },
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "devDependencies": {
+    "@types/connect-redis": "^0.0.9",
+    "@types/cors": "^2.8.4",
+    "@types/express-session": "^1.15.12",
+    "@types/ioredis": "^4.0.10"
+  }
 }
