@@ -1,14 +1,13 @@
-import { Resolver, Query, Mutation, Arg } from "type-graphql";
 import bcrypt from "bcryptjs";
-
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { User } from "../UserEntity";
 import { UserRegistrationInfo } from "./modules/UserResgistrationInfo";
 
 @Resolver()
-export class RegisterUserResolver {
+export class UserResolvers {
   @Query(() => [User])
   async user() {
-    return User.find();
+    return User.find({ relations: ["sets"] });
   }
 
   @Mutation(() => User)

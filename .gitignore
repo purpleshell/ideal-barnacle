@@ -13,7 +13,6 @@ build
 dist
 
 # misc
-acph
 *.org
 .vscode
 .DS_Store

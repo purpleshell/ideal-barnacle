@@ -1,0 +1,49 @@
+#!/bin/sh
+# 
+# ------------->>WARNING!!!!:<<---------------
+# The following is a poorly written script to aid me in making trivial pushes  
+# to my heroku deployment. It does this by adding all changes, commiting with
+# user inputted message & then deploying by pushing to the heroku option 
+# specified.(client or server)
+# ----->>NOT MEANT FOR EXTERNAL USE!!<<-------
+#
+# Usage:
+# acph [c|s] "COMMIT_MESSAGE"
+#
+
+PROJECT_ROOT_DIR=/home/fm/dev/web/overload
+CLIENT_DESTINATION=git@heroku.com:overload-client.git
+SERVER_DESTINATION=git@heroku.com:overload-server.git
+
+init()
+{
+    cd $PROJECT_ROOT_DIR || exit
+    git status
+    git add . 
+    git status
+    git commit -m "$2"
+    git push origin master
+}
+
+case "$1" in
+    c) 
+        echo "Running more than once"
+        init "$@"
+        git push $CLIENT_DESTINATION master
+        ;;
+    s)
+        init "$@"
+        git push $SERVER_DESTINATION master
+        ;;
+
+    cs|sc) 
+        echo "Hopefully running once"
+        init "$@"
+        git push $CLIENT_DESTINATION master
+        git push $SERVER_DESTINATION master
+        ;;
+    *)
+        echo "Invalid args"   
+        ;;
+esac
+exit 0

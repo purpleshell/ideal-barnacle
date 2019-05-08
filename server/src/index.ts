@@ -12,11 +12,13 @@ const main = async () => {
       process.env.DATABASE_URL ||
       "postgres://postgres:postgres@localhost/ideal-barnacle-test",
     entities: ["src/entity/**/*.ts"],
-    synchronize: true
+    synchronize: process.env.NODE_ENV === "development" ? true : false,
+    dropSchema: process.env.NODE_ENV === "development" ? true : false
   });
 
   const schema = await buildSchema({
-    resolvers: [__dirname + "entity/**/resolvers/*.ts"]
+    resolvers: [__dirname + "entity/**/resolvers/*.ts"],
+    emitSchemaFile: process.env.NODE_ENV === "development" ? true : false
   });
   const server = new ApolloServer({
     schema
