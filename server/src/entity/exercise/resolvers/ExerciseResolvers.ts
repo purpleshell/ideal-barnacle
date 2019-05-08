@@ -38,6 +38,7 @@ export class ExerciseResolvers {
     }
   }
 
+  // TODO - optimize frontend to only mutate the diff on form fields
   @Mutation(() => Boolean)
   async updateExercise(
     @Arg("exerciseName") exerciseName: string,

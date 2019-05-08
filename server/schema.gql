@@ -3,7 +3,7 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-"""New set data"""
+"""Create new set data"""
 input CreateSetInput {
   exerciseName: String!
   warmUp: Boolean!
@@ -30,6 +30,8 @@ type Mutation {
   deleteExercise(exerciseName: String!): Boolean!
   updateExercise(newTargetMuscles: String!, newExerciseName: String!, exerciseName: String!): Boolean!
   createSet(newSetData: CreateSetInput!): Set!
+  deleteSet(id: String!): Boolean!
+  updateSet(updateSetData: UpdateSetInput!): Boolean!
   registerUser(userRegistrationInfo: UserRegistrationInfo!): User!
 }
 
@@ -74,6 +76,17 @@ type Set {
   """
   order: Float
   user: User!
+}
+
+"""Update set data"""
+input UpdateSetInput {
+  id: String!
+  warmUp: Boolean
+  weight: Float
+  systemOfMeasurement: String
+  reps: Int
+  rpe: Float
+  order: Int
 }
 
 """The user model"""

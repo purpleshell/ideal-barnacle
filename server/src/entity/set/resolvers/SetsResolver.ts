@@ -10,7 +10,7 @@ import {
 } from "type-graphql";
 import { Set } from "../SetEntity";
 
-@InputType({ description: "New set data" })
+@InputType({ description: "Create new set data" })
 class CreateSetInput implements Partial<Set> {
   @Field() exerciseName: string;
   @Field() warmUp: boolean;
@@ -19,6 +19,17 @@ class CreateSetInput implements Partial<Set> {
   @Field(() => Int) reps: number;
   @Field() rpe: number;
   @Field(() => ID) userId: string;
+}
+
+@InputType({ description: "Update set data" })
+class UpdateSetInput implements Partial<Set> {
+  @Field() id: string;
+  @Field({ nullable: true }) warmUp?: boolean;
+  @Field({ nullable: true }) weight?: number;
+  @Field({ nullable: true }) systemOfMeasurement?: string;
+  @Field(() => Int, { nullable: true }) reps?: number;
+  @Field({ nullable: true }) rpe?: number;
+  @Field(() => Int, { nullable: true }) order?: number;
 }
 
 @Resolver()
@@ -43,40 +54,28 @@ export class SetResolvers {
     }
     return set;
   }
+
+  @Mutation(() => Boolean)
+  async deleteSet(@Arg("id") id: string): Promise<Boolean> {
+    if ((await Set.findOne({ where: { id: id } })) === undefined) {
+      return false;
+    } else {
+      await Set.delete({ id: id });
+      return true;
+    }
+  }
+
+  @Mutation(() => Boolean)
+  async updateSet(
+    @Arg("updateSetData") updateSetData: UpdateSetInput
+  ): Promise<Boolean> {
+    const { id, ...rest } = updateSetData;
+    const set = await Set.findOne({ where: { id: id } });
+    if (set != undefined) {
+      Set.update(id, rest);
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-
-//   @Mutation(() => Boolean)
-//   async deleteSet(@Arg("exerciseName") exerciseName: string) {
-//     try {
-//       await Set.delete({ exerciseName: exerciseName });
-//       return true;
-//     } catch {
-//       return false;
-//     }
-//   }
-
-//   @Mutation(() => Boolean)
-//   async updateSet(
-//     @Arg("exerciseName") exerciseName: string,
-//     @Arg("newSetName") newSetName: string,
-//     @Arg("newTargetMuscles") newTargetMuscles: string
-//   ) {
-//     try {
-//       const exercise = await Set.findOne({ exerciseName: exerciseName });
-//       if (exercise != undefined) {
-//         exercise.exerciseName = newSetName
-//           .split(" ")
-//           .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-//           .join(" ");
-//         exercise.targetMuscles = newTargetMuscles
-//           .split(" ")
-//           .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-//           .join(" ");
-//         exercise.save();
-//       }
-//       return true;
-//     } catch {
-//       return false;
-//     }
-//   }
-// }
