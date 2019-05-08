@@ -57,7 +57,8 @@ export class SetResolvers {
 
   @Mutation(() => Boolean)
   async deleteSet(@Arg("id") id: string): Promise<Boolean> {
-    if ((await Set.findOne({ where: { id: id } })) === undefined) {
+    const set = await Set.findOne({ where: { id: id } });
+    if (set === undefined) {
       return false;
     } else {
       await Set.delete({ id: id });
@@ -71,11 +72,11 @@ export class SetResolvers {
   ): Promise<Boolean> {
     const { id, ...rest } = updateSetData;
     const set = await Set.findOne({ where: { id: id } });
-    if (set != undefined) {
+    if (set === undefined) {
+      return false;
+    } else {
       Set.update(id, rest);
       return true;
-    } else {
-      return false;
     }
   }
 }
