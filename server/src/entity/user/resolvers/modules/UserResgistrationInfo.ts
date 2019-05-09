@@ -3,12 +3,12 @@ import { Field, InputType } from "type-graphql";
 
 @InputType()
 export class UserRegistrationInfo {
-  @Field()
   @Length(1, 30)
+  @Field()
   userName: string;
 
-  @Field()
   @IsEmail()
+  @Field()
   email: string;
 
   @Field()
