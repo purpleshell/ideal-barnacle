@@ -67,10 +67,11 @@ export class SetResolvers {
   }
 
   @Mutation(() => Boolean)
-  async updateSet(
-    @Arg("updateSetData") updateSetData: UpdateSetInput
-  ): Promise<Boolean> {
-    const { id, ...rest } = updateSetData;
+  async updateSet(@Arg("updateSetData")
+  {
+    id,
+    ...rest
+  }: UpdateSetInput): Promise<Boolean> {
     const set = await Set.findOne({ where: { id: id } });
     if (set === undefined) {
       return false;

@@ -13,15 +13,13 @@ export class UserResolvers {
   @Mutation(() => User)
   async registerUser(@Arg("userRegistrationInfo")
   {
-    userName,
-    email,
-    password
+    password,
+    ...rest
   }: UserRegistrationInfo): Promise<User> {
     const hashedPassword = await bcrypt.hash(password, 12);
     const user = await User.create({
-      userName,
-      email,
-      password: hashedPassword
+      password: hashedPassword,
+      ...rest
     }).save();
     return user;
   }
