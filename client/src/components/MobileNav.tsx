@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 // should be tested against each other for the purpose of optimization.
 const MobileNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const MobileNavLink = (props: any) => {
+    return (
+      <Link to={props.to} onClick={() => setMenuOpen(!menuOpen)}>
+        {props.children}
+      </Link>
+    );
+  };
 
   return (
     <>
@@ -42,19 +49,19 @@ const MobileNav = () => {
         <div className={!menuOpen ? "menu" : "menu open"}>
           <ul>
             <li className="li">
-              <Link to="/">Home</Link>
+              <MobileNavLink to="/">Home</MobileNavLink>
             </li>
             <li className="li">
-              <Link to="/exercises">Exercises</Link>
+              <MobileNavLink to="/exercises">Exercises</MobileNavLink>
             </li>
             <li className="li">
-              <Link to="/workouts">Workouts</Link>
+              <MobileNavLink to="/workouts">Workouts</MobileNavLink>
             </li>
             <li className="li">
-              <Link to="/profile">Profile</Link>
+              <MobileNavLink to="/profile">Profile</MobileNavLink>
             </li>
             <li className="li">
-              <Link to="/graphs">Graphs</Link>
+              <MobileNavLink to="/graphs">Graphs</MobileNavLink>
             </li>
           </ul>
         </div>
