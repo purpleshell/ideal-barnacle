@@ -18,7 +18,7 @@ export class User extends BaseEntity {
   // (optional?) field for greeting
   @Field({ description: "The name of the user" })
   @Column()
-  userName: string;
+  username: string;
 
   @Field({ description: "The email address used for account operations" })
   @Column({ unique: true })

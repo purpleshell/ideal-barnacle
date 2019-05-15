@@ -28,11 +28,17 @@ export class UserResolvers {
   async registerUser(@Arg("userRegistrationInfo")
   {
     password,
+    username,
     ...rest
   }: UserRegistrationInfo): Promise<User> {
     const hashedPassword = await bcrypt.hash(password, 12);
+    username = username
+      .split(" ")
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+      .join(" ");
     const user = await User.create({
       password: hashedPassword,
+      username: username,
       ...rest
     }).save();
     return user;

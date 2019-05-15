@@ -1,6 +1,5 @@
 import { ApolloServer } from "apollo-server-express";
 import connectRedis from "connect-redis";
-import cors from "cors";
 import Express from "express";
 import session from "express-session";
 import Redis from "ioredis";
@@ -30,19 +29,6 @@ const main = async () => {
 
   const app = Express();
 
-  app.use(
-    //
-    // The below cors config is working beautifully as of 2-19-19
-    //
-    cors({
-      credentials: true,
-      origin:
-        process.env.NODE_ENV === "production"
-          ? "https://overload-client.herokuapp.com"
-          : "http://localhost:3000"
-    })
-  );
-
   const RedisStore = connectRedis(session);
   const redis = new Redis();
 
@@ -64,7 +50,16 @@ const main = async () => {
     })
   );
 
-  server.applyMiddleware({ app });
+  server.applyMiddleware({
+    app,
+    cors: {
+      credentials: true,
+      origin:
+        process.env.NODE_ENV === "production"
+          ? "https://overload-client.herokuapp.com"
+          : "http://localhost:3000"
+    }
+  });
 
   const PORT = process.env.PORT || 4000;
 

@@ -39,3 +39,31 @@ export const DELETE_EXERCISE = gql`
     deleteExercise(exerciseName: $exerciseName)
   }
 `;
+
+export const REGISTER_USER = gql`
+  mutation RegisterUser($userRegistrationInfo: UserRegistrationInfo!) {
+    registerUser(userRegistrationInfo: $userRegistrationInfo) {
+      id
+      email
+    }
+  }
+`;
+
+export const LOGIN_USER = gql`
+  mutation LoginUser($email: String!, $password: String!) {
+    loginUser(email: $email, password: $password) {
+      id
+      email
+    }
+  }
+`;
+
+export const AM_I_LOGGED_IN = gql`
+  {
+    me {
+      id
+      username
+      email
+    }
+  }
+`;

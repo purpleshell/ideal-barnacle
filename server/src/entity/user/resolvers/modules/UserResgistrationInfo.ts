@@ -5,7 +5,7 @@ import { Field, InputType } from "type-graphql";
 export class UserRegistrationInfo {
   @Length(1, 30)
   @Field()
-  userName: string;
+  username: string;
 
   @IsEmail()
   @Field()

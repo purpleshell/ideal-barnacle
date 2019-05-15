@@ -1,0 +1,168 @@
+// * Site * //
+.site,
+.site-background-blur {
+  width: calc(100%);
+  height: 100vh;
+  color: white;
+}
+
+.site {
+  background-image: url(../images/alora-griffiths-781422-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+$bg-blur-opacity: 0.75;
+
+.site-background-blur {
+  background-image: linear-gradient(
+    135deg,
+    rgba(35, 20, 55, $bg-blur-opacity) 0%,
+    rgba(44, 56, 94, $bg-blur-opacity) 50%,
+    rgba(51, 110, 107, $bg-blur-opacity) 100%
+  );
+}
+
+.container {
+  display: grid;
+  padding: 0px 40px;
+  grid-template-rows: 80px auto 65px;
+  grid-template-columns: auto;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: $logo-font-size;
+}
+
+.primary {
+  color: $primary-color;
+}
+
+nav {
+  margin-left: auto;
+  font-size: 2em;
+}
+
+.link {
+  color: white;
+}
+
+.site-nav-link {
+  transition: $color-transition;
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+main {
+  align-self: center;
+  justify-self: center;
+}
+
+.site-heading,
+.app-details-preview,
+h3,
+h4 {
+  text-align: center;
+  font-weight: 100;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.app-details-preview,
+h3,
+h4 {
+  font-family: "Montserrat";
+}
+
+.site-heading {
+  font-size: $title-1-font-size;
+  margin-bottom: 2rem;
+  font-weight: 200;
+}
+.app-details-preview {
+  font-size: $title-2-font-size;
+  font-weight: 100;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
+}
+h3 {
+  font-size: $title-3-font-size;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+h4 {
+  font-size: $subtext-font-size;
+}
+
+.cta-btn {
+  background: none;
+  background-color: $primary-color;
+  border-radius: 0;
+  box-shadow: none;
+  color: white;
+  display: block;
+  margin: 4.8rem auto 1rem auto;
+  width: 24rem;
+}
+
+.learn-more-link {
+  display: flex;
+  font-size: $title-3-font-size;
+  align-items: center;
+  justify-content: center;
+  margin: 10rem auto 0 auto;
+  text-shadow: 1px 1px 1px #000;
+  width: 20rem;
+  .icon-wrapper {
+    border: 1px solid white;
+    border-radius: 16px;
+    display: grid;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-left: 16px;
+  }
+  svg {
+    place-self: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    path {
+      fill: white;
+      transition: $fill-transition;
+    }
+  }
+  &:hover {
+    svg path {
+      fill: white;
+    }
+  }
+}
+
+footer {
+  align-self: center;
+  justify-self: end;
+}
+
+.photo-cred {
+  opacity: 0.05;
+  transition: opacity 0.5s ease;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-details-preview {
+    max-width: none;
+  }
+}
+
+// * End Site * //

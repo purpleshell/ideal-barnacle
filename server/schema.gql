@@ -33,12 +33,14 @@ type Mutation {
   deleteSet(id: String!): Boolean!
   updateSet(updateSetData: UpdateSetInput!): Boolean!
   registerUser(userRegistrationInfo: UserRegistrationInfo!): User!
+  loginUser(password: String!, email: String!): User
 }
 
 type Query {
   exercise: [Exercise!]!
   set: [Set!]!
   user: [User!]!
+  me: User
 }
 
 type Set {
@@ -94,7 +96,7 @@ type User {
   id: ID!
 
   """The name of the user"""
-  userName: String!
+  username: String!
 
   """The email address used for account operations"""
   email: String!
@@ -104,7 +106,7 @@ type User {
 }
 
 input UserRegistrationInfo {
-  userName: String!
+  username: String!
   email: String!
   password: String!
 }

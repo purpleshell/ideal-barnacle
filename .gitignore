@@ -12,6 +12,9 @@ node_modules
 build
 dist
 
+# dev
+server/schema.gql
+
 # misc
 *.org
 .vscode
