@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LoginUserModal from "../components/LoginUserModal";
 
 const LandingPage = () => {
+  const [showLoginUserModal, setShowLoginUserModal] = useState(true);
+
   return (
     <div className="site">
       <div className="site-background-blur">
@@ -11,9 +14,23 @@ const LandingPage = () => {
               <span className="primary">OVER</span>LOAD
             </div>
             <nav>
-              <Link className="site-nav-link link" to="/login">
+              <div
+                onClick={() => {
+                  setShowLoginUserModal(!showLoginUserModal);
+                }}
+                className="site-nav-link link"
+              >
                 LOG IN
-              </Link>
+              </div>
+              {showLoginUserModal ? (
+                <LoginUserModal
+                  onClick={() =>
+                    setShowLoginUserModal(
+                      showLoginUserModal => !showLoginUserModal
+                    )
+                  }
+                />
+              ) : null}
             </nav>
           </header>
           <main>
@@ -23,7 +40,14 @@ const LandingPage = () => {
               suggestions for your individual data.
             </h2>
             <h3>Plans starting at $1.99/month.</h3>
-            <button className="cta-btn">START YOUR FREE TRIAL</button>
+            <button
+              className="cta-btn"
+              onClick={() => {
+                setShowLoginUserModal(true);
+              }}
+            >
+              START YOUR FREE TRIAL
+            </button>
             <h4>Free trial available for new subscribers only.</h4>
             <Link className="learn-more-link link" to="/learn-more">
               Learn More

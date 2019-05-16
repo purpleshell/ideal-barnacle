@@ -1,0 +1,87 @@
+// ** Modal ** //
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(60, 60, 65, 0.5); //#242932bb;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  display: none;
+  background-color: #111;
+  // padding: 40px;
+  position: absolute;
+  z-index: 200;
+  margin: auto;
+  padding: 20px;
+  //   border-radius: 5px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-content {
+  padding: 0.8rem 2.4rem 2.4rem 2.4rem;
+}
+
+.modal.open {
+  display: block;
+}
+
+.close-modal-button {
+  //   margin-left: auto;
+  fill: #7d8cac;
+  height: 24px;
+  transition: $fill-transition;
+}
+.close-modal-button:hover {
+  fill: #a7bbe2;
+}
+
+.modal-title {
+  line-height: 36px;
+  margin-bottom: 30px;
+}
+
+.modal .field {
+  margin: 0 0 0.8rem 0;
+  display: block;
+  width: 100%;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.modal .field-label {
+  text-align: left;
+  font-size: 1.6rem;
+  margin-top: 2.4rem;
+  margin-bottom: 0;
+}
+
+.modal .exercise-input {
+  width: 100%;
+  text-align: left;
+  //   margin-bottom: 25px;
+}
+
+.modal h4 {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 3.2rem;
+  &:last-child {
+    margin-top: 0.8rem;
+    margin-bottom: 0;
+  }
+}
+
+.modal button {
+  border-radius: none;
+  width: 100%;
+}
+// ** End Modal ** //

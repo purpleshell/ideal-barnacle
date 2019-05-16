@@ -9,6 +9,7 @@
 @import "_colors";
 @import "_typography";
 @import "_site";
+@import "_modal";
 
 .app {
   background: linear-gradient(180deg, #242932 0%, #12141a 100%);
@@ -318,63 +319,6 @@ button {
 }
 /* End Grid Items */
 // ** End Exercise Page ** //
-
-// ** Modal ** //
-.backdrop {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(60, 60, 65, 0.99); //#242932bb;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-}
-
-.modal {
-  display: none;
-  background-color: $blue-gray-8;
-  // padding: 40px;
-  position: absolute;
-  z-index: 200;
-  margin: auto;
-  padding: 32px;
-  border-radius: 5px;
-}
-
-.modal.open {
-  display: block;
-}
-
-.close-modal-button {
-  color: #7d8cac;
-  line-height: 16px;
-  transition: color 250ms;
-}
-.close-modal-button:hover {
-  color: #a7bbe2;
-}
-
-.modal-title {
-  line-height: 36px;
-  margin-bottom: 30px;
-}
-
-.modal .field {
-  margin: 0 0 20px 0;
-  display: block;
-  width: 100%;
-}
-
-.modal .field-label {
-  text-align: left;
-}
-
-.modal .exercise-input {
-  width: 100%;
-  text-align: left;
-  margin-bottom: 25px;
-}
-// ** End Modal ** //
 
 // ** Utility Classes ** //
 .pointer {

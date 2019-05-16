@@ -31,11 +31,17 @@ const LoginUserForm = () => {
               setPasswordField("");
             }}
           >
+            <h1>Log in to Overload</h1>
             <div className="field">
               <label className="field-label" htmlFor="exercise-name">
                 Email:
               </label>
-              <input type="text" className="exercise-input" {...emailField} />
+              <input
+                type="text"
+                className="exercise-input"
+                placeholder="Enter email"
+                {...emailField}
+              />
             </div>
             <div className="field">
               <label className="field-label" htmlFor="target-muscles">
@@ -44,10 +50,15 @@ const LoginUserForm = () => {
               <input
                 type="text"
                 className="exercise-input"
+                placeholder="Enter password"
                 {...passwordField}
               />
             </div>
+            <h4>Forgot your password?</h4>
             <button type="submit">Login</button>
+            <h4 className="subtext">
+              Don't have an account? Start your free trial.
+            </h4>
             {/* // TODO: implement elegant user facing error messages */}
             {error ? (
               <div className="error-message">{error.message}</div>
