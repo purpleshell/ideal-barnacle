@@ -6,7 +6,6 @@ import Redis from "ioredis";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
-import cors = require("cors");
 
 const main = async () => {
   await createConnection({
@@ -29,16 +28,6 @@ const main = async () => {
   });
 
   const app = Express();
-
-  app.use(
-    cors({
-      credentials: true,
-      origin:
-        process.env.NODE_ENV === "production"
-          ? "https://overload-client.herokuapp.com"
-          : "http://localhost:3000"
-    })
-  );
 
   const RedisStore = connectRedis(session);
   const redis = new Redis();
