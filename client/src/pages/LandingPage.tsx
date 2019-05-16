@@ -12,7 +12,7 @@ const LandingPage = () => {
             </div>
             <nav>
               <Link className="site-nav-link link" to="/login">
-                LOGIN
+                LOG IN
               </Link>
             </nav>
           </header>
