@@ -4,11 +4,9 @@ import { useInputWithReset } from "./Hooks";
 import { AM_I_LOGGED_IN, LOGIN_USER } from "./Schema";
 
 const LoginUserForm = () => {
-  const { setValue: setEmailField, ...emailField } = useInputWithReset(
-    "sue@sue.me"
-  );
+  const { setValue: setEmailField, ...emailField } = useInputWithReset("");
   const { setValue: setPasswordField, ...passwordField } = useInputWithReset(
-    "sue"
+    ""
   );
 
   return (
