@@ -33,11 +33,5 @@
     "start": "ts-node src/index.ts",
     "start:dev": "ts-node-dev --respawn src/index.ts"
   },
-  "heroku-run-build-script": true,
-  "devDependencies": {
-    "@types/connect-redis": "^0.0.9",
-    "@types/cors": "^2.8.4",
-    "@types/express-session": "^1.15.12",
-    "@types/ioredis": "^4.0.10"
-  }
+  "heroku-run-build-script": true
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import LoginUserModal from "../components/LoginUserModal";
 
 const LandingPage = () => {
-  const [showLoginUserModal, setShowLoginUserModal] = useState(true);
+  const [showLoginUserModal, setShowLoginUserModal] = useState(false);
 
   return (
     <div className="site">

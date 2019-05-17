@@ -1,0 +1,25 @@
+body {
+  overflow: hidden;
+}
+
+.app {
+  background: linear-gradient(180deg, #242932 0%, #12141a 100%);
+  text-align: center;
+  padding: 40px;
+  width: calc(100%);
+  min-height: 100vh;
+  color: white;
+}
+
+header {
+  width: 100%;
+}
+
+// ** Pages ** //
+main {
+  text-align: left;
+}
+.page-title {
+  margin: 0 0 16px 0;
+}
+// ** End Pages ** //
