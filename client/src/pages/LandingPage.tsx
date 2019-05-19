@@ -47,7 +47,7 @@ const LandingPage = () => {
               suggestions for your individual data.
             </h2>
             <h3>Plans starting at $3.99/month.</h3>
-            <button className="cta-btn" onClick={toggleLoginModal}>
+            <button className="cta-btn" onClick={toggleRegisterModal}>
               START YOUR FREE TRIAL
             </button>
             <h4>Free trial available for new subscribers only.</h4>

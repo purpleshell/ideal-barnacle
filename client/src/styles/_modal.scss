@@ -36,9 +36,9 @@
   fill: #7d8cac;
   height: 24px;
   transition: $fill-transition;
-}
-.close-modal-button:hover {
-  fill: #a7bbe2;
+  &:hover {
+    fill: #a7bbe2;
+  }
 }
 
 .modal-title {
