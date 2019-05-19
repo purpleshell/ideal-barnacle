@@ -41,10 +41,6 @@ header {
   font-size: $logo-font-size;
 }
 
-.primary {
-  color: $primary-color;
-}
-
 nav {
   margin-left: auto;
   font-size: 2em;
@@ -57,7 +53,7 @@ nav {
 .site-nav-link {
   transition: $color-transition;
   &:hover {
-    color: $primary-color;
+    color: $primary-color-dark;
   }
 }
 
@@ -107,7 +103,7 @@ h4 {
 
 .cta-btn {
   background: none;
-  background-color: $primary-color;
+  background-color: $primary-color-dark;
   border-radius: 0;
   box-shadow: none;
   color: white;

@@ -1,4 +1,12 @@
 // ** Utility Classes ** //
+.primary {
+  color: $primary-color;
+}
+
+.primary-dark {
+  color: $primary-color-dark;
+}
+
 .pointer {
   cursor: pointer;
 }

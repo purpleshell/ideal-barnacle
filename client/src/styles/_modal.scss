@@ -20,7 +20,7 @@
 
 .modal-header {
   display: flex;
-  justify-content: flex-end;
+  // justify-content: flex-end;
 }
 
 .modal-content {
@@ -32,7 +32,7 @@
 }
 
 .close-modal-button {
-  //   margin-left: auto;
+  margin-left: auto;
   fill: #7d8cac;
   height: 24px;
   transition: $fill-transition;
@@ -42,44 +42,46 @@
 }
 
 .modal-title {
-  line-height: 36px;
-  margin-bottom: 30px;
+  margin-bottom: 4rem;
+}
+
+.modal .fields {
+  margin-bottom: 4.8rem;
 }
 
 .modal .field {
-  margin: 0 0 0.8rem 0;
+  margin: 0 0 1.6rem 0;
   display: block;
   width: 100%;
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .modal .field-label {
   text-align: left;
   font-size: 1.6rem;
-  margin-top: 2.4rem;
   margin-bottom: 0;
 }
 
-.modal .exercise-input {
+.modal .field-input {
   width: 100%;
+  color: white;
   text-align: left;
   //   margin-bottom: 25px;
 }
 
 .modal h4 {
   text-align: left;
-  margin-top: 0;
-  margin-bottom: 3.2rem;
-  &:last-child {
-    margin-top: 0.8rem;
-    margin-bottom: 0;
-  }
+}
+
+.fields .input-subtext {
+  font-size: 1.4rem;
 }
 
 .modal button {
   border-radius: none;
   width: 100%;
+}
+
+.modal .subtext {
+  margin-top: 0.8rem;
 }
 // ** End Modal ** //

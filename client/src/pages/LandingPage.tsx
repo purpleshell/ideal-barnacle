@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import LoginUserModal from "../components/LoginUserModal";
+import LoginUserModal from "../components/modals/LoginUserModal";
+import RegisterUserModal from "../components/modals/RegisterUserModal";
 
 const LandingPage = () => {
   const [showLoginUserModal, setShowLoginUserModal] = useState(false);
+  const [showRegisterUserModal, setShowRegisterUserModal] = useState(false);
+
+  const toggleLoginModal = () => {
+      setShowLoginUserModal(showLoginUserModal => !showLoginUserModal);
+    },
+    toggleRegisterModal = () => {
+      setShowRegisterUserModal(showRegisterUserModal => !showRegisterUserModal);
+    };
 
   return (
     <div className="site">
@@ -11,25 +20,23 @@ const LandingPage = () => {
         <div className="container">
           <header>
             <div className="logo">
-              <span className="primary">OVER</span>LOAD
+              <span className="primary-dark">OVER</span>LOAD
             </div>
             <nav>
               <div
-                onClick={() => {
-                  setShowLoginUserModal(!showLoginUserModal);
-                }}
-                className="site-nav-link link"
+                onClick={toggleLoginModal}
+                className="site-nav-link link pointer"
               >
                 LOG IN
               </div>
               {showLoginUserModal ? (
                 <LoginUserModal
-                  onClick={() =>
-                    setShowLoginUserModal(
-                      showLoginUserModal => !showLoginUserModal
-                    )
-                  }
+                  toggleLoginModal={toggleLoginModal}
+                  toggleRegisterModal={toggleRegisterModal}
                 />
+              ) : null}
+              {showRegisterUserModal ? (
+                <RegisterUserModal toggleRegisterModal={toggleRegisterModal} />
               ) : null}
             </nav>
           </header>
@@ -39,13 +46,8 @@ const LandingPage = () => {
               Record your training. View tailor made logs, graphs, diagrams and
               suggestions for your individual data.
             </h2>
-            <h3>Plans starting at $1.99/month.</h3>
-            <button
-              className="cta-btn"
-              onClick={() => {
-                setShowLoginUserModal(true);
-              }}
-            >
+            <h3>Plans starting at $3.99/month.</h3>
+            <button className="cta-btn" onClick={toggleLoginModal}>
               START YOUR FREE TRIAL
             </button>
             <h4>Free trial available for new subscribers only.</h4>
