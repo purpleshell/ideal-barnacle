@@ -27,7 +27,6 @@ init()
 
 case "$1" in
     c) 
-        echo "Running more than once"
         init "$@"
         git push $CLIENT_DESTINATION master
         ;;
@@ -37,7 +36,6 @@ case "$1" in
         ;;
 
     cs|sc) 
-        echo "Hopefully running once"
         init "$@"
         git push $CLIENT_DESTINATION master
         git push $SERVER_DESTINATION master
