@@ -32,22 +32,30 @@ const LoginUserForm = () => {
             <div className="fields">
               <div className="field">
                 <label className="field-label" htmlFor="exercise-name">
-                  Email:
+                  EMAIL
                 </label>
                 <input
                   type="text"
-                  className="field-input"
+                  className={
+                    emailField.value.length > 0
+                      ? "field-input dirty"
+                      : "field-input"
+                  }
                   placeholder="Enter email"
                   {...emailField}
                 />
               </div>
               <div className="field">
                 <label className="field-label" htmlFor="target-muscles">
-                  Password:
+                  PASSWORD
                 </label>
                 <input
                   type="password"
-                  className="field-input"
+                  className={
+                    passwordField.value.length > 0
+                      ? "field-input dirty"
+                      : "field-input"
+                  }
                   placeholder="Enter password"
                   {...passwordField}
                 />

@@ -15,6 +15,7 @@
   position: absolute;
   z-index: 200;
   margin: auto;
+  min-width: 32rem;
   padding: 20px;
 }
 
@@ -24,7 +25,8 @@
 }
 
 .modal-content {
-  padding: 0.8rem 2.4rem 2.4rem 2.4rem;
+  min-width: 22.5rem;
+  margin: 1.6rem 3.2rem 2.4rem 3.2rem;
 }
 
 .modal.open {
@@ -34,7 +36,7 @@
 .close-modal-button {
   margin-left: auto;
   fill: #7d8cac;
-  height: 24px;
+  height: 2.2rem;
   transition: $fill-transition;
   &:hover {
     fill: #a7bbe2;
@@ -50,21 +52,39 @@
 }
 
 .modal .field {
-  margin: 0 0 1.6rem 0;
+  margin: 0 0 2.4rem 0;
   display: block;
   width: 100%;
 }
 
 .modal .field-label {
   text-align: left;
-  font-size: 1.6rem;
-  margin-bottom: 0;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
 }
 
 .modal .field-input {
+  background-color: #171717;
+  border: 0.1rem solid #252932;
+  &.dirty {
+    background-color: #111;
+    border-color: #111;
+    padding-left: 0;
+  }
+  // border-radius: 2px;
   width: 100%;
   color: white;
   text-align: left;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.2rem;
+  transition: border-color 0.2s ease, padding 0.3s ease-out;
+  &::placeholder {
+    color: #3a4150;
+  }
+  &:focus {
+    border: 1px solid $primary-color;
+    padding-left: 1.2rem;
+  }
   //   margin-bottom: 25px;
 }
 

@@ -36,7 +36,10 @@ const LandingPage = () => {
                 />
               ) : null}
               {showRegisterUserModal ? (
-                <RegisterUserModal toggleRegisterModal={toggleRegisterModal} />
+                <RegisterUserModal
+                  toggleLoginModal={toggleLoginModal}
+                  toggleRegisterModal={toggleRegisterModal}
+                />
               ) : null}
             </nav>
           </header>
