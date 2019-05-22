@@ -36,6 +36,7 @@ const LoginUserForm = () => {
                 </label>
                 <input
                   type="text"
+                  autoComplete="email"
                   className={
                     emailField.value.length > 0
                       ? "field-input dirty"
@@ -51,6 +52,7 @@ const LoginUserForm = () => {
                 </label>
                 <input
                   type="password"
+                  autoComplete="current-password"
                   className={
                     passwordField.value.length > 0
                       ? "field-input dirty"
@@ -64,7 +66,7 @@ const LoginUserForm = () => {
                 Forgot your password?
               </h4>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">LOG IN</button>
             {/* // TODO: implement elegant user facing error messages */}
             {error ? (
               <div className="error-message">{error.message}</div>

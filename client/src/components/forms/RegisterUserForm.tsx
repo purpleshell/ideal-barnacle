@@ -31,9 +31,6 @@ const RegisterUserForm = () => {
                   }
                 }
               });
-              setEmailField("");
-              setPasswordField("");
-              setUsernameField("");
             }}
           >
             <div className="fields">
@@ -43,6 +40,7 @@ const RegisterUserForm = () => {
                 </label>
                 <input
                   type="text"
+                  autoComplete="username"
                   className={
                     usernameField.value.length > 0
                       ? "field-input dirty"
@@ -58,6 +56,7 @@ const RegisterUserForm = () => {
                 </label>
                 <input
                   type="text"
+                  autoComplete="email"
                   className={
                     emailField.value.length > 0
                       ? "field-input dirty"
@@ -73,6 +72,7 @@ const RegisterUserForm = () => {
                 </label>
                 <input
                   type="password"
+                  autoComplete="new-password"
                   className={
                     passwordField.value.length > 0
                       ? "field-input dirty"
@@ -83,7 +83,7 @@ const RegisterUserForm = () => {
                 />
               </div>
             </div>
-            <button type="submit">Register</button>
+            <button type="submit">SUBSCRIBE</button>
             {/* // TODO: implement elegant user facing error messages */}
             {error ? (
               <div className="error-message">{error.message}</div>

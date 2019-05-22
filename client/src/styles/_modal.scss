@@ -15,8 +15,8 @@
   position: absolute;
   z-index: 200;
   margin: auto;
-  min-width: 32rem;
-  padding: 20px;
+  min-width: 40rem;
+  padding: 1.6rem;
 }
 
 .modal-header {
@@ -25,8 +25,8 @@
 }
 
 .modal-content {
-  min-width: 22.5rem;
-  margin: 1.6rem 3.2rem 2.4rem 3.2rem;
+  // width: 25rem;
+  margin: 2.4rem 4rem 3.2rem 4rem;
 }
 
 .modal.open {
@@ -48,7 +48,7 @@
 }
 
 .modal .fields {
-  margin-bottom: 4.8rem;
+  margin-bottom: 4rem;
 }
 
 .modal .field {
@@ -63,21 +63,34 @@
   margin-bottom: 0.8rem;
 }
 
+// stop autocomplete from changing input background. leave my ui alone google
+@-webkit-keyframes autofill {
+  to {
+    color: white;
+    background: transparent;
+  }
+}
 .modal .field-input {
   background-color: #171717;
   border: 0.1rem solid #252932;
-  &.dirty {
-    background-color: #111;
-    border-color: #111;
-    padding-left: 0;
-  }
-  // border-radius: 2px;
   width: 100%;
   color: white;
   text-align: left;
   font-size: 1.6rem;
   padding: 0.8rem 1.2rem;
   transition: border-color 0.2s ease, padding 0.3s ease-out;
+
+  &:-webkit-autofill {
+    animation-name: autofill;
+    animation-fill-mode: both;
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+  }
+  &.dirty {
+    background-color: #111;
+    border-color: #111;
+    padding-left: 0;
+  }
   &::placeholder {
     color: #3a4150;
   }
@@ -94,6 +107,11 @@
 
 .fields .input-subtext {
   font-size: 1.4rem;
+  font-weight: 300;
+  margin-top: 2.4rem;
+  &:hover {
+    color: $primary-color-light;
+  }
 }
 
 .modal button {
@@ -101,7 +119,29 @@
   width: 100%;
 }
 
-.modal .subtext {
-  margin-top: 0.8rem;
+.modal .error-message {
+  font-size: 1.2rem;
+  margin-top: 0.6rem;
 }
-// ** End Modal ** //
+
+.modal .subtext {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 2.4rem;
+  .primary {
+    &:hover {
+      color: $primary-color-light;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .modal {
+    min-width: 100%;
+    min-height: 100%;
+    padding: 1.2rem;
+  }
+  .modal-content {
+    margin: 2.4rem 2.4rem;
+  }
+}

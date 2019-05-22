@@ -10,8 +10,13 @@
 //  Use abundantly and carefully!
 //
 
-$primary-color: #6397ff;
+// previous primary color #6397ff;
 $primary-color-dark: #2e9df8;
+$primary-color: $primary-color-dark;
+$primary-color-light: lighten(
+  $color: $primary-color,
+  $amount: 10%
+);
 
 $color-transition: color 0.45s ease;
 $fill-transition: fill 0.45s ease;
