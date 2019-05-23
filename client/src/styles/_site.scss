@@ -1,41 +1,41 @@
 // * Site * //
 .site,
 .site-background-blur {
-  width: calc(100%);
-  height: 100vh;
   color: white;
+  height: 100vh;
+  width: calc(100%);
 }
 
 .site {
-  background-image: url(../images/alora-griffiths-781422-unsplash.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed;
+  background-image: url(../images/alora-griffiths-781422-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 $bg-blur-opacity: 0.7;
 
 .site-background-blur {
+  background-color: #0003;
   background-image: linear-gradient(
     135deg,
     rgba(35, 20, 55, $bg-blur-opacity) 0%,
     rgba(44, 56, 94, $bg-blur-opacity) 50%,
     rgba(51, 110, 107, $bg-blur-opacity) 100%
   );
-  background-color: #0003;
 }
 
 .container {
   display: grid;
-  padding: 0px 40px;
-  grid-template-rows: 80px auto 65px;
   grid-template-columns: auto;
+  grid-template-rows: 80px auto 65px;
   height: 100%;
+  padding: 0px 40px;
 }
 
 header {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .logo {
@@ -43,8 +43,8 @@ header {
 }
 
 nav {
-  margin-left: auto;
   font-size: 2em;
+  margin-left: auto;
 }
 
 .link {
@@ -81,8 +81,8 @@ h4,
 
 .site-heading {
   font-size: $title-1-font-size;
-  margin-bottom: 3.2rem;
   font-weight: 200;
+  margin-bottom: 3.2rem;
 }
 .app-details-preview {
   font-size: $title-2-font-size;
@@ -98,8 +98,8 @@ h3 {
   margin-bottom: 2rem;
 }
 h4 {
-  font-weight: 100;
   font-size: $subtext-font-size;
+  font-weight: 100;
 }
 
 .cta-btn {
@@ -114,9 +114,9 @@ h4 {
 }
 
 .learn-more-link {
+  align-items: center;
   display: flex;
   font-size: $title-3-font-size;
-  align-items: center;
   justify-content: center;
   margin: 10rem auto 0 auto;
   width: 20rem;
@@ -124,14 +124,14 @@ h4 {
     border: 1px solid white;
     border-radius: 16px;
     display: grid;
-    width: 3.2rem;
     height: 3.2rem;
     margin-left: 16px;
+    width: 3.2rem;
   }
   svg {
+    height: 1.4rem;
     place-self: center;
     width: 1.4rem;
-    height: 1.4rem;
     path {
       fill: white;
       transition: $fill-transition;

@@ -11,15 +11,15 @@
 //
 
 // previous primary color #6397ff;
-$primary-color-dark: #2e9df8;
+$primary-color-dark: rgb(46, 157, 248);
 $primary-color: $primary-color-dark;
 $primary-color-light: lighten(
   $color: $primary-color,
   $amount: 10%
 );
 
-$color-transition: color 0.45s ease;
-$fill-transition: fill 0.45s ease;
+$color-transition: color 450ms ease;
+$fill-transition: fill 450ms ease;
 
 //  Blue-Grays
 $blue-gray-1: #a7bbe2;

@@ -1,15 +1,15 @@
 // ** Navigation ** //
 
 .page-nav {
-  width: 100%;
   margin-bottom: 48px;
+  width: 100%;
 }
 
 .parent-screen-link {
-  font-size: 1.4rem;
-  text-align: left;
   color: #545f75;
   display: inline;
+  font-size: 1.4rem;
+  text-align: left;
 }
 
 .parent-screen-link:hover {
@@ -17,9 +17,9 @@
 }
 
 .menu-toggle {
+  cursor: pointer;
   font-size: 1.4rem;
   height: 14px;
-  cursor: pointer;
   margin-left: auto;
 }
 
@@ -28,16 +28,16 @@
 }
 
 .menu {
-  width: 18rem;
-  height: 100vh;
   background-color: $blue-gray-8;
+  height: 100vh;
+  left: 0;
   // padding: 40px;
   position: absolute;
-  z-index: 200;
   top: 0;
-  left: 0;
   transform: translateX(-18rem);
   transition: transform 650ms;
+  width: 18rem;
+  z-index: 200;
 }
 
 .menu.open {

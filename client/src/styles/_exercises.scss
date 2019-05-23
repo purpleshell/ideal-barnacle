@@ -20,15 +20,15 @@
 
 // ** Exercise Page ** //
 .exercise-page-workout-date {
+  color: #a7bbe2;
   font-size: 1.8rem;
   text-align: left;
-  color: #a7bbe2;
 }
 
 .exercise-page-name {
   font-size: 3.6rem;
-  text-align: left;
   margin-bottom: 50px;
+  text-align: left;
 }
 
 .create-set-form {
@@ -47,30 +47,30 @@
 .field-label {
   color: #a7bbe2;
   display: block;
-  font-size: 0.4em;
   font-family: "Open Sans";
-  text-align: center;
+  font-size: 0.4em;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 input {
   background-color: #252a3400;
-  border-top: none;
+  border-bottom: solid #545f75 1px;
   border-left: none;
   border-right: none;
-  border-bottom: solid #545f75 1px;
+  border-top: none;
   color: #545f75;
-  font-size: 1em;
   font-family: "Open Sans";
+  font-size: 1em;
   text-align: center;
   width: 89px;
 }
 
 input:focus {
-  // background-color: #356cda;
-  outline: none;
   border: none;
   border-bottom: solid #6397ff 1px;
+  // background-color: #356cda;
+  outline: none;
 }
 
 input::placeholder {
@@ -85,8 +85,8 @@ select {
   background-color: #252a3400;
   border: none;
   color: #545f75;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
-  font-family: "Open Sans";
   text-align-last: center;
 }
 
@@ -109,8 +109,8 @@ button {
   border: none;
   color: #cfdefd;
   cursor: pointer;
-  padding: 8px 15px;
   height: 48px;
+  padding: 8px 15px;
   transition: box-shadow 0.1s ease;
   &:hover {
     box-shadow: 0px 1px 6px $primary-color-dark;
@@ -129,17 +129,17 @@ button {
 
 .working-sets {
   color: #a7bbe2;
+  display: grid;
+  gap: 15px;
+  grid-template-rows: auto-flow;
   margin-bottom: 48px;
   text-align: left;
-  display: grid;
-  grid-template-rows: auto-flow;
-  gap: 15px;
 }
 
 .working-set {
-  grid-column: span 5;
   display: grid;
   gap: 10px;
+  grid-column: span 5;
   grid-template-columns:
     minmax(26px, 31px)
     minmax(45px, 93px) /*max 115px with 3 decimal places*/
@@ -161,17 +161,17 @@ button {
 }
 
 .working-sets .unit {
-  font-variant-caps: unicase;
   color: #545f75;
   font-size: 0.8em;
+  font-variant-caps: unicase;
   margin-left: 5px;
 }
 
 .working-set-index {
-  grid-column: 1;
-  text-align: left;
   color: orangered;
   font-size: 0.45em;
+  grid-column: 1;
+  text-align: left;
 }
 
 .working-set-weight {
@@ -190,8 +190,8 @@ button {
 }
 
 .edit-icon {
-  grid-column: 5;
   color: #545f75;
+  grid-column: 5;
   margin-left: 10px;
 }
 
@@ -200,8 +200,8 @@ button {
 }
 
 .delete-icon {
-  grid-column: 5;
   color: #545f75;
+  grid-column: 5;
   margin-left: 10px;
 }
 
