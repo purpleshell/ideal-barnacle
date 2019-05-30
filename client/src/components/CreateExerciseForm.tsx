@@ -1,5 +1,5 @@
 import React from "react";
-import { Mutation } from "react-apollo";
+import { Mutation, MutationFn, OperationVariables } from "react-apollo";
 import { useInputWithReset } from "../components/inputs/InputHooks";
 import { CREATE_EXERCISE, READ_ALL_EXERCISES } from "./Schema";
 
@@ -14,7 +14,7 @@ const CreateExerciseForm = () => {
         mutation={CREATE_EXERCISE}
         refetchQueries={[{ query: READ_ALL_EXERCISES }]}
       >
-        {(createExercise, { error }) => (
+        {(createExercise: MutationFn<any, OperationVariables>, { error }) => (
           <form
             onSubmit={e => {
               e.preventDefault();
