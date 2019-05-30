@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { ToggleModalContext } from "../../pages/LandingPage";
-import { useEmailInput } from "../inputs/InputHooks";
+import { useEmailInput, useNewPasswordInput } from "../inputs/InputHooks";
 import { AM_I_LOGGED_IN, LOGIN_USER } from "../Schema";
 import MutationForm from "./MutationForm";
 
 const LoginUserForm = () => {
   const { ...email } = useEmailInput();
-  const { ...password } = usePasswordInput();
+  const { ...password } = useNewPasswordInput();
   const inputs = [email, password];
   const userLoginInfo = {
     email: email.value,
