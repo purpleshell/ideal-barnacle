@@ -14,3 +14,13 @@ export class UserRegistrationInfo {
   @Field()
   password: string;
 }
+
+@InputType()
+export class UserLoginInfo {
+  @IsEmail()
+  @Field()
+  email: string;
+
+  @Field()
+  password: string;
+}

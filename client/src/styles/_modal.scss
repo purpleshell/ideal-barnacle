@@ -99,6 +99,10 @@
     border-color: $primary-color;
     padding-left: 1.2rem;
   }
+  &.has-error {
+    border-color: $error-color;
+    padding: 0 1.2rem;
+  }
   //   margin-bottom: 25px;
 }
 
@@ -121,7 +125,8 @@
 }
 
 .modal .error-message {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 400;
   margin-top: 0.6rem;
 }
 

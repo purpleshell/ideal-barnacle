@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import { Link } from "react-router-dom";
 import LoginUserModal from "../components/modals/LoginUserModal";
 import RegisterUserModal from "../components/modals/RegisterUserModal";
 
+export const ToggleModalContext: any = createContext({});
 const LandingPage = () => {
   const [showLoginUserModal, setShowLoginUserModal] = useState(false);
   const [showRegisterUserModal, setShowRegisterUserModal] = useState(false);
@@ -29,18 +30,12 @@ const LandingPage = () => {
               >
                 LOG IN
               </div>
-              {showLoginUserModal ? (
-                <LoginUserModal
-                  toggleLoginModal={toggleLoginModal}
-                  toggleRegisterModal={toggleRegisterModal}
-                />
-              ) : null}
-              {showRegisterUserModal ? (
-                <RegisterUserModal
-                  toggleLoginModal={toggleLoginModal}
-                  toggleRegisterModal={toggleRegisterModal}
-                />
-              ) : null}
+              <ToggleModalContext.Provider
+                value={{ toggleLoginModal, toggleRegisterModal }}
+              >
+                {showLoginUserModal ? <LoginUserModal /> : null}
+                {showRegisterUserModal ? <RegisterUserModal /> : null}
+              </ToggleModalContext.Provider>
             </nav>
           </header>
           <main>

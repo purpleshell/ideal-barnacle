@@ -4,8 +4,8 @@
 }
 
 .error-message {
-  color: $red-7;
-  font-size: 8px;
+  color: $error-color;
+  font-size: 1.4rem;
 }
 
 .exercise-name {
@@ -47,7 +47,7 @@
 .field-label {
   color: #a7bbe2;
   display: block;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   font-size: 0.4em;
   margin-bottom: 5px;
   text-align: center;
@@ -60,7 +60,7 @@ input {
   border-right: none;
   border-top: none;
   color: #545f75;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
   text-align: center;
   width: 89px;

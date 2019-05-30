@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Mutation } from "react-apollo";
-import { useInput } from "./Hooks";
+import { useInput } from "../components/inputs/InputHooks";
 import { READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 
 const UpdateExerciseForm = (props: any) => {

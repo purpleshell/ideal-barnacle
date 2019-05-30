@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Mutation } from "react-apollo";
 import { Link } from "react-router-dom";
-import { useInput } from "./Hooks";
+import { useInput } from "../components/inputs/InputHooks";
 import { DELETE_EXERCISE, READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 
 // BUG: After updating a record on the dev server the ui does

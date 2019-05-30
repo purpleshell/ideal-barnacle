@@ -33,7 +33,7 @@ type Mutation {
   deleteSet(id: String!): Boolean!
   updateSet(updateSetData: UpdateSetInput!): Boolean!
   registerUser(userRegistrationInfo: UserRegistrationInfo!): User!
-  loginUser(password: String!, email: String!): User
+  loginUser(userLoginInfo: UserLoginInfo!): User
 }
 
 type Query {
@@ -103,6 +103,11 @@ type User {
 
   """List containing all of the user's recorded exercise sets"""
   sets: [Set!]
+}
+
+input UserLoginInfo {
+  email: String!
+  password: String!
 }
 
 input UserRegistrationInfo {

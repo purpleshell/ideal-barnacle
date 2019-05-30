@@ -44,7 +44,7 @@ const Client = () => {
 const Site = () => {
   return (
     <Router>
-      <Route path="/" exact component={LandingPage} />
+      <Route path="/" component={LandingPage} />
       <Route path="/login" exact component={LoginUserForm} />
     </Router>
   );

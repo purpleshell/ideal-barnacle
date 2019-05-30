@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import { Request } from "express";
 import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import { User } from "../UserEntity";
-import { UserRegistrationInfo } from "./modules/UserResgistrationInfo";
+import { UserLoginInfo, UserRegistrationInfo } from "./modules/UserInfo";
 
 interface RequestContext {
   req: Request;
@@ -46,8 +46,8 @@ export class UserResolvers {
 
   @Mutation(() => User, { nullable: true })
   async loginUser(
-    @Arg("email") email: string,
-    @Arg("password") password: string,
+    @Arg("userLoginInfo")
+    { password, email }: UserLoginInfo,
     @Ctx() requestContext: RequestContext
   ): Promise<User | null> {
     const user = await User.findOne({ where: { email: email } });
