@@ -88,7 +88,10 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
           mutation={DELETE_EXERCISE}
           refetchQueries={[{ query: READ_ALL_EXERCISES }]}
         >
-          {(deleteExercise, { error }) => (
+          {(
+            deleteExercise: MutationFn<any, OperationVariables>,
+            { error }: any
+          ) => (
             <>
               <i
                 className="far fa-trash-alt delete-icon pointer"
