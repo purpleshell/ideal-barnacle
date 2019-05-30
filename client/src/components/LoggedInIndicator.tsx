@@ -4,7 +4,7 @@ import { AM_I_LOGGED_IN } from "./Schema";
 
 const LoggedInIndicator = () => (
   <Query query={AM_I_LOGGED_IN}>
-    {({ loading, error, data }) => {
+    {({ loading, error, data }: any) => {
       if (loading) return <p>Loading...</p>;
       if (error) return <p>{error.message}</p>;
 

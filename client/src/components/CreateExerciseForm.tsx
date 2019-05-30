@@ -14,7 +14,10 @@ const CreateExerciseForm = () => {
         mutation={CREATE_EXERCISE}
         refetchQueries={[{ query: READ_ALL_EXERCISES }]}
       >
-        {(createExercise: MutationFn<any, OperationVariables>, { error }) => (
+        {(
+          createExercise: MutationFn<any, OperationVariables>,
+          { error }: any
+        ) => (
           <form
             onSubmit={e => {
               e.preventDefault();

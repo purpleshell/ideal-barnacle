@@ -2,6 +2,7 @@ import { DocumentNode, PureQueryOptions } from "apollo-boost";
 import React, { useState } from "react";
 import {
   Mutation,
+  MutationFn,
   OperationVariables,
   RefetchQueriesProviderFn
 } from "react-apollo";
@@ -60,7 +61,10 @@ const MutationForm: React.FC<MutationFormProps> = ({
         onCompleted;
       }}
     >
-      {(mutationFunction, { error }) => (
+      {(
+        mutationFunction: MutationFn<any, OperationVariables>,
+        { error }: any
+      ) => (
         <form
           className="please"
           onSubmit={e => {
@@ -117,7 +121,7 @@ const MutationForm: React.FC<MutationFormProps> = ({
             <button type="submit">{ctaText}</button>
           )}
           {error ? (
-            error.graphQLErrors.map((error, i) => (
+            error.graphQLErrors.map((error: any, i: any) => (
               <div className="error-message" key={i}>
                 {error.message}
               </div>

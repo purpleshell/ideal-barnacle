@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mutation } from "react-apollo";
+import { Mutation, MutationFn, OperationVariables } from "react-apollo";
 import { Link } from "react-router-dom";
 import { useInput } from "../components/inputs/InputHooks";
 import { DELETE_EXERCISE, READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
@@ -22,7 +22,10 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
         setIsUserUpdatingThisEntity(false);
       }}
     >
-      {(updateExercise, { error }) => (
+      {(
+        updateExercise: MutationFn<any, OperationVariables>,
+        { error }: any
+      ) => (
         <form
           onSubmit={e => {
             e.preventDefault();

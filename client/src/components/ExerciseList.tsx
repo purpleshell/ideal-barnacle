@@ -5,7 +5,7 @@ import { READ_ALL_EXERCISES } from "./Schema";
 
 const ExerciseList = () => (
   <Query query={READ_ALL_EXERCISES}>
-    {({ loading, error, data }) => {
+    {({ loading, error, data }: any) => {
       if (loading) return <p>Loading...</p>;
       if (error) return <p>{error.message}</p>;
 
