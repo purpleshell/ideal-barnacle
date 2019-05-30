@@ -19,24 +19,22 @@ const apolloclient = new ApolloClient({
 
 const Client = () => {
   return (
-    <>
-      <ApolloProvider client={apolloclient}>
-        <Query query={AM_I_LOGGED_IN}>
-          {({ loading, error, data }) => {
-            // while waiting for query response, we want to render the onboarding site
-            if (loading) return <Site />;
-            if (error) return <Site />;
+    <ApolloProvider client={apolloclient}>
+      <Query query={AM_I_LOGGED_IN}>
+        {({ loading, error, data }: any) => {
+          // while waiting for query response, we want to render the onboarding site
+          if (loading) return <Site />;
+          if (error) return <Site />;
 
-            // if user is logged in, we want to render the app
-            if (data.me) {
-              return <App />;
-            }
-            // if user is not logged in, we want to render the onboarding site
-            return <Site />;
-          }}
-        </Query>
-      </ApolloProvider>
-    </>
+          // if user is logged in, we want to render the app
+          if (data.me) {
+            return <App />;
+          }
+          // if user is not logged in, we want to render the onboarding site
+          return <Site />;
+        }}
+      </Query>
+    </ApolloProvider>
   );
 };
 
