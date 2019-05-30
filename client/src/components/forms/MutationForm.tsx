@@ -46,6 +46,7 @@ const MutationForm: React.FC<MutationFormProps> = ({
   const [mutationStatus, setMutationStatus] = useState(
     MutationStatus.UNREQUESTED
   );
+
   return (
     <Mutation
       mutation={mutation}
