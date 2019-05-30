@@ -1,6 +1,9 @@
 {
   "name": "@ideal-barnacle/client",
   "version": "0.1.0",
+  "engines": {
+    "node": "11.15.0"
+  },
   "private": true,
   "dependencies": {
     "@types/graphql": "^14.0.7",

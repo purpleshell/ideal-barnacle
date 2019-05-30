@@ -2,7 +2,6 @@ import ApolloClient from "apollo-boost";
 import React from "react";
 import { ApolloProvider, Query } from "react-apollo";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import LoginUserForm from "./components/forms/LoginUserForm";
 import MobileNav from "./components/MobileNav";
 import { AM_I_LOGGED_IN } from "./components/Schema";
 import ExercisePage from "./pages/ExercisePage";
@@ -45,7 +44,6 @@ const Site = () => {
   return (
     <Router>
       <Route path="/" component={LandingPage} />
-      <Route path="/login" exact component={LoginUserForm} />
     </Router>
   );
 };
