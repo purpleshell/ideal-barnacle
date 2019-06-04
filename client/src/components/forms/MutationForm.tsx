@@ -58,15 +58,10 @@ const MutationForm: React.FC<MutationFormProps> = ({
       }}
       onError={() => {
         setMutationStatus(MutationStatus.ERROR);
-        onCompleted;
       }}
     >
-      {(
-        mutationFunction: MutationFn<any, OperationVariables>,
-        { error }: any
-      ) => (
+      {(mutationFunction: MutationFn<any, OperationVariables>, { error }) => (
         <form
-          className="please"
           onSubmit={e => {
             e.preventDefault();
             mutationFunction({
