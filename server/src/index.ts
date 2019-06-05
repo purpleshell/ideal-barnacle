@@ -44,15 +44,20 @@ const main = async () => {
             }),
       name: "userStore",
       // TODO - put sensitive config data in env vars
-      secret: "put me in emv file",
-      resave: false,
+      secret: "put me in env file",
+      resave: true,
       saveUninitialized: false,
-      proxy: true
-      // cookie: {
-      //   httpOnly: true,
-      //   secure: process.env.NODE_ENV === "production",
-      //   maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years	        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
-      // }
+      proxy: true,
+      cookie: {
+        path: "/",
+        domain:
+          process.env.NODE_ENV === "production"
+            ? "." + process.env.app_domain
+            : "localhost",
+        httpOnly: true,
+        secure: process.env.protocol === "https",
+        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years	        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
+      }
     })
   );
 
