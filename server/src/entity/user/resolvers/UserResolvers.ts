@@ -17,6 +17,9 @@ export class UserResolvers {
 
   @Query(() => User, { nullable: true })
   async me(@Ctx() requestContext: RequestContext) {
+    if (!requestContext.req.session) {
+      return null;
+    }
     if (!requestContext.req.session!.userId) {
       return null;
     }
