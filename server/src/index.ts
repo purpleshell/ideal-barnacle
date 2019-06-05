@@ -47,17 +47,12 @@ const main = async () => {
       secret: "put me in env file",
       resave: true,
       saveUninitialized: false,
-      proxy: true
-      // cookie: {
-      //   path: "/",
-      //   domain:
-      //     process.env.NODE_ENV === "production"
-      //       ? "." + process.env.APP_DOMAIN
-      //       : "localhost",
-      //   httpOnly: true,
-      //   secure: process.env.NODE_ENV === "production" ? true : false,
-      //   maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years	        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
-      // }
+      proxy: true,
+      cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production" ? true : false,
+        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years	        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
+      }
     })
   );
 
