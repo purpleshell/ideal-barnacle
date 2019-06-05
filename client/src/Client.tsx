@@ -14,7 +14,10 @@ const apolloclient = new ApolloClient({
     process.env.NODE_ENV === "production"
       ? "https://overload-server.herokuapp.com/graphql"
       : "http://localhost:4000/graphql",
-  credentials: "include"
+  credentials: "include",
+  fetchOptions: {
+    credentials: "include"
+  }
 });
 
 const Client = () => {
