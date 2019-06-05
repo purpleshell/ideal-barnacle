@@ -67,7 +67,7 @@ export class UserResolvers {
     }
 
     if (!ctx.req.session) {
-      return null;
+      ctx.req.session!.userId = user.id;
     }
 
     return user;
