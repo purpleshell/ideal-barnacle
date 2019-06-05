@@ -63,6 +63,10 @@ export class UserResolvers {
       requestContext.req.session.userId = user.id;
     }
 
+    if (!requestContext.req.session) {
+      return null;
+    }
+
     return user;
   }
 }
