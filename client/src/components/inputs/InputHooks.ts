@@ -102,3 +102,25 @@ export const useNewPasswordInput = () => {
     placeholder: "Enter password"
   };
 };
+
+export const useCurrentPasswordInput = () => {
+  const [value, setValue] = useState("");
+  const [error, setError] = useState("");
+
+  let schema = string()
+    .min(6)
+    .max(40);
+
+  return {
+    value,
+    error,
+    onChange: (e: any) => {
+      setValue(e.target.value);
+      checkValidity(schema, e.target.value, setError);
+    },
+    autoComplete: "current-password",
+    type: "password",
+    name: "password",
+    placeholder: "Enter password"
+  };
+};

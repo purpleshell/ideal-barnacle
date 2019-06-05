@@ -67,7 +67,7 @@ export class UserResolvers {
     }
 
     if (!ctx.req.session) {
-      return user;
+      return null;
     }
 
     return user;
