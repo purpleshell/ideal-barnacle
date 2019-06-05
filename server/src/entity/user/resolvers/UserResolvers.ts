@@ -17,12 +17,18 @@ export class UserResolvers {
 
   @Query(() => User, { nullable: true })
   async me(@Ctx() requestContext: RequestContext) {
-    if (!requestContext.req.session) {
+    // if (!requestContext) {
+    //   return null;
+    // }
+    if (!requestContext.req) {
       return null;
     }
-    if (!requestContext.req.session!.userId) {
-      return null;
-    }
+    // if (!requestContext.req.session) {
+    //   return null;
+    // }
+    // if (!requestContext.req.session!.userId) {
+    //   return null;
+    // }
 
     return User.findOne(requestContext.req.session!.userId);
   }
