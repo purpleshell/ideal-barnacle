@@ -26,9 +26,9 @@ export class UserResolvers {
     // if (!requestContext.req.session) {
     //   return null;
     // }
-    // if (!requestContext.req.session!.userId) {
-    //   return null;
-    // }
+    if (!requestContext.req.session!.userId) {
+      return null;
+    }
 
     return User.findOne(requestContext.req.session!.userId);
   }
