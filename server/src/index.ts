@@ -34,9 +34,14 @@ const main = async () => {
 
   app.use(
     session({
-      store: new RedisStore({
-        client: redis as any
-      }),
+      store:
+        process.env.NODE_ENV === "production"
+          ? new RedisStore({
+              url: process.env.REDIS_URL
+            })
+          : new RedisStore({
+              client: redis as any
+            }),
       name: "userStore",
       // TODO - put sensitive config data in env vars
       secret: "put me in emv file",
