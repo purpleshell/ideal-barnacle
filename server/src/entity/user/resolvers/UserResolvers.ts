@@ -59,7 +59,9 @@ export class UserResolvers {
       return null;
     }
 
-    requestContext.req.session!.userId = user.id;
+    if (requestContext.req.session) {
+      requestContext.req.session.userId = user.id;
+    }
 
     return user;
   }
