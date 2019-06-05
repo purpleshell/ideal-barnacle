@@ -16,21 +16,21 @@ export class UserResolvers {
   }
 
   @Query(() => User, { nullable: true })
-  async me(@Ctx() requestContext: RequestContext) {
-    // if (!requestContext) {
-    //   return null;
-    // }
-    if (!requestContext.req) {
+  async me(@Ctx() ctx: RequestContext) {
+    if (!ctx) {
+      return null;
+    }
+    if (!ctx.req) {
       return null;
     }
     // if (!requestContext.req.session) {
     //   return null;
     // }
-    if (!requestContext.req.session!.userId) {
+    if (!ctx.req.session!.userId) {
       return null;
     }
 
-    return User.findOne(requestContext.req.session!.userId);
+    return User.findOne(ctx.req.session!.userId);
   }
 
   @Mutation(() => User)
@@ -56,8 +56,8 @@ export class UserResolvers {
   @Mutation(() => User, { nullable: true })
   async loginUser(
     @Arg("userLoginInfo")
-    { password, email }: UserLoginInfo,
-    @Ctx() requestContext: RequestContext
+    { email, password }: UserLoginInfo,
+    @Ctx() ctx: RequestContext
   ): Promise<User | null> {
     const user = await User.findOne({ where: { email: email } });
     if (!user) {
@@ -68,11 +68,11 @@ export class UserResolvers {
       return null;
     }
 
-    if (requestContext.req.session) {
-      requestContext.req.session.userId = user.id;
+    if (ctx.req.session) {
+      ctx.req.session.userId = user.id;
     }
 
-    if (!requestContext.req.session) {
+    if (!ctx.req.session) {
       return user;
     }
 
