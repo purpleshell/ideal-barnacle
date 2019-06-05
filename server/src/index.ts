@@ -52,10 +52,10 @@ const main = async () => {
         path: "/",
         domain:
           process.env.NODE_ENV === "production"
-            ? "." + process.env.app_domain
+            ? "." + process.env.APP_DOMAIN
             : "localhost",
         httpOnly: true,
-        secure: process.env.protocol === "https",
+        secure: process.env.NODE_ENV === "production" ? true : false,
         maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years	        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
       }
     })
