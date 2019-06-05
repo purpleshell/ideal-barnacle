@@ -42,6 +42,7 @@ const main = async () => {
       secret: "put me in emv file",
       resave: false,
       saveUninitialized: false,
+      proxy: true,
       cookie: {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
