@@ -1,10 +1,10 @@
-import { DocumentNode, PureQueryOptions } from "apollo-boost";
+import { DocumentNode } from "apollo-boost";
 import React, { useState } from "react";
 import {
   Mutation,
   MutationFn,
-  OperationVariables,
-  RefetchQueriesProviderFn
+  MutationOpts,
+  OperationVariables
 } from "react-apollo";
 
 type Input = {
@@ -17,15 +17,10 @@ type Input = {
 
 type Inputs = Input[];
 
-interface MutationFormProps {
+interface MutationFormProps extends MutationOpts {
   mutation: DocumentNode;
-  refetchQueries?:
-    | (string | PureQueryOptions)[]
-    | RefetchQueriesProviderFn
-    | undefined;
-  variables: OperationVariables;
+
   inputs: Inputs;
-  onCompleted?: any;
   ctaText: string;
 }
 
