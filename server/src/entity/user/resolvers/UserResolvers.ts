@@ -64,7 +64,7 @@ export class UserResolvers {
     }
 
     if (!requestContext.req.session) {
-      return null;
+      return user;
     }
 
     return user;
