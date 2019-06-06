@@ -8,7 +8,7 @@
 
 .site {
   background-attachment: fixed;
-  background-image: url(../images/alora-griffiths-781422-unsplash.jpg);
+  background-image: url(../images/alora-1920.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -76,7 +76,7 @@ h4,
 h3,
 h4,
 .learn-more-link {
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
 }
 
 .site-heading {
@@ -160,6 +160,9 @@ footer {
 @media (max-width: 600px) {
   .app-details-preview {
     max-width: none;
+  }
+  .site {
+    background-image: url(../images/alora-600.jpg);
   }
 }
 
