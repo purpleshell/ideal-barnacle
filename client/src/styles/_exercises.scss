@@ -8,6 +8,11 @@
   font-size: 1.4rem;
 }
 
+.exercise-name,
+.target-muscles {
+  font-size: 1.8rem;
+}
+
 .exercise-name {
   color: $blue-3;
   margin-right: 20px;
@@ -48,7 +53,7 @@
   color: #a7bbe2;
   display: block;
   font-family: "Open Sans", sans-serif;
-  font-size: 0.4em;
+  font-size: 1.2rem;
   margin-bottom: 5px;
   text-align: center;
 }
@@ -61,7 +66,7 @@ input {
   border-top: none;
   color: #545f75;
   font-family: "Open Sans", sans-serif;
-  font-size: 1em;
+  font-size: 1.8rem;
   text-align: center;
   width: 89px;
 }
@@ -86,7 +91,7 @@ select {
   border: none;
   color: #545f75;
   font-family: "Open Sans", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   text-align-last: center;
 }
 
@@ -130,7 +135,7 @@ button {
 .working-sets {
   color: #a7bbe2;
   display: grid;
-  gap: 15px;
+  gap: 2.4rem;
   grid-template-rows: auto-flow;
   margin-bottom: 48px;
   text-align: left;
@@ -151,27 +156,34 @@ button {
 /* Grid Items */
 .working-set > span,
 .working-set i {
-  align-self: end;
-  line-height: 0.5em;
+  align-self: start;
+  line-height: 0.5rem;
 }
 
-.working-sets i {
-  font-size: 0.6em;
+.working-sets i,
+.working-set-icons {
+  font-size: 1.6em;
   padding-bottom: 3px;
 }
 
 .working-sets .unit {
   color: #545f75;
-  font-size: 0.8em;
+  font-size: 1.4rem;
   font-variant-caps: unicase;
   margin-left: 5px;
 }
 
 .working-set-index {
   color: orangered;
-  font-size: 0.45em;
+  font-size: 1.45em;
   grid-column: 1;
   text-align: left;
+}
+
+.working-set-weight,
+.working-set-reps,
+.working-set-rpe {
+  font-size: 1.6rem;
 }
 
 .working-set-weight {

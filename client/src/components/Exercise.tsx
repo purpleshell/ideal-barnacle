@@ -76,7 +76,7 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
       <Link to={`/exercise/${exerciseName}`} className="exercise-name">
         {exerciseName}
       </Link>
-      {targetMuscles}
+      <span className="target-muscles">{targetMuscles}</span>
       <span className="working-set-icons">
         <i
           className="fas fa-edit edit-icon pointer"
