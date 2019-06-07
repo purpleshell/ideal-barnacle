@@ -15,6 +15,7 @@
 
 .exercise-name {
   color: $blue-3;
+  font-size: 2.8rem;
   margin-right: 20px;
 }
 
@@ -201,24 +202,26 @@ button {
   text-align: right;
 }
 
+.delete-icon,
 .edit-icon {
-  color: #545f75;
   grid-column: 5;
-  margin-left: 10px;
+  height: 2.4rem;
+  width: 3.2rem;
+  path {
+    fill: $icon-color;
+  }
 }
 
 .edit-icon:hover {
-  color: $green-5;
-}
-
-.delete-icon {
-  color: #545f75;
-  grid-column: 5;
-  margin-left: 10px;
+  path {
+    fill: $green-5;
+  }
 }
 
 .delete-icon:hover {
-  color: $red-5;
+  path {
+    fill: $red-5;
+  }
 }
 /* End Grid Items */
 // ** End Exercise Page ** //
