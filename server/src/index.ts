@@ -80,7 +80,7 @@ const main = async () => {
       credentials: true,
       origin:
         process.env.NODE_ENV === "production"
-          ? "https://overload-client.herokuapp.com,http://overload-client.herokuapp.com"
+          ? "https://overload-client.herokuapp.com"
           : "http://localhost:3000"
     }
   });
