@@ -13,6 +13,10 @@ export class ExerciseResolvers {
     @Arg("exerciseName") exerciseName: string,
     @Arg("targetMuscles", () => [TargetMuscle]) targetMuscles: [TargetMuscle]
   ): Promise<Exercise> {
+    exerciseName = exerciseName
+      .split(" ")
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+      .join(" ");
     const exercise = await Exercise.create({
       exerciseName,
       targetMuscles
