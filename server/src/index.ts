@@ -15,8 +15,7 @@ const main = async () => {
       "postgres://postgres:postgres@localhost/ideal-barnacle-test",
     entities: ["src/entity/**/*.ts"],
     synchronize: true,
-    // dropSchema: process.env.NODE_ENV === "development" ? true : false
-    dropSchema: true
+    dropSchema: process.env.NODE_ENV === "development" ? true : false
   });
 
   const schema = await buildSchema({
@@ -30,23 +29,23 @@ const main = async () => {
 
   const app = Express();
 
-  // const requireHTTPS = (
-  //   req: Express.Request,
-  //   res: Express.Response,
-  //   next: Function
-  // ): void => {
-  //   // The 'x-forwarded-proto' check is for Heroku
-  //   if (
-  //     !req.secure &&
-  //     req.get("x-forwarded-proto") !== "https" &&
-  //     process.env.NODE_ENV !== "development"
-  //   ) {
-  //     return res.redirect("https://" + req.get("host") + req.url);
-  //   }
-  //   next();
-  // };
+  const requireHTTPS = (
+    req: Express.Request,
+    res: Express.Response,
+    next: Function
+  ): void => {
+    // The 'x-forwarded-proto' check is for Heroku
+    if (
+      !req.secure &&
+      req.get("x-forwarded-proto") !== "https" &&
+      process.env.NODE_ENV !== "development"
+    ) {
+      return res.redirect("https://" + req.get("host") + req.url);
+    }
+    next();
+  };
 
-  // app.use(requireHTTPS);
+  app.use(requireHTTPS);
 
   const RedisStore = connectRedis(session);
   const redis = new Redis();
