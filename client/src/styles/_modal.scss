@@ -60,6 +60,7 @@
 .modal .field-label {
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
+  // margin-right: 0.8rem;
   text-align: left;
 }
 
@@ -83,7 +84,7 @@
   &[type="checkbox"] {
     display: inline;
     height: 32px;
-    margin: 0 3.2rem;
+    margin: 0 6.4rem 0 0;
     width: 32px;
   }
   &:-webkit-autofill {

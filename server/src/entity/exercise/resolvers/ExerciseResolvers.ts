@@ -8,15 +8,20 @@ export class ExerciseResolvers {
     return Exercise.find();
   }
 
+  private formatExerciseName = (exerciseName: string) => {
+    return exerciseName
+      .toLowerCase()
+      .split(" ")
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+      .join(" ");
+  };
+
   @Mutation(() => Exercise)
   async createExercise(
     @Arg("exerciseName") exerciseName: string,
     @Arg("targetMuscles", () => [TargetMuscle]) targetMuscles: [TargetMuscle]
   ): Promise<Exercise> {
-    exerciseName = exerciseName
-      .split(" ")
-      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-      .join(" ");
+    exerciseName = this.formatExerciseName(exerciseName);
     const exercise = await Exercise.create({
       exerciseName,
       targetMuscles
@@ -45,10 +50,9 @@ export class ExerciseResolvers {
     try {
       const exercise = await Exercise.findOne({ exerciseName: exerciseName });
       if (exercise != undefined) {
-        exercise.exerciseName = newExerciseName
-          .split(" ")
-          .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-          .join(" ");
+        exercise.exerciseName = exerciseName = this.formatExerciseName(
+          newExerciseName
+        );
         exercise.targetMuscles = newTargetMuscles;
         exercise.save();
       }

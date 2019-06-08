@@ -55,7 +55,7 @@ const CreateExerciseForm = () => {
       variables={{ ...variables }}
       inputs={inputs}
       onCompleted={toggleCreateExerciseModal}
-      ctaText="Create Exercise"
+      ctaText="+ Add Exercise"
     />
   );
 };

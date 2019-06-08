@@ -76,7 +76,7 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
       <Link to={`/exercise/${exerciseName}`} className="exercise-name">
         {exerciseName}
       </Link>
-      <span className="target-muscles">{targetMuscles}</span>
+      <span className="target-muscles">{targetMuscles.join(" ")}</span>
       <span className="working-set-icons">
         <svg
           className="edit-icon pointer"
