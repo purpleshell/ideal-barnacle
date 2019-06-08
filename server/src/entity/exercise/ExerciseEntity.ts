@@ -3,7 +3,7 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 export enum TargetMuscle {
   Traps = "Traps",
-  SideDelts = "Delts",
+  SideDelts = "Side Delts",
   FrontDelts = "Front Delts",
   RearDelts = "Rear Delts",
   Chest = "Chest",

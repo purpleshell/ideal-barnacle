@@ -48,7 +48,8 @@ export const useCheckboxInput = (name: string) => {
     onChange: () => {
       setChecked(!checked);
     },
-    name: name
+    name: name,
+    placeholder: ""
   };
 };
 

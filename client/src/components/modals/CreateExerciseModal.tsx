@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ToggleModalContext } from "../../store/Context";
-import CreateExerciseForm from "../forms/CreateExerciseFormRENAMEME";
+import CreateExerciseForm from "../forms/CreateExerciseForm";
 import Modal from "./Modal";
 
 const CreateExerciseModal = () => {

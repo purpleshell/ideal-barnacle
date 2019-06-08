@@ -4,28 +4,43 @@ import {
   useStringInput
 } from "../../components/inputs/InputHooks";
 import { ToggleModalContext } from "../../store/Context";
-import { CREATE_EXERCISE, READ_ALL_EXERCISES } from "../Schema";
+import { CREATE_EXERCISE, READ_ALL_EXERCISES, TargetMuscle } from "../Schema";
 import MutationForm from "./MutationForm";
 
 const CreateExerciseForm = () => {
-  const { ...exerciseName } = useStringInput("Exercise Name");
-  const { ...Quads } = useCheckboxInput("Quads");
-  const { ...Traps } = useCheckboxInput("Traps");
-  const { ...Biceps } = useCheckboxInput("Biceps");
-  const { ...Triceps } = useCheckboxInput("Triceps");
-  const { ...Lats } = useCheckboxInput("Lats");
-  const { ...Delts } = useCheckboxInput("Delts");
-  const inputs = [exerciseName, Quads, Traps, Biceps, Triceps, Lats, Delts];
+  const targetMuscleInputArrayFromEnum = () => {
+    const targetMuscleInputArray: {
+      checked: boolean;
+      value: string;
+      error: string;
+      type: string;
+      onChange: () => void;
+      name: string;
+      placeholder: string;
+    }[] = [];
+    Object.values(TargetMuscle).map(muscle => {
+      targetMuscleInputArray.push(useCheckboxInput(muscle));
+    });
+    console.log(
+      "TargetMuscle Input Array: " + Object.values(targetMuscleInputArray[0])
+    );
+    return targetMuscleInputArray;
+  };
+
+  const targetMuscleInputArray = targetMuscleInputArrayFromEnum();
 
   const turnTargetMuscleValuesIntoArray = () => {
-    const targetMuscles = [Quads, Traps, Biceps, Triceps, Lats, Delts];
-    const valueArray: any = [];
+    const targetMuscles = targetMuscleInputArray;
+    const valueArray: string[] = [];
     targetMuscles.map(muscle =>
       muscle.checked ? valueArray.push(muscle.value) : null
     );
+    console.log("Value Array: " + valueArray);
     return valueArray;
   };
 
+  const { ...exerciseName } = useStringInput("Exercise Name");
+  const inputs = [exerciseName].concat(targetMuscleInputArray);
   const variables = {
     exerciseName: exerciseName.value,
     targetMuscles: turnTargetMuscleValuesIntoArray()

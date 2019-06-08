@@ -61,7 +61,6 @@ const MutationForm: React.FC<MutationFormProps> = ({
         <form
           onSubmit={e => {
             e.preventDefault();
-            console.log({ variables });
             mutationFunction({
               variables
             });

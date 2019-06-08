@@ -52,9 +52,9 @@
 }
 
 .modal .field {
-  display: block;
+  display: inline-block;
   margin: 0 0 2.4rem 0;
-  width: 100%;
+  // width: 100%;
 }
 
 .modal .field-label {
@@ -81,7 +81,9 @@
   transition: border-color 0.2s ease, padding 0.3s ease-out;
   width: 100%;
   &[type="checkbox"] {
+    display: inline;
     height: 32px;
+    margin: 0 3.2rem;
     width: 32px;
   }
   &:-webkit-autofill {
