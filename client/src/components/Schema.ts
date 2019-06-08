@@ -1,8 +1,26 @@
 import { gql } from "apollo-boost";
 
+export enum TargetMuscle {
+  Traps = "Traps",
+  SideDelts = "Delts",
+  FrontDelts = "Front Delts",
+  RearDelts = "Rear Delts",
+  Chest = "Chest",
+  Lats = "Lats",
+  Biceps = "Biceps",
+  Triceps = "Triceps",
+  Abs = "Abs",
+  Glutes = "Glutes",
+  Hamstrings = "Hamstrings",
+  Quads = "Quads"
+}
+
 // All client-facing graphql queries/mutations
 export const CREATE_EXERCISE = gql`
-  mutation CreateExercise($exerciseName: String!, $targetMuscles: String!) {
+  mutation CreateExercise(
+    $exerciseName: String!
+    $targetMuscles: [TargetMuscle!]!
+  ) {
     createExercise(exerciseName: $exerciseName, targetMuscles: $targetMuscles) {
       exerciseName
       targetMuscles
@@ -24,7 +42,7 @@ export const UPDATE_EXERCISE = gql`
   mutation UpdateExercise(
     $exerciseName: String!
     $newExerciseName: String!
-    $newTargetMuscles: String!
+    $newTargetMuscles: [TargetMuscle!]!
   ) {
     updateExercise(
       exerciseName: $exerciseName

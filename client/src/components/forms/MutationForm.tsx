@@ -19,7 +19,6 @@ type Inputs = Input[];
 
 interface MutationFormProps extends MutationOpts {
   mutation: DocumentNode;
-
   inputs: Inputs;
   ctaText: string;
 }
@@ -62,6 +61,7 @@ const MutationForm: React.FC<MutationFormProps> = ({
         <form
           onSubmit={e => {
             e.preventDefault();
+            console.log({ variables });
             mutationFunction({
               variables
             });
@@ -88,7 +88,7 @@ const MutationForm: React.FC<MutationFormProps> = ({
                       (hasError() ? "has-error " : "")
                     }
                     {...input}
-                    required
+                    required={input.type === "checkbox" ? false : true}
                   />
                   <h4
                     className={

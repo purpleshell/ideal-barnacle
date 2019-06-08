@@ -37,6 +37,40 @@ const checkValidity = (
     });
 };
 
+export const useCheckboxInput = (name: string) => {
+  const [checked, setChecked] = useState(false);
+
+  return {
+    checked: checked,
+    value: name,
+    error: "",
+    type: "checkbox",
+    onChange: () => {
+      setChecked(!checked);
+    },
+    name: name
+  };
+};
+
+export const useStringInput = (name: string) => {
+  const [value, setValue] = useState("");
+  const [error, setError] = useState("");
+
+  let schema = string().required();
+
+  return {
+    value,
+    error,
+    onChange: (e: any) => {
+      setValue(e.target.value);
+      checkValidity(schema, e.target.value, setError);
+    },
+    type: "text",
+    name: name,
+    placeholder: "Enter " + name
+  };
+};
+
 export const useEmailInput = () => {
   const [value, setValue] = useState("");
   const [error, setError] = useState("");

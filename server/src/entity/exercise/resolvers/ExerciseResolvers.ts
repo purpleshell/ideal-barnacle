@@ -1,5 +1,5 @@
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
-import { Exercise } from "../ExerciseEntity";
+import { Exercise, TargetMuscle } from "../ExerciseEntity";
 
 @Resolver()
 export class ExerciseResolvers {
@@ -11,13 +11,9 @@ export class ExerciseResolvers {
   @Mutation(() => Exercise)
   async createExercise(
     @Arg("exerciseName") exerciseName: string,
-    @Arg("targetMuscles") targetMuscles: string
+    @Arg("targetMuscles", () => [TargetMuscle]) targetMuscles: [TargetMuscle]
   ): Promise<Exercise> {
     exerciseName = exerciseName
-      .split(" ")
-      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-      .join(" ");
-    targetMuscles = targetMuscles
       .split(" ")
       .map(s => s.charAt(0).toUpperCase() + s.slice(1))
       .join(" ");
@@ -43,7 +39,8 @@ export class ExerciseResolvers {
   async updateExercise(
     @Arg("exerciseName") exerciseName: string,
     @Arg("newExerciseName") newExerciseName: string,
-    @Arg("newTargetMuscles") newTargetMuscles: string
+    @Arg("newTargetMuscles", () => [TargetMuscle])
+    newTargetMuscles: [TargetMuscle]
   ) {
     try {
       const exercise = await Exercise.findOne({ exerciseName: exerciseName });
@@ -52,10 +49,7 @@ export class ExerciseResolvers {
           .split(" ")
           .map(s => s.charAt(0).toUpperCase() + s.slice(1))
           .join(" ");
-        exercise.targetMuscles = newTargetMuscles
-          .split(" ")
-          .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-          .join(" ");
+        exercise.targetMuscles = newTargetMuscles;
         exercise.save();
       }
       return true;

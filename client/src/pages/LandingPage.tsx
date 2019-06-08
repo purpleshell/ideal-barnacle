@@ -1,17 +1,17 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginUserModal from "../components/modals/LoginUserModal";
 import RegisterUserModal from "../components/modals/RegisterUserModal";
+import { ToggleModalContext } from "../store/Context";
 
-export const ToggleModalContext: any = createContext({});
 const LandingPage = () => {
   const [showLoginUserModal, setShowLoginUserModal] = useState(false);
   const [showRegisterUserModal, setShowRegisterUserModal] = useState(false);
 
-  const toggleLoginModal = () => {
+  const toggleLoginUserModal = () => {
       setShowLoginUserModal(showLoginUserModal => !showLoginUserModal);
     },
-    toggleRegisterModal = () => {
+    toggleRegisterUserModal = () => {
       setShowRegisterUserModal(showRegisterUserModal => !showRegisterUserModal);
     };
 
@@ -25,13 +25,13 @@ const LandingPage = () => {
             </div>
             <nav>
               <div
-                onClick={toggleLoginModal}
+                onClick={toggleLoginUserModal}
                 className="site-nav-link link pointer"
               >
                 LOG IN
               </div>
               <ToggleModalContext.Provider
-                value={{ toggleLoginModal, toggleRegisterModal }}
+                value={{ toggleLoginUserModal, toggleRegisterUserModal }}
               >
                 {showLoginUserModal ? <LoginUserModal /> : null}
                 {showRegisterUserModal ? <RegisterUserModal /> : null}
@@ -45,7 +45,7 @@ const LandingPage = () => {
               suggestions for your individual data.
             </h2>
             <h3>Plans starting at $3.99/month.</h3>
-            <button className="cta-btn" onClick={toggleRegisterModal}>
+            <button className="cta-btn" onClick={toggleRegisterUserModal}>
               START YOUR FREE TRIAL
             </button>
             <h4>Free trial available for new subscribers only.</h4>

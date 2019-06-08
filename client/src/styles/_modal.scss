@@ -80,7 +80,10 @@
   text-align: left;
   transition: border-color 0.2s ease, padding 0.3s ease-out;
   width: 100%;
-
+  &[type="checkbox"] {
+    height: 32px;
+    width: 32px;
+  }
   &:-webkit-autofill {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;

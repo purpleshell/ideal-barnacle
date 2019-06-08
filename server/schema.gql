@@ -22,13 +22,15 @@ scalar DateTime
 type Exercise {
   id: ID!
   exerciseName: String!
-  targetMuscles: String!
+
+  """List containing all of the exercise's involved muscles"""
+  targetMuscles: [TargetMuscle!]!
 }
 
 type Mutation {
-  createExercise(targetMuscles: String!, exerciseName: String!): Exercise!
+  createExercise(targetMuscles: [TargetMuscle!]!, exerciseName: String!): Exercise!
   deleteExercise(exerciseName: String!): Boolean!
-  updateExercise(newTargetMuscles: String!, newExerciseName: String!, exerciseName: String!): Boolean!
+  updateExercise(newTargetMuscles: [TargetMuscle!]!, newExerciseName: String!, exerciseName: String!): Boolean!
   createSet(newSetData: CreateSetInput!): Set!
   deleteSet(id: String!): Boolean!
   updateSet(updateSetData: UpdateSetInput!): Boolean!
@@ -78,6 +80,22 @@ type Set {
   """
   order: Float
   user: User!
+}
+
+"""Main skeletal muscle involved in the exercise"""
+enum TargetMuscle {
+  Traps
+  SideDelts
+  FrontDelts
+  RearDelts
+  Chest
+  Lats
+  Biceps
+  Triceps
+  Abs
+  Glutes
+  Hamstrings
+  Quads
 }
 
 """Update set data"""

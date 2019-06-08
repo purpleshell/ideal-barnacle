@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ToggleModalContext } from "../../pages/LandingPage";
+import { ToggleModalContext } from "../../store/Context";
 import {
   useEmailInput,
   useNewPasswordInput,
