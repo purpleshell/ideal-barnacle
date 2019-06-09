@@ -1,20 +1,6 @@
+import { TargetMuscle } from "@overload/common";
 import { Field, ID, ObjectType, registerEnumType } from "type-graphql";
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-
-export enum TargetMuscle {
-  Traps = "Traps",
-  SideDelts = "Side Delts",
-  FrontDelts = "Front Delts",
-  RearDelts = "Rear Delts",
-  Chest = "Chest",
-  Lats = "Lats",
-  Biceps = "Biceps",
-  Triceps = "Triceps",
-  Abs = "Abs",
-  Glutes = "Glutes",
-  Hamstrings = "Hamstrings",
-  Quads = "Quads"
-}
 
 registerEnumType(TargetMuscle, {
   name: "TargetMuscle",

@@ -1,5 +1,6 @@
+import { TargetMuscle } from "@overload/common";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
-import { Exercise, TargetMuscle } from "../ExerciseEntity";
+import { Exercise } from "../ExerciseEntity";
 
 @Resolver()
 export class ExerciseResolvers {

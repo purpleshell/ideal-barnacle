@@ -1,10 +1,11 @@
+import { TargetMuscle } from "@overload/common";
 import React, { useContext } from "react";
 import {
   useCheckboxInput,
   useStringInput
 } from "../../components/inputs/InputHooks";
 import { ToggleModalContext } from "../../store/Context";
-import { CREATE_EXERCISE, READ_ALL_EXERCISES, TargetMuscle } from "../Schema";
+import { CREATE_EXERCISE, READ_ALL_EXERCISES } from "../Schema";
 import MutationForm from "./MutationForm";
 
 const CreateExerciseForm = () => {

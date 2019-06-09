@@ -1,0 +1,17 @@
+{
+  "name": "@overload/common",
+  "version": "1.0.0",
+  "description": "Code shared between server and client packages",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.0.7",
+    "@types/yup": "^0.26.14",
+    "typescript": "^3.5.1",
+    "yup": "^0.27.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --watch"
+  }
+}

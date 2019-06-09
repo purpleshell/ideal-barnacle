@@ -84,6 +84,7 @@ type Set {
 
 """Main skeletal muscle involved in the exercise"""
 enum TargetMuscle {
+  Neck
   Traps
   SideDelts
   FrontDelts
@@ -96,6 +97,7 @@ enum TargetMuscle {
   Glutes
   Hamstrings
   Quads
+  Calfs
 }
 
 """Update set data"""
