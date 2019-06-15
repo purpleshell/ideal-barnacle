@@ -1,6 +1,6 @@
+import { TargetMuscle } from "@ideal-barnacle/common";
 import { Field, ID, ObjectType, registerEnumType } from "type-graphql";
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { TargetMuscle } from "./modules/TargetMuscles";
 
 registerEnumType(TargetMuscle, {
   name: "TargetMuscle",

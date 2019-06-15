@@ -1,4 +1,4 @@
-import { TargetMuscle } from "@overload/common";
+import { TargetMuscle } from "@ideal-barnacle/common";
 import React, { useContext } from "react";
 import {
   useCheckboxInput,
