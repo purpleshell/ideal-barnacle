@@ -13,6 +13,7 @@
     "@types/react": "^16.8.7",
     "@types/react-dom": "^16.8.2",
     "@types/react-router-dom": "^4.3.1",
+    "@types/yup": "^0.26.16",
     "apollo-boost": "^0.3.1",
     "graphql": "^14.1.1",
     "node-sass": "^4.11.0",
@@ -41,7 +42,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@types/yup": "^0.26.13",
     "stylelint-order": "^3.0.0",
     "stylelint-scss": "^3.6.1",
     "stylelint-selector-bem-pattern": "^2.1.0"
