@@ -5,4 +5,5 @@
 ## The proceeding create react app buildback is going to run our build script. This is a placeholder file
 
 pwd
+ls -l
 echo "Transferring build responsibilities to CRA buildpack."
