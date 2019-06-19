@@ -5,21 +5,19 @@
 # build environment
 FROM node as builder
 
-RUN mkdir /usr/src/client
-WORKDIR /usr/src/client
-COPY package.json /package.json
-COPY /client/package.json /usr/src/client/package.json
-COPY /common/package.json /usr/src/common/package.json
+COPY . /usr/src/web
+WORKDIR /usr/src/web
 RUN npm i -g yarn
 RUN yarn install
-ENV PATH /usr/src/client/node_modules/.bin:$PATH
-COPY . /usr/src/client
-RUN lerna build:client
+ENV PATH /usr/src/web/node_modules/.bin:$PATH
+RUN yarn build:client
 
 
 # production environment
-FROM nginx:1.13.9-alpine
+FROM nginx:alpine
 
-COPY --from=builder /usr/src/client/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY ./nginx/default.conf.template /etc/nginx/conf.d/default.conf.template
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /usr/src/web/packages/client/build /usr/share/nginx/html
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
+

@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./packages/client/Dockerfile
+    ports:
+      - "5000:80"
