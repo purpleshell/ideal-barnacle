@@ -12,7 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 const apolloclient = new ApolloClient({
   uri:
     process.env.NODE_ENV === "production"
-      ? "REACT_APP_SERVER_URL"
+      ? "https://overload-server.herokuapp.com/graphql"
       : "http://localhost:4000/graphql",
   credentials: "include",
   fetchOptions: {
