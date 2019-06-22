@@ -80,7 +80,7 @@ const main = async () => {
       credentials: true,
       origin:
         process.env.NODE_ENV === "production"
-          ? "https://overload-client.herokuapp.com"
+          ? "https://lucid-wing-221f73.netlify.com/"
           : "http://localhost:3000"
     }
   });

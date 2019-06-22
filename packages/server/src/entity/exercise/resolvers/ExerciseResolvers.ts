@@ -1,6 +1,7 @@
-import { TargetMuscle } from "@ideal-barnacle/common";
+// import { TargetMuscle } from "@ideal-barnacle/common";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { Exercise } from "../ExerciseEntity";
+import { TargetMuscle } from "../modules/TargetMuscles";
 
 @Resolver()
 export class ExerciseResolvers {
@@ -21,7 +22,7 @@ export class ExerciseResolvers {
   async createExercise(
     @Arg("exerciseName") exerciseName: string,
     @Arg("targetMuscles", () => [TargetMuscle]) targetMuscles: [TargetMuscle]
-  ): Promise<Exercise> {
+  ) {
     exerciseName = this.formatExerciseName(exerciseName);
     const exercise = await Exercise.create({
       exerciseName,

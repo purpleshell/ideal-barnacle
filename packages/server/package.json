@@ -31,6 +31,7 @@
     "typescript": "^3.3.3333"
   },
   "scripts": {
+    "build": "tsc",
     "start": "ts-node src/index.ts",
     "start:dev": "ts-node-dev --respawn src/index.ts"
   },

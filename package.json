@@ -5,6 +5,7 @@
   ],
   "scripts": {
     "build:client": "lerna run build --scope={@ideal-barnacle/common,@ideal-barnacle/client}",
+    "build:server": "lerna run build --scope={@ideal-barnacle/common,@ideal-barnacle/server}",
     "watch": "lerna run --parallel start"
   },
   "devDependencies": {
