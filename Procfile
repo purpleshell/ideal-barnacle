@@ -1,1 +1,1 @@
-web: ts-node packages/server/src/index.ts
+web: cd packages/server/ && ts-node src/index.ts
