@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "tsc --watch"
+    "start": "tsc --watch",
+    "start:dev": "tsc --watch"
   }
 }
