@@ -15,7 +15,10 @@ const main = async () => {
       "postgres://postgres:postgres@localhost/ideal-barnacle-test",
     entities: ["src/entity/**/*.ts"],
     synchronize: true,
-    dropSchema: process.env.NODE_ENV === "development" ? true : false
+    // attempt to fix db error by dropping schema
+    // TODO - Find another way
+    dropSchema: true
+    // dropSchema: process.env.NODE_ENV === "development" ? true : false
   });
 
   const schema = await buildSchema({
