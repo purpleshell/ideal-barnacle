@@ -1,1 +1,1 @@
-web: cd packages/server/ && yarn start
+web: yarn build:common && cd packages/server/ && yarn start
