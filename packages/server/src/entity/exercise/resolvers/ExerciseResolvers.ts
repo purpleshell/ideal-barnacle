@@ -1,7 +1,7 @@
 // import { TargetMuscle } from "@ideal-barnacle/common";
+import { TargetMuscle } from "@ideal-barnacle/common";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import { Exercise } from "../ExerciseEntity";
-import { TargetMuscle } from "../modules/TargetMuscles";
 
 @Resolver()
 export class ExerciseResolvers {

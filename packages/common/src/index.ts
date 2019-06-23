@@ -10,7 +10,7 @@ export enum TargetMuscle {
   Triceps = "Triceps",
   Abs = "Abs",
   Glutes = "Glutes",
-  Hamstrings = "Hamstrings",
+  Hams = "Hams",
   Quads = "Quads",
   Calfs = "Calfs"
 }

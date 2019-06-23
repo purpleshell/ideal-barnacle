@@ -76,7 +76,12 @@ const MutationForm: React.FC<MutationFormProps> = ({
                 return input.value.length > 0;
               };
               return (
-                <div key={i} className="field">
+                <div
+                  key={i}
+                  className={
+                    "field " + (input.type === "checkbox" ? "checkbox" : "")
+                  }
+                >
                   <label className="field-label">
                     {input.name.toUpperCase()}
                   </label>
