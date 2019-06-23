@@ -23,7 +23,8 @@ const main = async () => {
 
   const schema = await buildSchema({
     resolvers: [__dirname + "entity/**/resolvers/*.ts"],
-    emitSchemaFile: process.env.NODE_ENV === "development" ? true : false
+    emitSchemaFile: false
+    // emitSchemaFile: process.env.NODE_ENV === "development" ? true : false
   });
   const server = new ApolloServer({
     schema,
@@ -83,7 +84,7 @@ const main = async () => {
       credentials: true,
       origin:
         process.env.NODE_ENV === "production"
-          ? "https://lucid-wing-221f73.netlify.com/"
+          ? "https://lucid-wing-221f73.netlify.com"
           : "http://localhost:3000"
     }
   });
