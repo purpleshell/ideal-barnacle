@@ -22,9 +22,9 @@ const CreateExerciseForm = () => {
     Object.values(TargetMuscle).map(muscle => {
       targetMuscleInputs.push(useCheckboxInput(muscle));
     });
-    console.log(
-      "TargetMuscle Input Array: " + Object.values(targetMuscleInputs[0])
-    );
+    // console.log(
+    //   "TargetMuscle Input Array: " + Object.values(targetMuscleInputs[0])
+    // );
     return targetMuscleInputs;
   };
 
@@ -35,7 +35,7 @@ const CreateExerciseForm = () => {
     targetMuscleInputs.map(targetMuscleInput =>
       targetMuscleInput.checked ? values.push(targetMuscleInput.value) : null
     );
-    console.log("Value Array: " + values);
+    // console.log("Value Array: " + values);
     return values;
   };
 

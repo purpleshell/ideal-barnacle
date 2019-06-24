@@ -30,11 +30,11 @@
 .menu {
   background-color: $blue-gray-8;
   height: 100vh;
-  left: 0;
   padding: 40px;
   position: absolute;
+  right: 0;
   top: 0;
-  transform: translateX(-18rem);
+  transform: translateX(18rem);
   transition: transform 650ms;
   width: 18rem;
   z-index: 200;
