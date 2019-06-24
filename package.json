@@ -9,7 +9,7 @@
     "build:server": "lerna run build --scope={@ideal-barnacle/common,@ideal-barnacle/server}",
     "start:dev": "lerna run --parallel start:dev"
   },
-  "dependencies": {
+  "devDependencies": {
     "lerna": "^3.15.0"
   }
 }
