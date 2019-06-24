@@ -52,7 +52,7 @@ const main = async () => {
   // app.use(requireHTTPS);
 
   const RedisStore = connectRedis(session);
-  const redis = new Redis();
+  const redis = new Redis(process.env.REDIS_URL);
 
   app.use(
     session({
