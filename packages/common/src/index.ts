@@ -1,9 +1,9 @@
 export enum TargetMuscle {
   Neck = "Neck",
   Traps = "Traps",
-  SideDelts = "Side Delts",
-  FrontDelts = "Front Delts",
-  RearDelts = "Rear Delts",
+  Side_Delts = "Side_Delts",
+  Front_Delts = "Front_Delts",
+  Rear_Delts = "Rear_Delts",
   Chest = "Chest",
   Lats = "Lats",
   Biceps = "Biceps",

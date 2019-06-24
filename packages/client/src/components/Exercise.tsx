@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 import { useInput } from "../components/inputs/InputHooks";
 import { DELETE_EXERCISE, READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
 
+interface ExerciseProps {
+  exerciseName: any;
+  targetMuscles: string[];
+}
 // BUG: After updating a record on the dev server the ui does
 // not reflect the changes consistently.
-const Exercise = ({ exerciseName, targetMuscles }: any) => {
+const Exercise = ({ exerciseName, targetMuscles }: ExerciseProps) => {
   const [isUserUpdatingThisEntity, setIsUserUpdatingThisEntity] = useState(
     false
   );
   const updateExerciseNameInput = useInput(exerciseName);
-  const updateTargetMusclesInput = useInput(targetMuscles);
+  const updateTargetMusclesInput = useInput(targetMuscles.join(" "));
 
   const markup = isUserUpdatingThisEntity ? (
     <Mutation
@@ -76,7 +80,13 @@ const Exercise = ({ exerciseName, targetMuscles }: any) => {
       <Link to={`/exercise/${exerciseName}`} className="exercise-name">
         {exerciseName}
       </Link>
-      <span className="target-muscles">{targetMuscles.join(" ")}</span>
+      <span className="target-muscles">
+        {targetMuscles.map((targetMuscle, i) => (
+          <span key={i} className="target-muscle">
+            {targetMuscle.replace(/_+/g, " ")}
+          </span>
+        ))}
+      </span>
       <span className="working-set-icons">
         <svg
           className="edit-icon pointer"

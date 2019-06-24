@@ -9,8 +9,8 @@ import { CREATE_EXERCISE, READ_ALL_EXERCISES } from "../Schema";
 import MutationForm from "./MutationForm";
 
 const CreateExerciseForm = () => {
-  const targetMuscleInputArrayFromEnum = () => {
-    const targetMuscleInputArray: {
+  const targetMuscleInputsFromEnum = () => {
+    const targetMuscleInputs: {
       checked: boolean;
       value: string;
       error: string;
@@ -20,31 +20,30 @@ const CreateExerciseForm = () => {
       placeholder: string;
     }[] = [];
     Object.values(TargetMuscle).map(muscle => {
-      targetMuscleInputArray.push(useCheckboxInput(muscle));
+      targetMuscleInputs.push(useCheckboxInput(muscle));
     });
     console.log(
-      "TargetMuscle Input Array: " + Object.values(targetMuscleInputArray[0])
+      "TargetMuscle Input Array: " + Object.values(targetMuscleInputs[0])
     );
-    return targetMuscleInputArray;
+    return targetMuscleInputs;
   };
 
-  const targetMuscleInputArray = targetMuscleInputArrayFromEnum();
+  const targetMuscleInputs = targetMuscleInputsFromEnum();
 
-  const turnTargetMuscleValuesIntoArray = () => {
-    const targetMuscles = targetMuscleInputArray;
-    const valueArray: string[] = [];
-    targetMuscles.map(muscle =>
-      muscle.checked ? valueArray.push(muscle.value) : null
+  const targetMuscleValuesFromInputs = () => {
+    const values: string[] = [];
+    targetMuscleInputs.map(targetMuscleInput =>
+      targetMuscleInput.checked ? values.push(targetMuscleInput.value) : null
     );
-    console.log("Value Array: " + valueArray);
-    return valueArray;
+    console.log("Value Array: " + values);
+    return values;
   };
 
   const { ...exerciseName } = useStringInput("Exercise Name");
-  const inputs = [exerciseName].concat(targetMuscleInputArray);
+  const inputs = [exerciseName].concat(targetMuscleInputs);
   const variables = {
     exerciseName: exerciseName.value,
-    targetMuscles: turnTargetMuscleValuesIntoArray()
+    targetMuscles: targetMuscleValuesFromInputs()
   };
 
   const { toggleCreateExerciseModal } = useContext(ToggleModalContext);

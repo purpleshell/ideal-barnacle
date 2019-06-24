@@ -73,7 +73,11 @@ const MutationForm: React.FC<MutationFormProps> = ({
                 return input.error.length > 0;
               };
               const isDirty = () => {
-                return input.value.length > 0;
+                if (input.type === "checkbox") {
+                  return false;
+                } else {
+                  return input.value.length > 0;
+                }
               };
               return (
                 <div

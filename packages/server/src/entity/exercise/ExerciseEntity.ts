@@ -1,4 +1,3 @@
-// import { TargetMuscle } from "@ideal-barnacle/common";
 import { TargetMuscle } from "@ideal-barnacle/common";
 import { Field, ID, ObjectType, registerEnumType } from "type-graphql";
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";

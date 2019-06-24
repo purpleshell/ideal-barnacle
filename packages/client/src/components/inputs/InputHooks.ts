@@ -48,7 +48,7 @@ export const useCheckboxInput = (name: string) => {
     onChange: () => {
       setChecked(!checked);
     },
-    name: name,
+    name: name.replace(/_+/g, " "), // format label string
     placeholder: ""
   };
 };

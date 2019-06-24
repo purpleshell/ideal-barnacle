@@ -19,7 +19,6 @@ const ExerciseList = () => (
           key={id}
           exerciseName={exerciseName}
           targetMuscles={targetMuscles}
-          hidden={false}
         />
       ));
     }}
