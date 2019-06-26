@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Mutation, MutationFn, OperationVariables } from "react-apollo";
 import { Link } from "react-router-dom";
 import { useInput } from "../components/inputs/InputHooks";
-import { DELETE_EXERCISE, READ_ALL_EXERCISES, UPDATE_EXERCISE } from "./Schema";
+import {
+  DELETE_EXERCISE,
+  READ_ALL_USER_EXERCISES,
+  UPDATE_EXERCISE
+} from "./Schema";
 
 interface ExerciseProps {
   exerciseName: any;
@@ -20,7 +24,7 @@ const Exercise = ({ exerciseName, targetMuscles }: ExerciseProps) => {
   const markup = isUserUpdatingThisEntity ? (
     <Mutation
       mutation={UPDATE_EXERCISE}
-      refetchQueries={[{ query: READ_ALL_EXERCISES }]}
+      refetchQueries={[{ query: READ_ALL_USER_EXERCISES }]}
       onCompleted={() => {
         // attempted bugfix using setState to re-render
         setIsUserUpdatingThisEntity(false);
@@ -100,7 +104,7 @@ const Exercise = ({ exerciseName, targetMuscles }: ExerciseProps) => {
         </svg>
         <Mutation
           mutation={DELETE_EXERCISE}
-          refetchQueries={[{ query: READ_ALL_EXERCISES }]}
+          refetchQueries={[{ query: READ_ALL_USER_EXERCISES }]}
         >
           {(
             deleteExercise: MutationFn<any, OperationVariables>,
