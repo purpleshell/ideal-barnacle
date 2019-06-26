@@ -6,6 +6,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn
 } from "typeorm";
+import { Exercise } from "../exercise/ExerciseEntity";
 import { Set } from "../set/SetEntity";
 
 @ObjectType({ description: "The user model" })
@@ -30,6 +31,13 @@ export class User extends BaseEntity {
   })
   @OneToMany(() => Set, set => set.user)
   sets: Set[];
+
+  @Field(() => [Exercise], {
+    description: "List containing all of the user's created exercises",
+    nullable: true
+  })
+  @OneToMany(() => Exercise, exercise => exercise.user)
+  exercises: Exercise[];
 
   @Column()
   password: string;

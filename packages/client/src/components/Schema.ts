@@ -2,11 +2,8 @@ import { gql } from "apollo-boost";
 
 // All client-facing graphql queries/mutations
 export const CREATE_EXERCISE = gql`
-  mutation CreateExercise(
-    $exerciseName: String!
-    $targetMuscles: [TargetMuscle!]!
-  ) {
-    createExercise(exerciseName: $exerciseName, targetMuscles: $targetMuscles) {
+  mutation CreateExercise($createExerciseInput: CreateExerciseInput!) {
+    createExercise(createExerciseInput: $createExerciseInput) {
       exerciseName
       targetMuscles
     }
@@ -16,6 +13,16 @@ export const CREATE_EXERCISE = gql`
 export const READ_ALL_EXERCISES = gql`
   {
     exercise {
+      id
+      exerciseName
+      targetMuscles
+    }
+  }
+`;
+
+export const READ_ALL_USER_EXERCISES = gql`
+  {
+    userExercise {
       id
       exerciseName
       targetMuscles

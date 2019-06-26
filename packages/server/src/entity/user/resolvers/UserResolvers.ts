@@ -1,18 +1,14 @@
 import bcrypt from "bcryptjs";
-import { Request } from "express";
 import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
+import { RequestContext } from "../../Context";
 import { User } from "../UserEntity";
 import { UserLoginInfo, UserRegistrationInfo } from "./modules/UserInfo";
-
-interface RequestContext {
-  req: Request;
-}
 
 @Resolver()
 export class UserResolvers {
   @Query(() => [User])
   async user() {
-    return User.find({ relations: ["sets"] });
+    return User.find({ relations: ["sets", "exercises"] });
   }
 
   @Query(() => User, { nullable: true })

@@ -5,7 +5,7 @@ import {
   useStringInput
 } from "../../components/inputs/InputHooks";
 import { ToggleModalContext } from "../../store/Context";
-import { CREATE_EXERCISE, READ_ALL_EXERCISES } from "../Schema";
+import { CREATE_EXERCISE, READ_ALL_USER_EXERCISES } from "../Schema";
 import MutationForm from "./MutationForm";
 
 const CreateExerciseForm = () => {
@@ -41,7 +41,7 @@ const CreateExerciseForm = () => {
 
   const { ...exerciseName } = useStringInput("Exercise Name");
   const inputs = [exerciseName].concat(targetMuscleInputs);
-  const variables = {
+  const createExerciseInput = {
     exerciseName: exerciseName.value,
     targetMuscles: targetMuscleValuesFromInputs()
   };
@@ -51,8 +51,8 @@ const CreateExerciseForm = () => {
   return (
     <MutationForm
       mutation={CREATE_EXERCISE}
-      refetchQueries={[{ query: READ_ALL_EXERCISES }]}
-      variables={{ ...variables }}
+      refetchQueries={[{ query: READ_ALL_USER_EXERCISES }]}
+      variables={{ createExerciseInput }}
       inputs={inputs}
       onCompleted={toggleCreateExerciseModal}
       ctaText="+ Add Exercise"

@@ -1,6 +1,13 @@
 import { TargetMuscle } from "@ideal-barnacle/common";
 import { Field, ID, ObjectType, registerEnumType } from "type-graphql";
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn
+} from "typeorm";
+import { User } from "../user/UserEntity";
 
 registerEnumType(TargetMuscle, {
   name: "TargetMuscle",
@@ -14,8 +21,8 @@ export class Exercise extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Field()
-  @Column("text", { unique: true })
+  @Field({ description: "Name of the exercise" })
+  @Column("text")
   exerciseName: string;
 
   @Field(() => TargetMuscle, {
@@ -24,4 +31,8 @@ export class Exercise extends BaseEntity {
   })
   @Column("enum", { enum: TargetMuscle, array: true })
   targetMuscles: TargetMuscle[];
+
+  @Field(() => User, { description: "User whom created the exercise" })
+  @ManyToOne(() => User)
+  user: User;
 }

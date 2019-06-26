@@ -1,7 +1,7 @@
 import { Field, ID, InputType, Int } from "type-graphql";
 import { Set } from "../../SetEntity";
 
-@InputType({ description: "Create new set data" })
+@InputType({ description: "Input data for Create set resolver" })
 export class CreateSetInput implements Partial<Set> {
   @Field() exerciseName: string;
   @Field() warmUp: boolean;
@@ -12,7 +12,7 @@ export class CreateSetInput implements Partial<Set> {
   @Field(() => ID) userId: string;
 }
 
-@InputType({ description: "Update set data" })
+@InputType({ description: "Input data for Update set resolver" })
 export class UpdateSetInput implements Partial<Set> {
   @Field() id: string;
   @Field({ nullable: true }) warmUp?: boolean;
