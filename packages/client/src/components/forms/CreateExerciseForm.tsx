@@ -1,30 +1,16 @@
 import { TargetMuscle } from "@ideal-barnacle/common";
 import React, { useContext } from "react";
-import {
-  useCheckboxInput,
-  useStringInput
-} from "../../components/inputs/InputHooks";
+import { CREATE_EXERCISE, READ_ALL_USER_EXERCISES } from "../../api/Schema";
 import { ToggleModalContext } from "../../store/Context";
-import { CREATE_EXERCISE, READ_ALL_USER_EXERCISES } from "../Schema";
+import { CheckboxInput, useCheckboxInput, useStringInput } from "../inputs";
 import MutationForm from "./MutationForm";
 
 const CreateExerciseForm = () => {
   const targetMuscleInputsFromEnum = () => {
-    const targetMuscleInputs: {
-      checked: boolean;
-      value: string;
-      error: string;
-      type: string;
-      onChange: () => void;
-      name: string;
-      placeholder: string;
-    }[] = [];
-    Object.values(TargetMuscle).map(muscle => {
+    const targetMuscleInputs: CheckboxInput[] = [];
+    Object.values(TargetMuscle).map((muscle: string) => {
       targetMuscleInputs.push(useCheckboxInput(muscle));
     });
-    // console.log(
-    //   "TargetMuscle Input Array: " + Object.values(targetMuscleInputs[0])
-    // );
     return targetMuscleInputs;
   };
 

@@ -3,7 +3,8 @@
 // aswell as allowing for easier hook reuse and maintenance.
 
 import { useState } from "react";
-import { MixedSchema, string } from "yup";
+import { string } from "yup";
+import { checkValidity } from "./modules";
 
 export const useInput = (initialValue: string) => {
   const [value, setValue] = useState(initialValue);
@@ -21,35 +22,6 @@ export const useInputWithReset = (initialValue: string) => {
     value,
     onChange: (e: any) => setValue(e.target.value),
     setValue: (newValue: string) => setValue(newValue)
-  };
-};
-
-const checkValidity = (
-  schema: MixedSchema,
-  value: any,
-  setError: React.Dispatch<React.SetStateAction<string>>
-) => {
-  schema
-    .validate(value)
-    .then(() => setError(""))
-    .catch(reason => {
-      setError(reason.errors[0]);
-    });
-};
-
-export const useCheckboxInput = (name: string) => {
-  const [checked, setChecked] = useState(false);
-
-  return {
-    checked: checked,
-    value: name,
-    error: "",
-    type: "checkbox",
-    onChange: () => {
-      setChecked(!checked);
-    },
-    name: name.replace(/_+/g, " "), // format label string
-    placeholder: ""
   };
 };
 

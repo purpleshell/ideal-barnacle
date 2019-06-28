@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
+import { REGISTER_USER } from "../../api/Schema";
 import { ToggleModalContext } from "../../store/Context";
 import {
   useEmailInput,
   useNewPasswordInput,
   useUsernameInput
 } from "../inputs/InputHooks";
-import { REGISTER_USER } from "../Schema";
 import MutationForm from "./MutationForm";
 
 const RegisterUserForm = () => {
