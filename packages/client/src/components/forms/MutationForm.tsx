@@ -64,8 +64,7 @@ const MutationForm: React.FC<MutationFormProps> = ({
               <Field key={i} {...input} />
             ))}
           </div>
-          {mutationStatus === MutationStatus.SUCCESS ||
-          mutationStatus === MutationStatus.LOADING ? (
+          {mutationStatus !== MutationStatus.UNREQUESTED ? (
             <button>{mutationStatus}</button>
           ) : (
             <button type="submit">{ctaText}</button>
