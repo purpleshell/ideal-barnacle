@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { REGISTER_USER } from "../../api/Schema";
+import { REGISTER_USER } from "../../schema";
 import { ToggleModalContext } from "../../store/Context";
 import {
   useEmailInput,

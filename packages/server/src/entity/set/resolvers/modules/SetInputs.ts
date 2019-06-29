@@ -1,4 +1,4 @@
-import { Field, ID, InputType, Int } from "type-graphql";
+import { Field, InputType, Int } from "type-graphql";
 import { Set } from "../../SetEntity";
 
 @InputType({ description: "Input data for Create set resolver" })
@@ -9,7 +9,6 @@ export class CreateSetInput implements Partial<Set> {
   @Field() systemOfMeasurement: string;
   @Field(() => Int) reps: number;
   @Field() rpe: number;
-  @Field(() => ID) userId: string;
 }
 
 @InputType({ description: "Input data for Update set resolver" })

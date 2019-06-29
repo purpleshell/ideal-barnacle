@@ -62,7 +62,7 @@ export class Set extends BaseEntity {
   @Column({ nullable: true })
   userId: string;
 
-  @Field(() => User)
+  @Field(() => User, { description: "The user whom created the set" })
   @ManyToOne(() => User)
   user: User;
 }

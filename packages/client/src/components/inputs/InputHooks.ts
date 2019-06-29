@@ -1,7 +1,3 @@
-// All client facing hooks, until this file gets big enough to refactor.
-// This file will allow component code to be much cleaner and concise,
-// aswell as allowing for easier hook reuse and maintenance.
-
 import { useState } from "react";
 import { string } from "yup";
 import { checkValidity } from "./modules";

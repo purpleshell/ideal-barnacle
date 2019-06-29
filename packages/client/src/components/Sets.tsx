@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CreateSetForm from "./CreateSetForm";
+import CreateSetForm from "./forms/CreateSetForm";
 
 const Sets = () => {
   type WorkingSet = {
@@ -26,7 +26,9 @@ const Sets = () => {
 
   const markup =
     workingSets.length == 0 ? (
-      <CreateSetForm onSubmit={onSubmit} />
+      <>
+        <CreateSetForm onSubmit={onSubmit} />
+      </>
     ) : (
       <>
         <CreateSetForm onSubmit={onSubmit} />

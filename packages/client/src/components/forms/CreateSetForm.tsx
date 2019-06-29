@@ -1,5 +1,5 @@
 import React from "react";
-import { useInput } from "../components/inputs/InputHooks";
+import { useInput } from "../inputs";
 
 const CreateSetForm = (onSubmit: {
   onSubmit: (

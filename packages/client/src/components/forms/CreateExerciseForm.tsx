@@ -1,6 +1,6 @@
 import { TargetMuscle } from "@ideal-barnacle/common";
 import React, { useContext } from "react";
-import { CREATE_EXERCISE, READ_ALL_USER_EXERCISES } from "../../api/Schema";
+import { CREATE_EXERCISE, READ_ALL_USER_EXERCISES } from "../../schema";
 import { ToggleModalContext } from "../../store/Context";
 import { CheckboxInput, useCheckboxInput, useStringInput } from "../inputs";
 import MutationForm from "./MutationForm";

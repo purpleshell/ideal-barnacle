@@ -2,12 +2,13 @@ import ApolloClient from "apollo-boost";
 import React from "react";
 import { ApolloProvider, Query } from "react-apollo";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { AM_I_LOGGED_IN } from "./api/Schema";
 import MobileNav from "./components/MobileNav";
 import ExercisePage from "./pages/ExercisePage";
 import ExercisesPage from "./pages/ExercisesPage";
 import LandingPage from "./pages/LandingPage";
 import ProfilePage from "./pages/ProfilePage";
+import SetsPage from "./pages/SetsPage";
+import { AM_I_LOGGED_IN } from "./schema";
 
 const apolloclient = new ApolloClient({
   uri:
@@ -59,7 +60,12 @@ const App = () => {
         <main>
           <Route path="/" exact component={ProfilePage} />
           <Route exact path="/exercises/" component={ExercisesPage} />
-          <Route path="/exercise/:id" component={ExercisePage} />
+          <Route exact path="/exercise/:id" component={ExercisePage} />
+          <Route
+            exact
+            path="/exercise/:exerciseName/:date"
+            component={SetsPage}
+          />
           <Route exact path="/profile/" component={ProfilePage} />
         </main>
       </Router>

@@ -32,7 +32,7 @@ export class Exercise extends BaseEntity {
   @Column("enum", { enum: TargetMuscle, array: true })
   targetMuscles: TargetMuscle[];
 
-  @Field(() => User, { description: "User whom created the exercise" })
+  @Field(() => User, { description: "The user whom created the exercise" })
   @ManyToOne(() => User)
   user: User;
 }

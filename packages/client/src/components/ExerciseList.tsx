@@ -1,6 +1,6 @@
 import React from "react";
 import { Query } from "react-apollo";
-import { READ_ALL_USER_EXERCISES } from "../api/Schema";
+import { READ_ALL_USER_EXERCISES } from "../schema";
 import Exercise from "./Exercise";
 
 const ExerciseList = () => (

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Mutation, MutationFn, OperationVariables } from "react-apollo";
 import { Link } from "react-router-dom";
+import { useInput } from "../components/inputs/InputHooks";
 import {
   DELETE_EXERCISE,
   READ_ALL_USER_EXERCISES,
   UPDATE_EXERCISE
-} from "../api/Schema";
-import { useInput } from "../components/inputs/InputHooks";
+} from "../schema";
 
 interface ExerciseProps {
   exerciseName: any;

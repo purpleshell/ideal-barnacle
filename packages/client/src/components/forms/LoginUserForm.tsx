@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AM_I_LOGGED_IN, LOGIN_USER } from "../../api/Schema";
+import { AM_I_LOGGED_IN, LOGIN_USER } from "../../schema";
 import { ToggleModalContext } from "../../store/Context";
 import { useCurrentPasswordInput, useEmailInput } from "../inputs/InputHooks";
 import MutationForm from "./MutationForm";

@@ -6,7 +6,7 @@ import {
   MutationOpts,
   OperationVariables
 } from "react-apollo";
-import { Input } from "../inputs/InputTypes";
+import { Input } from "../inputs";
 import Field from "./modules/Field";
 
 interface MutationFormProps extends MutationOpts {
@@ -64,11 +64,11 @@ const MutationForm: React.FC<MutationFormProps> = ({
               <Field key={i} {...input} />
             ))}
           </div>
-          {mutationStatus !== MutationStatus.UNREQUESTED ? (
-            <button>{mutationStatus}</button>
-          ) : (
-            <button type="submit">{ctaText}</button>
-          )}
+          <button>
+            {mutationStatus !== MutationStatus.UNREQUESTED
+              ? mutationStatus
+              : ctaText}
+          </button>
           {error ? (
             error.graphQLErrors.map((error: any, i: any) => (
               <div className="error-message" key={i}>

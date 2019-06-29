@@ -1,4 +1,6 @@
-import { Arg, Mutation, Query, Resolver } from "type-graphql";
+import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
+import { RequestContext } from "../../Context";
+import { User } from "../../user/UserEntity";
 import { Set } from "../SetEntity";
 import { CreateSetInput, UpdateSetInput } from "./modules/SetInputs";
 
@@ -11,10 +13,16 @@ export class SetResolvers {
 
   @Mutation(() => Set)
   async createSet(
-    @Arg("newSetData")
-    newSetData: CreateSetInput
+    @Arg("createSetInput")
+    createSetInput: CreateSetInput,
+    @Ctx() ctx: RequestContext
   ): Promise<Set> {
-    const set = await Set.create(newSetData).save();
+    // TODO - make sure user exercise exists before creating set
+    const user = await User.findOne(ctx.req.session!.userId);
+    const set = await Set.create({
+      user: user,
+      ...createSetInput
+    }).save();
     const returnSet = await Set.findOne({
       where: { id: set.id },
       relations: ["user"]

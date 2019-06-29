@@ -1,6 +1,6 @@
 import React from "react";
 import { Query } from "react-apollo";
-import { AM_I_LOGGED_IN } from "../api/Schema";
+import { AM_I_LOGGED_IN } from "../schema";
 
 const LoggedInIndicator = () => (
   <Query query={AM_I_LOGGED_IN}>
