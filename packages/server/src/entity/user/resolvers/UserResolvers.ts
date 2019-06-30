@@ -20,7 +20,9 @@ export class UserResolvers {
       return null;
     }
 
-    return User.findOne(ctx.req.session!.userId);
+    return User.findOne(ctx.req.session!.userId, {
+      relations: ["exercises", "exercises.sets"]
+    });
   }
 
   @Mutation(() => User)
