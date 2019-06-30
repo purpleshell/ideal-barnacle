@@ -7,7 +7,6 @@ import {
   PrimaryGeneratedColumn
 } from "typeorm";
 import { Exercise } from "../exercise/ExerciseEntity";
-import { Set } from "../set/SetEntity";
 
 @ObjectType({ description: "The user model" })
 @Entity()
@@ -24,13 +23,6 @@ export class User extends BaseEntity {
   @Field({ description: "The email address used for account operations" })
   @Column({ unique: true })
   email: string;
-
-  @Field(() => [Set], {
-    description: "List containing all of the user's recorded exercise sets",
-    nullable: true
-  })
-  @OneToMany(() => Set, set => set.user)
-  sets: Set[];
 
   @Field(() => [Exercise], {
     description: "List containing all of the user's created exercises",

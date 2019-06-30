@@ -7,7 +7,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn
 } from "typeorm";
-import { User } from "../user/UserEntity";
+import { Exercise } from "../exercise/ExerciseEntity";
 
 @ObjectType()
 @Entity()
@@ -15,10 +15,6 @@ export class Set extends BaseEntity {
   @Field(() => ID)
   @PrimaryGeneratedColumn("uuid")
   readonly id: string;
-
-  @Field({ description: "Name of the exercise of which the set was performed" })
-  @Column()
-  exerciseName: string;
 
   @Field({ description: "Whether the set was a working set or a warmup set" })
   @Column()
@@ -59,10 +55,18 @@ export class Set extends BaseEntity {
   @Column({ nullable: true })
   order?: number;
 
-  @Column({ nullable: true })
-  userId: string;
+  @Field(() => Exercise, { description: "The exercise type of the set" })
+  @ManyToOne(() => Exercise)
+  exercise: Exercise;
 
-  @Field(() => User, { description: "The user whom created the set" })
-  @ManyToOne(() => User)
-  user: User;
+  // @Field({ description: "Name of the exercise of which the set was performed" })
+  // @Column()
+  // exerciseName: string;
+
+  // @Column({ nullable: true })
+  // userId: string;
+
+  // @Field(() => User, { description: "The user whom created the set" })
+  // @ManyToOne(() => User)
+  // user: User;
 }

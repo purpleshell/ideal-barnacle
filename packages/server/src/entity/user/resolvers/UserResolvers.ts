@@ -8,7 +8,7 @@ import { UserLoginInfo, UserRegistrationInfo } from "./modules/UserInfo";
 export class UserResolvers {
   @Query(() => [User])
   async user() {
-    return User.find({ relations: ["sets", "exercises"] });
+    return User.find({ relations: ["exercises", "exercises.sets"] });
   }
 
   @Query(() => User, { nullable: true })

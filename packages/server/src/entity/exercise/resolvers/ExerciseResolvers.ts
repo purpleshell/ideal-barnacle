@@ -10,7 +10,7 @@ import { CreateExerciseInput } from "./modules/ExerciseInputs";
 export class ExerciseResolvers {
   @Query(() => [Exercise])
   async exercise() {
-    return Exercise.find({ relations: ["user"] });
+    return Exercise.find({ relations: ["user", "sets"] });
   }
 
   @Query(() => [Exercise])
@@ -24,9 +24,9 @@ export class ExerciseResolvers {
 
     const user = await User.findOne(ctx.req.session!.userId);
 
-    const exercises = Exercise.find({
+    const exercises = await Exercise.find({
       where: { user: user },
-      relations: ["user"]
+      relations: ["sets"]
     });
 
     if (!exercises) {

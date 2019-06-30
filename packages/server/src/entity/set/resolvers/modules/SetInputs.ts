@@ -3,12 +3,14 @@ import { Set } from "../../SetEntity";
 
 @InputType({ description: "Input data for Create set resolver" })
 export class CreateSetInput implements Partial<Set> {
-  @Field() exerciseName: string;
   @Field() warmUp: boolean;
   @Field() weight: number;
   @Field() systemOfMeasurement: string;
   @Field(() => Int) reps: number;
   @Field() rpe: number;
+  @Field() exerciseId: string;
+  @Field() date: Date;
+  @Field(() => Int, { nullable: true }) order?: number;
 }
 
 @InputType({ description: "Input data for Update set resolver" })

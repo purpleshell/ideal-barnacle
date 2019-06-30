@@ -5,8 +5,10 @@ import {
   Column,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn
 } from "typeorm";
+import { Set } from "../set/SetEntity";
 import { User } from "../user/UserEntity";
 
 registerEnumType(TargetMuscle, {
@@ -31,6 +33,13 @@ export class Exercise extends BaseEntity {
   })
   @Column("enum", { enum: TargetMuscle, array: true })
   targetMuscles: TargetMuscle[];
+
+  @Field(() => [Set], {
+    description: "List containing all of the user's recorded exercise sets",
+    nullable: true
+  })
+  @OneToMany(() => Set, set => set.exercise)
+  sets: Set[];
 
   @Field(() => User, { description: "The user whom created the exercise" })
   @ManyToOne(() => User)
