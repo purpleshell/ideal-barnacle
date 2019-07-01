@@ -9,6 +9,7 @@ import {
 } from "../schema";
 
 interface ExerciseProps {
+  exerciseId: string;
   exerciseName: any;
   targetMuscles: string[];
 }

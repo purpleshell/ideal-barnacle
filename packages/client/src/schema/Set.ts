@@ -4,10 +4,9 @@ export const CREATE_SET = gql`
   mutation CreateSet($createSetInput: CreateSetInput!) {
     createSet(createSetInput: $createSetInput) {
       id
-      exerciseName
       warmUp
       weight
-      sustemOfMeasurement
+      systemOfMeasurement
       reps
       rpe
       date

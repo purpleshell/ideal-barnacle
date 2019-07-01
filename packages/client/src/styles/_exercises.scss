@@ -158,24 +158,24 @@ button {
     auto;
 }
 
-/* Grid Items */
-.working-set > span,
-.working-set i {
-  align-self: start;
-  line-height: 0.5rem;
+.working-set-text {
+  line-height: 100%;
 }
 
-.working-sets i,
+/* Grid Items */
+.working-set > span {
+  align-self: end;
+}
+
 .working-set-icons {
-  font-size: 1.6em;
-  padding-bottom: 3px;
+  align-items: end;
 }
 
 .working-sets .unit {
   color: #545f75;
   font-size: 1.4rem;
   font-variant-caps: unicase;
-  margin-left: 5px;
+  margin-left: 0.5rem;
 }
 
 .working-set-index {

@@ -2,7 +2,6 @@ import { Field, ID, ObjectType } from "type-graphql";
 import {
   BaseEntity,
   Column,
-  CreateDateColumn,
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn
@@ -44,7 +43,7 @@ export class Set extends BaseEntity {
   rpe: number;
 
   @Field({ description: "Date set was performed" })
-  @CreateDateColumn()
+  @Column()
   date: Date;
 
   @Field({

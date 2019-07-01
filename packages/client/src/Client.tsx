@@ -60,7 +60,11 @@ const App = () => {
         <main>
           <Route path="/" exact component={ProfilePage} />
           <Route exact path="/exercises/" component={ExercisesPage} />
-          <Route exact path="/exercise/:id" component={ExercisePage} />
+          <Route
+            exact
+            path="/exercise/:exerciseName"
+            component={ExercisePage}
+          />
           <Route
             exact
             path="/exercise/:exerciseName/:date"

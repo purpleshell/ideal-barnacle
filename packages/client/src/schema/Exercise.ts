@@ -15,6 +15,14 @@ export const READ_ALL_USER_EXERCISES = gql`
       id
       exerciseName
       targetMuscles
+      sets {
+        id
+        weight
+        systemOfMeasurement
+        reps
+        rpe
+        date
+      }
     }
   }
 `;

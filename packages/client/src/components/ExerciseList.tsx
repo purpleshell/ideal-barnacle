@@ -8,7 +8,6 @@ const ExerciseList = () => (
     {({ loading, error, data }: any) => {
       if (loading) return <p>Loading...</p>;
       if (error) return <p>{error.message}</p>;
-      console.log(JSON.stringify(data));
       // Sort query data by the objects' exerciseName field, ascending
       const exercises = data.userExercise.sort(
         (exercise1: any, exercise2: any) =>
@@ -18,6 +17,7 @@ const ExerciseList = () => (
       return exercises.map(({ id, exerciseName, targetMuscles }: any) => (
         <Exercise
           key={id}
+          exerciseId={id}
           exerciseName={exerciseName}
           targetMuscles={targetMuscles}
         />

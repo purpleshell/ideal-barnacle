@@ -23,11 +23,9 @@ const LoggedInIndicator = () => (
       }
 
       return (
-        <>
-          <h1>
-            Good {greeting} {username}
-          </h1>
-        </>
+        <h1>
+          Good {greeting} {username}
+        </h1>
       );
     }}
   </Query>
