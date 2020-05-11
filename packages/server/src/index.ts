@@ -17,17 +17,17 @@ const main = async () => {
     synchronize: true,
     // attempt to fix db error by dropping schema
     // TODO - Find another way
-    dropSchema: true
+    dropSchema: false,
     // dropSchema: process.env.NODE_ENV === "development" ? true : false
   });
 
   const schema = await buildSchema({
     resolvers: [__dirname + "entity/**/resolvers/*.ts"],
-    emitSchemaFile: false
+    emitSchemaFile: false,
   });
   const server = new ApolloServer({
     schema,
-    context: ({ req }: any) => ({ req })
+    context: ({ req }: any) => ({ req }),
   });
 
   const app = Express();
@@ -40,10 +40,10 @@ const main = async () => {
       store:
         process.env.NODE_ENV === "production"
           ? new RedisStore({
-              url: process.env.REDIS_URL
+              url: process.env.REDIS_URL,
             })
           : new RedisStore({
-              client: redis as any
+              client: redis as any,
             }),
       name: "userStore",
       // TODO - put sensitive config data in env vars
@@ -54,8 +54,8 @@ const main = async () => {
       cookie: {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production" ? true : false,
-        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years	        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
-      }
+        maxAge: 1000 * 60 * 60 * 24 * 7 * 365, // 7 years	        maxAge: 1000 * 60 * 60 * 24 * 7 * 365 // 7 years
+      },
     })
   );
 
@@ -66,8 +66,8 @@ const main = async () => {
       origin:
         process.env.NODE_ENV === "production"
           ? "https://lucid-wing-221f73.netlify.com"
-          : "http://localhost:3000"
-    }
+          : "http://localhost:3000",
+    },
   });
 
   const PORT = process.env.PORT || 4000;
