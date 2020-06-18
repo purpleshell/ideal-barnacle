@@ -24,16 +24,16 @@
     "nodemon": "^1.18.10",
     "pg": "^7.8.2",
     "reflect-metadata": "^0.1.13",
-    "ts-node": "^8.0.3",
-    "ts-node-dev": "^1.0.0-pre.32",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.44",
     "type-graphql": "^0.17.0",
-    "typeorm": "^0.2.14",
-    "typescript": "^3.3.3333"
+    "typeorm": "^0.2.25",
+    "typescript": "^3.9.0"
   },
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/index.ts",
-    "start:dev": "ts-node-dev --respawn src/index.ts"
+    "start:dev": "ts-node-dev --trace-warnings --debug --transpile-only --respawn src/index.ts"
   },
   "heroku-run-build-script": true
 }

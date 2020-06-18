@@ -1,15 +1,10 @@
 import { DocumentNode } from "apollo-boost";
 import React, { useState } from "react";
-import {
-  Mutation,
-  MutationFn,
-  MutationOpts,
-  OperationVariables
-} from "react-apollo";
+import { Mutation, MutationFunction, MutationHookOptions } from "react-apollo";
 import { Input } from "../inputs";
 import Field from "./modules/Field";
 
-interface MutationFormProps extends MutationOpts {
+interface MutationFormProps extends MutationHookOptions {
   mutation: DocumentNode;
   inputs: Input[];
   ctaText: string;
@@ -19,7 +14,7 @@ enum MutationStatus {
   UNREQUESTED = "UNREQUESTED",
   LOADING = "LOADING",
   ERROR = "ERROR",
-  SUCCESS = "SUCCESS"
+  SUCCESS = "SUCCESS",
 }
 
 const MutationForm: React.FC<MutationFormProps> = ({
@@ -28,7 +23,7 @@ const MutationForm: React.FC<MutationFormProps> = ({
   variables,
   inputs,
   onCompleted,
-  ctaText
+  ctaText,
 }) => {
   const [mutationStatus, setMutationStatus] = useState(
     MutationStatus.UNREQUESTED
@@ -46,15 +41,12 @@ const MutationForm: React.FC<MutationFormProps> = ({
         setMutationStatus(MutationStatus.ERROR);
       }}
     >
-      {(
-        mutationFunction: MutationFn<any, OperationVariables>,
-        { error }: any
-      ) => (
+      {(mutationFunction: MutationFunction, { error }: any) => (
         <form
-          onSubmit={e => {
+          onSubmit={(e) => {
             e.preventDefault();
             mutationFunction({
-              variables
+              variables,
             });
             setMutationStatus(MutationStatus.LOADING);
           }}

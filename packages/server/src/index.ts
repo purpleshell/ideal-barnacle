@@ -74,7 +74,7 @@ const main = async () => {
 
   app.listen(PORT, () => {
     console.log(
-      ` Server ready at http://localhost:${PORT}${server.graphqlPath}`
+      ` Server rady at http://localhost:${PORT}${server.graphqlPath}`
     );
   });
 };

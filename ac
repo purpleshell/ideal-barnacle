@@ -1,9 +1,8 @@
 #!/bin/sh
-# 
+#
 # ------------->>WARNING!!!!:<<---------------
-# The following is a poorly written script to aid me in making trivial commits  
-# to my local repo. It does this by adding all changes & commiting with
-# user inputted message.
+# The following is a poorly written script to aid me in making trivial commits
+# to my local repo.
 # ----->>NOT MEANT FOR EXTERNAL USE!!<<-------
 #
 # Usage:

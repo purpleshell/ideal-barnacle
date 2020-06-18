@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Mutation, MutationFn, OperationVariables } from "react-apollo";
+import { Mutation, MutationFunction, OperationVariables } from "react-apollo";
 import { Link } from "react-router-dom";
 import { useInput } from "../components/inputs/InputHooks";
 import {
   DELETE_EXERCISE,
   READ_ALL_USER_EXERCISES,
-  UPDATE_EXERCISE
+  UPDATE_EXERCISE,
 } from "../schema";
 
 interface ExerciseProps {
@@ -32,18 +32,18 @@ const Exercise = ({ exerciseName, targetMuscles }: ExerciseProps) => {
       }}
     >
       {(
-        updateExercise: MutationFn<any, OperationVariables>,
+        updateExercise: MutationFunction<any, OperationVariables>,
         { error }: any
       ) => (
         <form
-          onSubmit={e => {
+          onSubmit={(e) => {
             e.preventDefault();
             updateExercise({
               variables: {
                 exerciseName: exerciseName,
                 newExerciseName: updateExerciseNameInput.value,
-                newTargetMuscles: updateTargetMusclesInput.value
-              }
+                newTargetMuscles: updateTargetMusclesInput.value,
+              },
             });
           }}
         >
@@ -108,7 +108,7 @@ const Exercise = ({ exerciseName, targetMuscles }: ExerciseProps) => {
           refetchQueries={[{ query: READ_ALL_USER_EXERCISES }]}
         >
           {(
-            deleteExercise: MutationFn<any, OperationVariables>,
+            deleteExercise: MutationFunction<any, OperationVariables>,
             { error }: any
           ) => (
             <>
@@ -116,7 +116,7 @@ const Exercise = ({ exerciseName, targetMuscles }: ExerciseProps) => {
                 className="delete-icon pointer"
                 onClick={() =>
                   deleteExercise({
-                    variables: { exerciseName: exerciseName }
+                    variables: { exerciseName: exerciseName },
                   })
                 }
                 xmlns="http://www.w3.org/2000/svg"
